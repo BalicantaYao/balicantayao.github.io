@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Balicanta Yao</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://balicanta.tw/"/>
+  <updated>2019-06-08T04:25:01.201Z</updated>
+  <id>http://balicanta.tw/</id>
+  
+  <author>
+    <name>Balicanta Yao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安裝 Hexo</title>
+    <link href="http://balicanta.tw/2019/05/28/install-hexo/"/>
+    <id>http://balicanta.tw/2019/05/28/install-hexo/</id>
+    <published>2019-05-27T16:27:05.000Z</published>
+    <updated>2019-06-08T04:25:01.201Z</updated>
+    
+    <content type="html"><![CDATA[<p>每隔幾年就會想起來，自己曾經會紀錄一點的東西，而東西都是散落的，從一開始的 Wordpress、Ghost、Medium，到最後什麼都沒有繼續下去，非常符合我很容易放棄的個性。</p><p>在一個早晨的沖澡中突然又想起了這件事，啊，我該記錄點什麼吧？不是有寫 Medium 嗎？我又覺得 Medium 不知道哪裡不對勁，可能是最近 Medium 人太多太熱鬧，我喜歡遠離人群。</p><p>找著找著我發現 static site generator 好像比較符合我現在的感覺，儘管幾年前用 Jeklly 的感覺不太好。</p><h2 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h2><ul><li>裝 NPM </li><li>裝 Git</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure><h2 id="創建-Hexo"><a href="#創建-Hexo" class="headerlink" title="創建 Hexo"></a>創建 Hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure><h2 id="建立文章"><a href="#建立文章" class="headerlink" title="建立文章"></a>建立文章</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## 建立草稿</span><br><span class="line">hexo new draft &lt;title&gt;</span><br><span class="line"></span><br><span class="line">## 建立 Post</span><br><span class="line">hexo new post &lt;title&gt;</span><br></pre></td></tr></table></figure><h2 id="啟動-Hexo-Server"><a href="#啟動-Hexo-Server" class="headerlink" title="啟動 Hexo Server"></a>啟動 Hexo Server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">包含 Drafts</span><br><span class="line">hexo server --draft</span><br></pre></td></tr></table></figure><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## 先產生</span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">## 後部署</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;每隔幾年就會想起來，自己曾經會紀錄一點的東西，而東西都是散落的，從一開始的 Wordpress、Ghost、Medium，到最後什麼都沒有繼續下去，非常符合我很容易放棄的個性。&lt;/p&gt;
+&lt;p&gt;在一個早晨的沖澡中突然又想起了這件事，啊，我該記錄點什麼吧？不是有寫 Medium
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://balicanta.tw/categories/Hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Read Excel File Using POI Meet GC overhead limit exceeded</title>
+    <link href="http://balicanta.tw/2016/08/24/read-excel-file-using-poi-meet-gc-overhead-limit-exceeded/"/>
+    <id>http://balicanta.tw/2016/08/24/read-excel-file-using-poi-meet-gc-overhead-limit-exceeded/</id>
+    <published>2016-08-24T02:56:01.000Z</published>
+    <updated>2019-06-08T04:34:36.201Z</updated>
+    
+    <content type="html"><![CDATA[<p>First about gc overhead</p><p><a href="http://stackoverflow.com/questions/33368612/gc-overhead-limit-exceeded-with-apache-poi" target="_blank" rel="noopener">http://stackoverflow.com/questions/33368612/gc-overhead-limit-exceeded-with-apache-poi</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;First about gc overhead&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/33368612/gc-overhead-limit-exceeded-with-apache-poi&quot; target=&quot;_
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>產出 SVN Diff List</title>
+    <link href="http://balicanta.tw/2016/01/25/chan-chu-svn-diff-list/"/>
+    <id>http://balicanta.tw/2016/01/25/chan-chu-svn-diff-list/</id>
+    <published>2016-01-25T02:24:59.000Z</published>
+    <updated>2019-05-29T15:37:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>產出版本間檔案差異列表 <code>svn diff -r 103791:104066 --summarize</code></li><li>產出版本間檔案差異明細 <code>svn diff -r 103791:104066 &gt;&gt; change-list-20160125.txt</code></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;產出版本間檔案差異列表 &lt;code&gt;svn diff -r 103791:104066 --summarize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;產出版本間檔案差異明細 &lt;code&gt;svn diff -r 103791:104066 &amp;gt;&amp;gt; change
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JBoss EAP Connection Pool Validation 設定</title>
+    <link href="http://balicanta.tw/2015/12/25/jboss-connection-pool/"/>
+    <id>http://balicanta.tw/2015/12/25/jboss-connection-pool/</id>
+    <published>2015-12-24T21:40:13.000Z</published>
+    <updated>2019-06-08T04:32:07.110Z</updated>
+    
+    <content type="html"><![CDATA[<p>Database connection pool 在應用系統中是個普遍會採用的設定，使用 Connection pool 的好處就像使用環保餐具一樣，用過的 Connection 不丟棄 <a href="http://stackoverflow.com/questions/457287/what-is-the-benefit-of-connection-and-statement-pooling" target="_blank" rel="noopener">注</a>，每次重新建立 Database Connection 的成本太大，所以應用系統中通常都會設定 Database Connection Pool。</p><p>Database connection pool 可以從 Application 設定，也可以從 AP Server 來設定，如果在 Application 設定，通常使用 <a href="https://commons.apache.org/proper/commons-dbcp/" target="_blank" rel="noopener">DBCP</a>，如果讓各 AP Server 來設定，那設定方式可能就有些不一樣。</p><p>最近使用 JBoss 來設定 Database connection pool 的時候，發現有這麼一個情形，如果 Database shutdown 以後， connection pool 並不會自己重新 reconnect，直到重啟 Server 為止。後來才知道，原來 JBoss EAP Connection pool 的設定不特別設定，是不會自己重連的。</p><h4 id="Connection-Pool-Validation-設定"><a href="#Connection-Pool-Validation-設定" class="headerlink" title="Connection Pool Validation 設定"></a>Connection Pool Validation 設定</h4><img src="/images/jboss-connection-pool.png" class="[class names]"><ul><li>Valid Connection Checker  - 各家 Database 對於 Connection Valid 的機制可能有一些差異，所以會有不同的 Checker。 <ul><li>Oracle: <code>org.jboss.resource.adapter.jdbc.vendor.OracleValidConnectionChecker</code></li><li>SQLServer: <code>org.jboss.jca.adapters.extensions.mssql.MSSQLValidConnectionChecker</code></li></ul></li><li>Check Valid SQL - 用來檢查 Connection 是否正常運作的 SQL。</li><li>Valid on match - 已經接上的 Connection 是否需要檢查，這個值似乎在 <code>Background Validation</code> 出現後，就不是這麼需要在意了，預設為 <code>True</code>。</li><li>Background Validation - 這是新版 JBoss (After 4.0.5) 才有的設定值，在處理 Valid Connection 的時候，會開另外一個 Thread 來處理，如果設定了<code>Validation Mills</code> 那這個值就必須為 <code>True</code>。</li><li>Validation Mills - 多久檢查一次。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Database connection pool 在應用系統中是個普遍會採用的設定，使用 Connection pool 的好處就像使用環保餐具一樣，用過的 Connection 不丟棄 &lt;a href=&quot;http://stackoverflow.com/questions
+      
+    
+    </summary>
+    
+      <category term="JBoss" scheme="http://balicanta.tw/categories/JBoss/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Intellij  小秘訣</title>
+    <link href="http://balicanta.tw/2015/12/13/intellij-tips/"/>
+    <id>http://balicanta.tw/2015/12/13/intellij-tips/</id>
+    <published>2015-12-12T22:54:13.000Z</published>
+    <updated>2019-06-08T04:25:47.064Z</updated>
+    
+    <content type="html"><![CDATA[<iframe allowfullscreen frameborder="0" height="349" src="https://www.youtube.com/embed/eq3KiAH4IBI?feature=oembed" width="620"></iframe><p>今年 Intellij 幾乎已經完全取代 Eclipse 成為我工作上的 IDE，一開始其實只是因為 Eclipse 沒辦法提供透過 Camel case 的方式來找到特定的 class，所以才開始找別的 IDE ，不過現在 Eclipse 似乎也行了。</p><p>慢慢的用著 Intellij 發現 JetBrain 真的是很用心在做這個 IDE，很多小細節都幫忙處理了，不過缺點還是相對吃了多一點的資源，還有些人會介意需要安裝。</p><p>用 Intellij 有幾個好處：</p><ul><li>如果你會有多語言的需求 ( Python, Javascript..)  Hotkey 記一次就行了，因為 Jetbrain 有出 Pycharm、Webstrom 等其它 IDE，就是要錢就是了</li><li>以前還會用一下 DBVisulizer 來當作 DBMS，但現在 Intellij 也把 DBMS 整進來了，雖然還是沒有  DBVisulizer 好用，但查查資料，下下 SQL 也算是可以用了。</li><li>每個動作，幾乎都找得相對應的 Hotkey 來解決，不用一直玩滑鼠。</li><li>貼心的 Debug 功能，在你下中斷點的時候，會將所有的變數內容顯示在該行後方。</li><li>強大的 Plugin 像 IdeaVim 這個就整合的非常好。</li></ul><p>待改進：</p><ul><li>在 Mac 裡 Intellij 對於中文輸入法的辨識有點怪怪的。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;iframe allowfullscreen frameborder=&quot;0&quot; height=&quot;349&quot; src=&quot;https://www.youtube.com/embed/eq3KiAH4IBI?feature=oembed&quot; width=&quot;620&quot;&gt;&lt;/iframe&gt;
+
+
+
+      
+    
+    </summary>
+    
+      <category term="IntelliJ" scheme="http://balicanta.tw/categories/IntelliJ/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JPA 中 GeneratedValue 的三種策略</title>
+    <link href="http://balicanta.tw/2015/11/09/jpa-generated-value/"/>
+    <id>http://balicanta.tw/2015/11/09/jpa-generated-value/</id>
+    <published>2015-11-09T00:16:06.000Z</published>
+    <updated>2019-06-08T04:33:44.009Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Hibernate-中指定-Primary-Key-的方法"><a href="#Hibernate-中指定-Primary-Key-的方法" class="headerlink" title="Hibernate 中指定 Primary Key 的方法"></a>Hibernate 中指定 Primary Key 的方法</h3><p>通常在 Hibernate 中定義一個簡單的 Pojo</p><ul><li>@Entity 表示是一個對應到 Database Table 的 Object。</li><li>@Id 指定某個欄位為 Primary Key，如果沒有指定會出現錯誤。</li><li>@GeneratedValue 指定 ID 的生成方式。</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Entity</span><br><span class="line">public class City implements Serializable&#123;</span><br><span class="line">@Id</span><br><span class="line">@GeneratedValue(strategy = GenerationType.AUTO)</span><br><span class="line">private Long id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="關於-GeneratedValue-的產生策略"><a href="#關於-GeneratedValue-的產生策略" class="headerlink" title="關於 GeneratedValue 的產生策略"></a>關於 GeneratedValue 的產生策略</h3><p>其實在定義 Hibernate 所需要的 Class 的時候，是可以不定義 <code>GeneratedValue</code>，而 Hibernate 所對應的，就是一個 not null 的整數，但這樣在 Insert 資料的時候必須要自己指定 ID，比較少的情境會這麼做，通常會希望 ID 可以自行生成，這也就是為什麼常常看到 <code>@Id</code>和 <code>@GeneratedValue</code> 經常性的並存。</p><p>也因為 Hibernate 會遇見不同的 Database 所以在處理 <code>GeneratedValue</code>，容納了不同 Database 的考量。</p><p>#### </p><h4 id="GenerationType-IDENTITY"><a href="#GenerationType-IDENTITY" class="headerlink" title="GenerationType.IDENTITY"></a>GenerationType.IDENTITY</h4><p>常見的 Mysql, MSSQL 都是常用這種方式，相對應的 DDL Script 長這樣子，也就是自增量的意思。<br><code>id BIGINT NOT NULL AUTO_INCREMENT</code></p><p>#### </p><h4 id="GenerationType-SEQUENCE"><a href="#GenerationType-SEQUENCE" class="headerlink" title="GenerationType.SEQUENCE"></a>GenerationType.SEQUENCE</h4><p>在使用這種策略來產生 ID 的時候，通常會給入另一個 Annotation <code>@SequenceGenerator</code>, 會類似下面的定義方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Id</span><br><span class="line">@SequenceGenerator( name = &quot;userSeq&quot;, sequenceName = &quot;user_id&quot;, allocationSize = 1, initialValue = 1 )</span><br><span class="line">@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = &quot;userSeq&quot;)</span><br></pre></td></tr></table></figure><p>在 Hibernate 裡面即便忘了指定 <code>generator</code> 也不會出錯，猜測應該是給了一組預設的 generator。<br><a href="http://stackoverflow.com/a/4502062" target="_blank" rel="noopener">有人也建議在 Postgrel 裡面不應該用 GenerationType.SEQUENCE</a></p><p>#### </p><h4 id="GenerationType-TABLE"><a href="#GenerationType-TABLE" class="headerlink" title="GenerationType.TABLE"></a>GenerationType.TABLE</h4><p>這種策略比較少見一些，當不希望應用程式與某一種 Database Engine 綁死的時候，可以使用這種方法，透過另外一個表格來定義 ID，從 SQL script 來看會建立出下面這張表：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE APP_SEQ_STORE</span><br><span class="line">(</span><br><span class="line">APP_SEQ_NAME VARCHAR(255) NOT NULL,</span><br><span class="line">APP_SEQ_VALUE BIGINT NOT NULL,</span><br><span class="line">PRIMARY KEY(APP_SEQ_NAME)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>也就是多個資料表的 ID 都會往這個表裡面放，而 Hibernate 的定義會增加一個 <code>TableGenerator</code> 的 Annotation 來決定，應該和哪個 Table 對應。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Id</span><br><span class="line">@TableGenerator(...)</span><br><span class="line">@GeneratedValue( strategy = GenerationType.TABLE, generator = &quot;appSeqStore&quot; )</span><br><span class="line">private Long id;</span><br></pre></td></tr></table></figure><p>Reference: <a href="http://www.developerscrappad.com/408/java/java-ee/ejb3-jpa-3-ways-of-generating-primary-key-through-generatedvalue/" target="_blank" rel="noopener">3 Ways Of Generating Primary Key Through @GeneratedValue</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Hibernate-中指定-Primary-Key-的方法&quot;&gt;&lt;a href=&quot;#Hibernate-中指定-Primary-Key-的方法&quot; class=&quot;headerlink&quot; title=&quot;Hibernate 中指定 Primary Key 的方法&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="JPA" scheme="http://balicanta.tw/categories/JPA/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何測試會拋出 Exception 的 Method</title>
+    <link href="http://balicanta.tw/2015/06/26/how-to-test-throw-exception/"/>
+    <id>http://balicanta.tw/2015/06/26/how-to-test-throw-exception/</id>
+    <published>2015-06-25T20:23:42.000Z</published>
+    <updated>2019-06-08T04:23:17.753Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="拋出-Exception-的方法"><a href="#拋出-Exception-的方法" class="headerlink" title="拋出 Exception 的方法"></a>拋出 Exception 的方法</h3><p>在開發的過程中，難免會遇到一些方法，不會有直接的回傳結果，也許只會在過程中會產生 Exception，正常執行以後，並不會有任何反應，這時候透過傳統的 Assert 沒有辦法測出想要測試的內容。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void checkEmptyUserName(String username)&#123;</span><br><span class="line">    if(StringUtils.isBlank(userName))&#123;</span><br><span class="line">        throws new LoginFailedException(&quot;Username is empty!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Junit-Rule"><a href="#Junit-Rule" class="headerlink" title="Junit Rule"></a>Junit Rule</h3><p>Junit Rule 從 Junit 4.7 以後開始提供，主要提供了這種非典型需求的解決辦法， Rule 主要有幾種功能：</p><ul><li>對方法的測試時間設置 Timeout</li><li>測試方法是否拋出預期的異常 <code>ExpectedException</code></li><li>避免方法預到錯誤就停下來，可以透過 <code>ErrorCollector</code> 蒐集起來</li><li>…</li></ul><p>需要測試 Exception 是否如預期的產生，我們當然就是透過 <code>ExpectedException</code> 來處理：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static class verfiyExceptionTest&#123;</span><br><span class="line">  @Rule</span><br><span class="line">  public ExpectedException thrown= ExpectedException.none();</span><br><span class="line"></span><br><span class="line">  @Test</span><br><span class="line">  public void throwsExceptionWithMessage() &#123;</span><br><span class="line">    // 預期 LoginFailed 會產生以及對應的 Exception message</span><br><span class="line">    thrown.expect(LoginFailedException.class);</span><br><span class="line">    thrown.expectMessage(startsWith(&quot;UserName&quot;));</span><br><span class="line"></span><br><span class="line">    // 執行測試</span><br><span class="line">    checkEmptyUserName(StringUtils.Empty);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>透過 ExpectedException 的協助，不單可以測試出是否測出預期的 Exception 同時也可以確認 Exception message 是否如預期，在測試的粒度上，又往前了一步。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;拋出-Exception-的方法&quot;&gt;&lt;a href=&quot;#拋出-Exception-的方法&quot; class=&quot;headerlink&quot; title=&quot;拋出 Exception 的方法&quot;&gt;&lt;/a&gt;拋出 Exception 的方法&lt;/h3&gt;&lt;p&gt;在開發的過程中，難免會遇到一
+      
+    
+    </summary>
+    
+      <category term="UnitTest" scheme="http://balicanta.tw/categories/UnitTest/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>開源之道，Open Source Enlightenment - 唐鳳</title>
+    <link href="http://balicanta.tw/2015/06/20/open-source-enlightenment/"/>
+    <id>http://balicanta.tw/2015/06/20/open-source-enlightenment/</id>
+    <published>2015-06-19T23:49:23.000Z</published>
+    <updated>2019-05-29T15:37:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<iframe allowfullscreen frameborder="0" height="465" src="https://www.youtube.com/embed/A6bBcvSyg0k?feature=oembed" width="620"></iframe><iframe allowfullscreen frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://www.slideshare.net/slideshow/embed_code/key/KmTDwvSquN5LLu" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" width="427"></iframe><h3 id="illusion-of-transparency"><a href="#illusion-of-transparency" class="headerlink" title="illusion of transparency"></a>illusion of transparency</h3><ul><li>透明度錯覺，以為別人知道自己的內心狀態</li><li>很容易成對的產生 fundamental attribution error ，別人做了一件事，就把他扣上一個帽子，也許只是一個特定的情境，才會產生這種行為，並非刻意</li></ul><h3 id="Rough-Consensus"><a href="#Rough-Consensus" class="headerlink" title="Rough ! Consensus"></a>Rough ! Consensus</h3><ul><li>粗略的共識</li><li>共識不是壓倒別人的想法，否則可能會變成粗暴的共識</li><li>接受各種可能性</li></ul><h3 id="Be-Bold"><a href="#Be-Bold" class="headerlink" title="Be Bold"></a>Be Bold</h3><ul><li>在 Internet 上得到正確答案的方法，不是問一個問題，而是說一個錯誤的答案。</li><li>萬事萬物都有缺口，缺口就是光的入口。</li></ul><h3 id="Ofun-Optimizing-for-Fun-的四個元素"><a href="#Ofun-Optimizing-for-Fun-的四個元素" class="headerlink" title="-Ofun Optimizing for Fun 的四個元素"></a>-Ofun Optimizing for Fun 的四個元素</h3><ul><li>穩定的支持</li><li>安全的空間</li><li>不受限制的活動</li><li>產生不同的看世界的看法</li></ul><h3 id="透過-Git-Basic-來面對生活"><a href="#透過-Git-Basic-來面對生活" class="headerlink" title="透過 Git Basic 來面對生活"></a>透過 Git Basic 來面對生活</h3><ul><li>Fetch new fact</li><li>Merge with understanding</li><li>Commit to an action</li><li>Push it to the world</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;iframe allowfullscreen frameborder=&quot;0&quot; height=&quot;465&quot; src=&quot;https://www.youtube.com/embed/A6bBcvSyg0k?feature=oembed&quot; width=&quot;620&quot;&gt;&lt;/iframe&gt;
+
+&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何測試一個 Private 的方法？</title>
+    <link href="http://balicanta.tw/2015/06/13/how-to-test-private-method/"/>
+    <id>http://balicanta.tw/2015/06/13/how-to-test-private-method/</id>
+    <published>2015-06-12T20:36:58.000Z</published>
+    <updated>2019-06-08T04:23:54.987Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Private-方法真的需要測試嗎？"><a href="#Private-方法真的需要測試嗎？" class="headerlink" title="Private 方法真的需要測試嗎？"></a>Private 方法真的需要測試嗎？</h3><p>這樣的討論通常都是兩邊都有道理， 兩派的意見分別為：</p><ul><li>Private 方法必然是很單純，所以應該是簡單到不能出錯，所以 <strong>不用測？</strong></li><li>Private 方法有時候會有一些複雜度，所以還是需要測試。</li></ul><p>我個人的意見是我認為 Private method 的粒度一定是相對來說比較小的，可以確保小範圍的測試是正確的，何樂不為？</p><h3 id="Private-方法只能在自身-Class-讀取，該如何測試？"><a href="#Private-方法只能在自身-Class-讀取，該如何測試？" class="headerlink" title="Private 方法只能在自身 Class 讀取，該如何測試？"></a>Private 方法只能在自身 Class 讀取，該如何測試？</h3><p>回顧 Java 的 Access Level 看<a href>下表</a>最為簡單清楚，</p><p><table><thead><tr><th>Modifier</th><th style="text-align: center;">Class</th><th style="text-align: center;">Package</th><th>Subclass</th><th style="text-align: left;">World</th></tr></thead><tbody><tr><td>public</td><td style="text-align: center;">Y</td><td style="text-align: center;">Y</td><td>Y</td><td style="text-align: left;">Y</td></tr><tr><td>protected</td><td style="text-align: center;">Y</td><td style="text-align: center;">Y</td><td>Y</td><td style="text-align: left;">N</td></tr><tr><td>no modifier</td><td style="text-align: center;">Y</td><td style="text-align: center;">Y</td><td>N</td><td style="text-align: left;">N</td></tr><tr><td>private</td><td style="text-align: center;">Y</td><td style="text-align: center;">N</td><td>N</td><td style="text-align: left;">N</td></tr></tbody></table>可以透過 <strong>No Modifier</strong> 的特性，有些書本上會寫這是 <strong>default</strong> 或是 <strong>package level private </strong> 都是在指同一件事，就是在 Access Level 的地方留空，也就是一個 method 會從 <code>private void hello()</code> 變成 <code>void hello()</code>。這樣的好處是只要透過一樣的 Package path ，就可以讀取到 package level private 的方法。</p><p>但這樣的缺點的就是在語意和概念上，就是一個 <code>private method</code> 但我們在 code 的呈現上就會懷疑這個 default level 的 method 是不是少加了 <code>private</code>？</p><h3 id="VisibleForTesting-Annotation-登場"><a href="#VisibleForTesting-Annotation-登場" class="headerlink" title="VisibleForTesting Annotation 登場"></a>VisibleForTesting Annotation 登場</h3><p>在上面可能產生程式碼語意上的表達不清楚，於是就有了 <code>@VisibleForTesting</code> 來協助解決問題，而方法就會長得像：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@VisiableForTesting</span><br><span class="line">int add(int a , int b) &#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>盡管看起來有一點怪，但讀程式的人就可以了解，Access Level 被去掉的原因，可能是因為測試的關係，就不會擅自去加 <code>private</code> 導致測試無法正常運作。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Private-方法真的需要測試嗎？&quot;&gt;&lt;a href=&quot;#Private-方法真的需要測試嗎？&quot; class=&quot;headerlink&quot; title=&quot;Private 方法真的需要測試嗎？&quot;&gt;&lt;/a&gt;Private 方法真的需要測試嗎？&lt;/h3&gt;&lt;p&gt;這樣的討論通
+      
+    
+    </summary>
+    
+      <category term="UnitTest" scheme="http://balicanta.tw/categories/UnitTest/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>StringBuilder, StringBuffer 差異</title>
+    <link href="http://balicanta.tw/2015/05/26/stringbuilder-stringbuffer-difference/"/>
+    <id>http://balicanta.tw/2015/05/26/stringbuilder-stringbuffer-difference/</id>
+    <published>2015-05-25T20:01:50.000Z</published>
+    <updated>2019-06-08T04:37:25.407Z</updated>
+    
+    <content type="html"><![CDATA[<p>String 串接是寫程式很常會遇見的情境，在 Java 中，字串相加是最不理想方式，因為會產生大量 String Object 在 String Pool 中，比較建議的方式是透過 StringBuilder 或 StringBuffer 來完成任務，但兩個的差異看起來只有一點點，但會影響其使用情境。</p><h3 id="共同點"><a href="#共同點" class="headerlink" title="共同點"></a>共同點</h3><ul><li>兩者都繼承 <code>AbstractStringBuilder</code> ，所以底層實作都是以 char array 來完成。</li><li>兩者的方法幾乎一致。</li></ul><h3 id="差異點"><a href="#差異點" class="headerlink" title="差異點"></a>差異點</h3><ul><li><code>StringBuffer</code> 是 synchronized，亦代表為Thread-safe</li><li><code>StringBuilder</code> 不是 synchronized，代表 Performance 會比較 <code>StringBuffer</code> 好一點，但也代表 <code>StringBuilder</code> 是 non-thread-safe 的。</li></ul><h3 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h3><p><a href="https://issues.apache.org/jira/browse/LANG-779" target="_blank" rel="noopener">Apache LANG 779 issue</a> 討論 ToStringBuilder 是否需要使用 StringBuffer。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;String 串接是寫程式很常會遇見的情境，在 Java 中，字串相加是最不理想方式，因為會產生大量 String Object 在 String Pool 中，比較建議的方式是透過 StringBuilder 或 StringBuffer 來完成任務，但兩個的差異看起來只
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+      <category term="interview" scheme="http://balicanta.tw/tags/interview/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>書摘：高效程序員的45個習慣</title>
+    <link href="http://balicanta.tw/2015/05/19/practices-of-an-agile-developer/"/>
+    <id>http://balicanta.tw/2015/05/19/practices-of-an-agile-developer/</id>
+    <published>2015-05-18T20:35:36.000Z</published>
+    <updated>2019-06-08T04:41:28.220Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/images/book-agile-devlopver.jpeg" class="[class names]" width="300"><p>這本書是從多看上買來看的，睡前翻啊翻的慢慢的把他看完，其實也不是說了多麼高深的事情，就是強調一些程序員的想法，再搭配上一些敏捷的方法，不過說真的，這本書的確值得一讀。</p><ul><li>李笑來老師在《把時間當作朋友》一書中提到：“所有學習上的成功，都只靠兩件事：策略和堅持，而堅持本身就應該是最重要的策略之一。”</li><li>當我們決定做一件事情的時候，首先就要多問問自己：為什麼要做這件事情？</li><li>不管路走了多遠，錯了就要重新返回。 ——土耳其諺語</li><li>如果你沒有犯過任何錯誤，就說明你可能沒有努力去工作。</li><li>你必須把重點放在解決問題上，而不是去極力證明誰的主意更好。</li><li>用Les Brown的一句話說就是：“你不需要很出色才能起步，但是你必須起步才能變得很出色。</li><li>這裡建議你牢記亞里士多德的一句格言：“能容納自己並不接受的想法，表明你的頭腦足夠有學識。”</li><li>真正的敵人是變化。</li><li>開發者（及項目經理）能做的一個最重要的決定就是：判斷哪些是自己決定不了的，應該讓企業主做決定</li><li>記住Ted Neward的評論：對象—關係的映射就是計算機科學的越南戰場</li><li>需求就像是流動著的油墨 <em>Requirements are as fluid as ink</em></li><li>解決方案是，在每4周的迭代中間安排一週的維護任務。沒有規定說迭代必須要緊挨著下一個迭代。</li><li>PIE原則，代碼必須明確說出你的意圖，而且必須富有表達力。這樣可以讓代碼更易於被別人閱讀 理解。代碼不讓人迷惑，也就減少了發生潛在錯誤的可能。一言以蔽之，代碼應意圖清晰，表達明確</li><li>代碼被閱讀的次數要遠超過被編寫的次數，所以在編程時多付出一點努力來做好文檔，會讓你在將來受益匪淺。</li><li>要將目標牢記在心：簡單、可讀性高的代碼。</li><li>告知，不要詢問。不要搶別的對象或是組件的工作。告訴它做什麼，然後盯著你自己的職責就好了。</li><li>針對is-a關係使用繼承；針對has-a或uses-a關係使用委託</li><li>記錄問題的時間不能超過在解決問題上花費的時間</li><li>Martin Fowler在題為“Who Needs an Architect？”的文章中提到：一個真正的架構師“……應該指導開發團隊，提升他們的水平，以解決更為複雜的問題</li><li>代碼複查需要積極評估代碼的設計和清晰程度，而不只是考量變量名和代碼格式是否符合組織的標準</li><li>除非你可以讓某段代碼明確變得更好，否則不要隨意批評別人的代碼。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/images/book-agile-devlopver.jpeg&quot; class=&quot;[class names]&quot; width=&quot;300&quot;&gt;
+&lt;p&gt;這本書是從多看上買來看的，睡前翻啊翻的慢慢的把他看完，其實也不是說了多麼高深的事情，就是強調一些程序員的想法，再搭
+      
+    
+    </summary>
+    
+      <category term="Book" scheme="http://balicanta.tw/categories/Book/"/>
+    
+    
+      <category term="Book" scheme="http://balicanta.tw/tags/Book/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ArrayList 和 Vector 的差別</title>
+    <link href="http://balicanta.tw/2015/05/18/diff-between-vector-arraylist/"/>
+    <id>http://balicanta.tw/2015/05/18/diff-between-vector-arraylist/</id>
+    <published>2015-05-17T20:37:13.000Z</published>
+    <updated>2019-06-08T04:17:05.558Z</updated>
+    
+    <content type="html"><![CDATA[<p>Java 裡面 Collection Framework 裡面，提供許多不一樣的 Class 給 Programmer 挑選使用，常常忘了思考，在什麼樣的情況下，應該使用不同的 Collection Class ，而 ArrayList 和 Vector 就是很容易忘記差異的兩項。</p><p>ArrayList 和 Vector 的差異，顯而易見的部分如下：</p><ul><li>Synchronization - ArrayList 並沒有處理 Synchronization ，所以在 ArrayList 並非 Thread – safe 的。</li><li>Vector 則有處理 Synchronization ，所以效能上會有一些影響。</li><li>Data growth - 預設的情況下，Vector 在空間不足的情況下，一次會擴張 2 倍的空間</li><li>ArrayList 會擴張當前空間的 1/2。</li><li>Iteration Performance - ArrayList 進行 Iteration 的速度也比 Vector 快，主要是兩者在 Itr (JDK Source) 裡的實作方式不一樣。</li></ul><p>Reference</p><p><a href="http://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/" target="_blank" rel="noopener">Difference Between ArrayList And Vecotr </a></p><p><a href="http://stackoverflow.com/questions/2986296/what-are-the-differences-between-arraylist-and-vector" target="_blank" rel="noopener">What the differences between arraylist and vector</a></p><p><a href="https://www.youtube.com/watch?v=MZOf3pOAM6A" target="_blank" rel="noopener">To Index or Iterate</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Java 裡面 Collection Framework 裡面，提供許多不一樣的 Class 給 Programmer 挑選使用，常常忘了思考，在什麼樣的情況下，應該使用不同的 Collection Class ，而 ArrayList 和 Vector 就是很容易忘記差異
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+      <category term="interview" scheme="http://balicanta.tw/tags/interview/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker Workshop Notes</title>
+    <link href="http://balicanta.tw/2015/05/10/docker-workshop-notes/"/>
+    <id>http://balicanta.tw/2015/05/10/docker-workshop-notes/</id>
+    <published>2015-05-09T21:41:15.000Z</published>
+    <updated>2019-06-08T04:17:15.701Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="What-is-Docker"><a href="#What-is-Docker" class="headerlink" title="What is Docker?"></a>What is Docker?</h1><p>Docker 以目前我的了解來看，和虛擬化是有相當程度的差異，Docker 和 VMWare 並非取代的關係，反而是互相輔助。</p><p>一台實體機器上，可能會透過 <strong>Vagrant</strong> 來建立多個 <strong>VM</strong> 環境，而這每個 <strong>VM</strong> 裡面又存在多個 <strong>Docker Continer</strong>， Docker 的出現並不是為了取代 VM，就好比 Vagrant 的出現並不是為了取代 Virtual box 一樣。</p><h1 id="Image-And-Container"><a href="#Image-And-Container" class="headerlink" title="Image And Container"></a>Image And Container</h1><p>基本上的類推可以透過 <strong>Class</strong> 與 <strong>Instance</strong> 的關係一樣， Image(Class) 之於 Container(Instance)。</p><h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><p>這是 Docker 的靈魂檔案，裡面定義著想建立的 Image，源自於其它 Image(最基本的 Image 是 <code>Scratch</code>，就像 Java 的 <code>Object</code>) 以及其它需要搬到 Image 裡面的各種動作。</p><h1 id="Docker-Networking-models"><a href="#Docker-Networking-models" class="headerlink" title="Docker Networking models"></a>Docker Networking models</h1><p>Docker 有一個特殊的網路結構：<br><img src="http://william-yeh.github.io/docker-workshop/slides/img/docker-bridge.jpg" alt></p><ul><li>每一個 container 都有自己獨自網段，而這個網段透過 docker0 這個 bridge 來連接。</li><li>當 Container 之間無法相連的時候，就要上面這張圖，需要透過 container linking 或是 Port mapping 等技巧，來完成。</li></ul><h1 id="Command-List"><a href="#Command-List" class="headerlink" title="Command List"></a>Command List</h1><ul><li>docker images – 列出機器上目前有的 Image</li><li>docker ps – 觀察目前正在跑的 Container</li><li>docker build – 建立 Docker image</li><li>docker logs <code>continer name</code> – 觀察特定 Container 產出的 log</li><li>docker run -d <code>image id</code> – 把 docker image 以 background 的方式跑起來</li><li>docker inspect <code>image id</code> – 查看 image 相關的資訊</li></ul><p><img src="http://philipzheng.gitbooks.io/docker_practice/content/_images/cmd_logic.png" alt></p><p><em>上完 <a href="http://william-yeh.github.io/docker-workshop/" target="_blank" rel="noopener">docker-workshop</a> 的筆記</em></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;What-is-Docker&quot;&gt;&lt;a href=&quot;#What-is-Docker&quot; class=&quot;headerlink&quot; title=&quot;What is Docker?&quot;&gt;&lt;/a&gt;What is Docker?&lt;/h1&gt;&lt;p&gt;Docker 以目前我的了解來看，和虛擬
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://balicanta.tw/categories/DevOps/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>讓 Celery 跑成 Daemon</title>
+    <link href="http://balicanta.tw/2015/03/28/celery-as-daemon/"/>
+    <id>http://balicanta.tw/2015/03/28/celery-as-daemon/</id>
+    <published>2015-03-27T21:10:56.000Z</published>
+    <updated>2019-06-08T04:16:20.677Z</updated>
+    
+    <content type="html"><![CDATA[<p>在處理 Python 非同步作業或排程作業的時候，通常會使用 <a href="http://celery.readthedocs.org/en/latest/index.html" target="_blank" rel="noopener">Celery</a> ， 但預設啟動 Celery 是透過下列的方式：</p><p><code>celery -A proj worker -l info</code></p><p>如果沒有掛在 Screen 裡或是透過其它方式跑到背景，不小心關掉 console， celery 就會停止運作了，所以必須要讓 Celery Daemon 化，也不會太複雜，以下說明步驟：</p><ol><li>到 Github 上把 <a href="https://github.com/celery/celery/blob/3.1/extra/generic-init.d/celeryd" target="_blank" rel="noopener">Celeryd 的 script </a> 下載下來，放到 <code>/etc/init.d/celeryd</code> 。</li><li>如果 Project 有使用到環境變數，而環境變數又剛好寫在 <code>.bashrc</code> 裡，記得在 celeryd 的檔案裡加一行 <code>source ~/.bashrc</code> 避免 Celery 啟動的時候，找不到相關的環境變數。</li><li>接著把設定檔案放到 <code>/etc/default/celeryd</code>.</li></ol><p>`</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># Names of nodes to start most will only start one node:</span><br><span class="line">CELERYD_NODES=&quot;worker1&quot;</span><br><span class="line"></span><br><span class="line"># Absolute or relative path to the &apos;celery&apos; command:</span><br><span class="line"># 如果有使用 virtualenvs ，路徑可能會像這樣</span><br><span class="line">CELERY_BIN=&quot;&quot;/root/.virtualenvs/project/bin/celery&quot;&quot;</span><br><span class="line"></span><br><span class="line"># App instance to use</span><br><span class="line"># comment out this line if you don&apos;t use an app</span><br><span class="line">CELERY_APP=&quot;proj&quot;</span><br><span class="line"></span><br><span class="line"># Where to chdir at start. Django Project 的位置</span><br><span class="line">CELERYD_CHDIR=&quot;/var/www/proj&quot;</span><br><span class="line"></span><br><span class="line"># Extra command-line arguments to the worker</span><br><span class="line">CELERYD_OPTS=&quot;--time-limit=300 --concurrency=8&quot;</span><br><span class="line"></span><br><span class="line"># %N will be replaced with the first part of the nodename.</span><br><span class="line">CELERYD_LOG_FILE=&quot;/var/log/celery/%N.log&quot;</span><br><span class="line">CELERYD_PID_FILE=&quot;/var/run/celery/%N.pid&quot;</span><br><span class="line"></span><br><span class="line"># Workers should run as an unprivileged user.</span><br><span class="line">#   You need to create this user manually (or you can choose</span><br><span class="line">#   a user/group combination that already exists, e.g. nobody).</span><br><span class="line">#</span><br><span class="line">CELERYD_USER=&quot;celery&quot;</span><br><span class="line">CELERYD_GROUP=&quot;celery&quot;</span><br><span class="line"></span><br><span class="line"># If enabled pid and log directories will be created if missing,</span><br><span class="line"># and owned by the userid/group configured.</span><br><span class="line">CELERY_CREATE_DIRS=1</span><br></pre></td></tr></table></figure><p>如果是透過 Root 權限來執行，<strong>必須</strong>要 <code>export C_FORCE_ROOT=&quot;true&quot;</code>，不然權限不合 Celery 也不會報錯。</p><p>設定好以後，可以透過 <code>service celeryd start</code> 來啟動 celery 或是 <code>service celeryd stop</code> 來停止。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在處理 Python 非同步作業或排程作業的時候，通常會使用 &lt;a href=&quot;http://celery.readthedocs.org/en/latest/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Celery&lt;/a&gt; ， 但
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://balicanta.tw/categories/DevOps/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java Unsigned Type</title>
+    <link href="http://balicanta.tw/2015/03/27/java-unsigned-type/"/>
+    <id>http://balicanta.tw/2015/03/27/java-unsigned-type/</id>
+    <published>2015-03-26T20:21:07.000Z</published>
+    <updated>2019-06-08T04:27:12.156Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="What-is-unsigned-type"><a href="#What-is-unsigned-type" class="headerlink" title="What is unsigned type"></a>What is unsigned type</h3><p>unsigned type 是說，假設 int 能夠放 100 ~ -100，給了 int unsigend 就能夠處理 0~ 200 的數值，不需要拿一個 Long 來解決。 某些語言(Like C )是有支援 unsigned type ， 沒有 unsigned type 的缺點是必須要花兩倍的 memory 來處理一個相似的問題， 另外一個是可讀性的問題，當看到一個變數是 unsigend，就能清楚的知道，肯定不會有負數出現。</p><h3 id="Why-Java-didn’t-support-unsigned-type"><a href="#Why-Java-didn’t-support-unsigned-type" class="headerlink" title="Why Java didn’t support unsigned type"></a>Why Java didn’t support unsigned type</h3><p>至於為什麼 Java 不支援，大概有<a href="http://stackoverflow.com/a/430357/3413444" target="_blank" rel="noopener">幾個原因</a>：</p><ul><li>Java 的設計者，想要單純化原始型別的處理。</li><li>常用的情境下，大部分都不會是 unsigend 的情形。</li></ul><p>我認為比較真的理由，是單純化這種原始型別，不常用的情境，就不要過度設計了。</p><h3 id="Modern-Java-handled-unsigned-type"><a href="#Modern-Java-handled-unsigned-type" class="headerlink" title="Modern Java handled unsigned type"></a>Modern Java handled unsigned type</h3><p>不過 Java8 開始以後，已經開始對 unsigned 支援了，當然不會是多一個 Type 叫 unsigned ，這影響可能會有點大。 另外在 Guava 裡面，也有提供 unsigned 支援：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UnsignedInteger newType = UnsignedInteger.valueOf(maxUnsigned);</span><br><span class="line">newType = newType.plus(UnsignedInteger.valueOf(&quot;1&quot;)); // Increment</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;What-is-unsigned-type&quot;&gt;&lt;a href=&quot;#What-is-unsigned-type&quot; class=&quot;headerlink&quot; title=&quot;What is unsigned type&quot;&gt;&lt;/a&gt;What is unsigned type&lt;/
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AntiPattern</title>
+    <link href="http://balicanta.tw/2015/03/18/anti-pattern/"/>
+    <id>http://balicanta.tw/2015/03/18/anti-pattern/</id>
+    <published>2015-03-17T21:41:11.000Z</published>
+    <updated>2019-06-08T04:22:32.639Z</updated>
+    
+    <content type="html"><![CDATA[<p>AntiPattern 衍生自 Design Pattern 的概念，將他翻譯為 “反面” 模式，我個人認為不太適用， AntiPattern 的英文說明是 <strong>An AntiPattern is a pattern that tells how to go from a problem to a bad solution.</strong> ，簡單的來說， AntiPattern 提供了一個不太理想的問題解決方法。</p><p>一個解決方法要被列入為 AntiPattern ，也不是那麼容易，需要有幾個特性</p><ol><li>看起來非常的吸引人，看起來就像 Design Pattern 一樣吸引人。</li><li>當試著把這個 Pattern 實用在 Application 以及會引來巨大的副作用(開發上、效能上)。</li><li>會有一個相對應的 Design Pattern 可以來取代這個 AntiPattern。</li></ol><p>其實過去只是叫這些解決方法 “Bad Idea”,，但現在給一個更理想的名字叫 “AntiPattern”</p><p>在學習上，學習這些 “Bad Ideas” 是相當有必要的，這些 AntiPattern 給我們一個提醒，怎麼樣的模式會造成不好的影響，我們可以透過哪些好的 Pattern 來修正。</p><p>參考: <a href="http://c2.com/cgi/wiki?AntiPattern" target="_blank" rel="noopener">AntiPatterns</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;AntiPattern 衍生自 Design Pattern 的概念，將他翻譯為 “反面” 模式，我個人認為不太適用， AntiPattern 的英文說明是 &lt;strong&gt;An AntiPattern is a pattern that tells how to go f
+      
+    
+    </summary>
+    
+      <category term="Patterns" scheme="http://balicanta.tw/categories/Patterns/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>String and String Pool</title>
+    <link href="http://balicanta.tw/2015/03/16/string-and-string-pool/"/>
+    <id>http://balicanta.tw/2015/03/16/string-and-string-pool/</id>
+    <published>2015-03-15T18:25:42.000Z</published>
+    <updated>2019-06-08T04:37:17.652Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="String-Immutable"><a href="#String-Immutable" class="headerlink" title="String Immutable"></a>String Immutable</h2><p>Java 中的字串一旦宣告，他就不會再被變動了，這樣設計主要有三個理由：</p><ul><li>String Pool 的需求：當把多個變數指到一樣的內容的 String 上，萬一 String 不是一個 Imutable，就會發生這個 Reference 去改值，另一個也會受到影響。</li><li>確保 String Hash Code 是不變的： String 的 HashCode 是常常被調用的，在 HashMap 中，必須確保</li><li>安全性 – String 常常帶有一些敏感性的資訊，像是密碼或是其它資料，可能會被寫入資料庫或檔案，一旦可以一直被變動，就可能會延伸不必要的風險。</li></ul><h2 id="String-Pool"><a href="#String-Pool" class="headerlink" title="String Pool"></a>String Pool</h2><p>Java 中 String 是常常在操作的類別，字串在記憶體的管理上有一點點的特殊， 當透過 <code>String name = &quot;Balicanta&quot;;</code> 來宣告一個字串的時候，其實會到 String Pool 裡面找是否有一樣的字串，如果有那就不會去建立一個新的字串，而會讓兩個 reference 指到同一個位置，以確保 memory 使用的效率。</p><h2 id="System-identityHashCode-作用"><a href="#System-identityHashCode-作用" class="headerlink" title="System.identityHashCode 作用"></a>System.identityHashCode 作用</h2><p>這個方法的作用是，找到一個 Object 的 HashCode。意思是說常常會複寫掉 Object 提供的 hashcode，讓我們看不出 Object 的 hashCode 是什麼，identityHashCode 可以直接印出 Object 的 HashCode，所以可以透過 identityHashCode 來驗證是否真的有 String Pool 的概念。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">String stringA = new String(&quot;them&quot;);</span><br><span class="line">System.out.println(System.identityHashCode(stringA));  //6391841</span><br><span class="line">System.out.println(stringA.hashCode());                // 3558940</span><br><span class="line"></span><br><span class="line">String stringP = new String(&quot;them&quot;);</span><br><span class="line">System.out.println(System.identityHashCode(stringP));  // 25246738</span><br><span class="line">System.out.println(stringP.hashCode());                // 3558940</span><br><span class="line"></span><br><span class="line">String stringB = &quot;them&quot;;</span><br><span class="line">System.out.println(System.identityHashCode(stringB)); // 26140476</span><br><span class="line">System.out.println(stringB.hashCode());               // 3558940</span><br><span class="line"></span><br><span class="line">String stringC = &quot;them&quot;;</span><br><span class="line">System.out.println(System.identityHashCode(stringC)); // 26140476</span><br><span class="line">System.out.println(stringC.hashCode());               // 3558940</span><br></pre></td></tr></table></figure><p>上面的例子說明幾件事：</p><ul><li>String.hashCode 是無法分辨，String 實際的位置，必須透過 identityHashCode 。</li><li>透過 new String(“xxx”) 的確會產生出不一樣的物件，不是透過 String Pool 來取得。</li></ul><p><a href="http://java-performance.info/string-intern-in-java-6-7-8/" target="_blank" rel="noopener">補充</a>：</p><p>在過去 JDK 6 String Pool 是會占用 PermGen 的空間，但從 JDK 7 開始把 String Pool 放到 Heap 裡面。</p><p>Reference: <a href="http://java.dzone.com/articles/why-string-immutable-java" target="_blank" rel="noopener">Why String is Immutable</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;String-Immutable&quot;&gt;&lt;a href=&quot;#String-Immutable&quot; class=&quot;headerlink&quot; title=&quot;String Immutable&quot;&gt;&lt;/a&gt;String Immutable&lt;/h2&gt;&lt;p&gt;Java 中的字串一旦宣告，
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Intellij 快捷鍵</title>
+    <link href="http://balicanta.tw/2015/03/14/intellij-hotkey/"/>
+    <id>http://balicanta.tw/2015/03/14/intellij-hotkey/</id>
+    <published>2015-03-13T22:58:43.000Z</published>
+    <updated>2019-06-08T04:25:20.994Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h2><p><code>Double Shift</code> – Find Anything ★★★★ 可以找指令, Class</p><p><code>Ctrl + N</code> Find Class – 找 Class, File</p><p><code>Ctrl + F12</code> Outline – 查看當前 Class 的 Member</p><p><code>Ctrl + H</code> Object Hierachy – 查看物件繼承關係</p><p><code>Ctrl + Shift + H</code> Call Hierarchy – 查看 Method 調用情況</p><p><code>Ctrl + B</code> – Go To Type Definition</p><p><code>Ctrl + Shift + B</code> Go To Implementation – 前往實作類</p><h2 id="Editor"><a href="#Editor" class="headerlink" title="Editor"></a>Editor</h2><p><code>Alt + Insert</code> Generate Code – 產生 toString(), Getter, Setter 等</p><p><code>Alt + Enter</code> – Quick Fix – 快速修復錯誤</p><p><code>Ctrl + Shift + F12</code> 編輯視窗最大化</p><p><code>Ctrl + Alt + L</code> Format Code</p><p><code>Ctrl + Alt + I</code> Indent Code</p><h2 id="Refactor"><a href="#Refactor" class="headerlink" title="Refactor"></a>Refactor</h2><p><code>Shift + F6</code> Rename 變數重新命名</p><p><code>Ctrl + Alt + M</code> Extract Method 抽取方法</p><h2 id="Live-Template"><a href="#Live-Template" class="headerlink" title="Live Template"></a>Live Template</h2><p><code>iter</code> for each in</p><p><code>itli</code> Iterate over list</p><p><em>Base on Intellij 14.0.3</em></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Navigation&quot;&gt;&lt;a href=&quot;#Navigation&quot; class=&quot;headerlink&quot; title=&quot;Navigation&quot;&gt;&lt;/a&gt;Navigation&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Double Shift&lt;/code&gt; – Find Anyth
+      
+    
+    </summary>
+    
+      <category term="IntelliJ" scheme="http://balicanta.tw/categories/IntelliJ/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>About Javascript Delete</title>
+    <link href="http://balicanta.tw/2015/03/11/about-javascript-delete/"/>
+    <id>http://balicanta.tw/2015/03/11/about-javascript-delete/</id>
+    <published>2015-03-10T21:00:42.000Z</published>
+    <updated>2019-06-08T04:14:13.556Z</updated>
+    
+    <content type="html"><![CDATA[<p>Javascript 裡有個比較少用的 keyword “delete”，主要的作用是刪除 Object 中的 Property。</p><p><strong>The delete operator removes a property from an object.</strong></p><p>特別需要注意的方法是他是無法刪除 variable 的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &quot;theObj&quot;;</span><br><span class="line">delete obj;</span><br><span class="line">console.log(obj); // print theObj</span><br></pre></td></tr></table></figure><p>主要的作用是能夠刪除 Javascript Object 中的 Property</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;x:&quot;abc&quot;, y:&quot;cde&quot;&#125;;</span><br><span class="line">console.log(obj); // Object &#123;x: &quot;abc&quot;, y: &quot;cde&quot;&#125;</span><br><span class="line">delete obj.x; // true</span><br><span class="line">console.log(obj); // Object &#123;y: &quot;cde&quot;&#125;</span><br></pre></td></tr></table></figure><p>同時這個 delete 是可以 return true or false 的，其代表的意義就是刪除成功或是刪除失敗。</p><p><strong>使用情境</strong> 會使用到這個 <code>delete</code> 是因為在 JQGrid 這個 Object 裡面，當 Option 的數量太大的時候，發 Ajax Request 的會暫存。 而解決方法，就是在取得參數之前，把相關的 variable 透過 delete 刪掉，避免 JQgrid 暫存 (也許這不是最好的解決方法)。</p><p>關於 Delete 還一篇完整的說明，記著先 <a href="http://perfectionkills.com/understanding-delete/" target="_blank" rel="noopener">Understanding Delete</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Javascript 裡有個比較少用的 keyword “delete”，主要的作用是刪除 Object 中的 Property。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The delete operator removes a property from an object.&lt;/
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://balicanta.tw/categories/Javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://balicanta.tw/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hibernate ! Why?</title>
+    <link href="http://balicanta.tw/2015/03/05/hibernate-why/"/>
+    <id>http://balicanta.tw/2015/03/05/hibernate-why/</id>
+    <published>2015-03-04T20:00:38.000Z</published>
+    <updated>2019-06-08T04:18:52.354Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Why-Hibernate"><a href="#Why-Hibernate" class="headerlink" title="Why Hibernate"></a>Why Hibernate</h1><p>寫 Web applicantion 的時候，大多數的情境都某個 Domain Entity 進行 CRUD (Create, Read, Update, Delete)，這類型的SQL 寫多了生產力就會下降，如果你的Application 需要在不同的 database 運作就會顯得更痛苦。</p><p>其中一種解決問題的方式叫做 ORM，透過Object 的方式來映射 Database的相關欄位，當操作 CRUD 的時候只需要對 Object 進行操作，不需要透過 SQL 來處理，也是說 ORM 至少涵蓋了兩件事</p><ol><li>Database Field 與 Object Attribute 產生關聯</li><li>協助產生 CRUD 的 SQL</li><li>處理不同 Database 之間的語法差異，透過 <strong>Dialect</strong> 來解決</li></ol><p>在 Java 裡面使用 ORM 幾乎只有一個選擇就是用 Hibernate， Hibernate 的演進已經相當多年，從我大學 2008 年到現在 Hibernate 在 ORM 領域深入近十年，在各方便都已經相當成熟。</p><h1 id="JPA-And-Hibernate"><a href="#JPA-And-Hibernate" class="headerlink" title="JPA And Hibernate"></a>JPA And Hibernate</h1><p>JPA or Hibernate 這兩個概念在剛開始了解的時候，相當容易弄混，JPA 指的是一個通用的標準，但不包含實作，所以Hibernate 會有 JPA 的實作，其它 ORM 框架也會有。</p><hr><p>總的來說，透過 Hibernate 來處理 Object 和 Relational Database 之間的關係，可以讓程式的可讀性高一點，但是有副作用的，效能問題或是複雜一點的 Query 透過這樣的方式寫出來也沒好看到哪裡去，所以這幾年的走向開始慢慢往 JOOQ 這種協助產生 SQL 的 Libary，不過 JOOQ 要是需要收費的，這也是很困擾的一點。</p><p><a href="http://stackoverflow.com/questions/9881611/whats-the-difference-between-jpa-and-hibernate" target="_blank" rel="noopener">Reference</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Why-Hibernate&quot;&gt;&lt;a href=&quot;#Why-Hibernate&quot; class=&quot;headerlink&quot; title=&quot;Why Hibernate&quot;&gt;&lt;/a&gt;Why Hibernate&lt;/h1&gt;&lt;p&gt;寫 Web applicantion 的時候，大多數
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+  </entry>
+  
+</feed>
