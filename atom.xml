@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://balicanta.tw/"/>
-  <updated>2019-06-08T04:25:01.201Z</updated>
+  <updated>2019-06-15T15:05:24.107Z</updated>
   <id>http://balicanta.tw/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 異常類別</title>
+    <link href="http://balicanta.tw/2019/06/15/java-basic/exception/"/>
+    <id>http://balicanta.tw/2019/06/15/java-basic/exception/</id>
+    <published>2019-06-15T14:00:42.000Z</published>
+    <updated>2019-06-15T15:05:24.107Z</updated>
+    
+    <content type="html"><![CDATA[<p>在程式開發的過程中，常常會遇到一些異想不到的錯誤，例如：</p><ul><li>使用者輸入了一個你猜也沒猜到的數值</li><li>要把資料寫到檔案裡，但發現磁碟空間不夠</li><li>需要連上網路去抓一個檔案，但電腦現在沒有接上網路</li></ul><p>無論這些異想不到的錯誤，是屬於使用者造成的，或是使用者的電腦軟硬體造成，Java 將這些狀況，視為例外或是異常，也是 Exception。</p><p>Java 將 Exception 分為三個主要的類別：</p><ul><li><p>必須處理的異常(Checked Exception)</p></li><li><p>程式運作期間的異常(Runtime Exception)</p></li><li><p>錯誤 (Errors)</p></li></ul><h2 id="必須處理的異常-Checked-Exception"><a href="#必須處理的異常-Checked-Exception" class="headerlink" title="必須處理的異常(Checked Exception)"></a>必須處理的異常(Checked Exception)</h2><p>這類型的異常最大的特色是，在編輯期間會強迫開發人員處理，最常見的例子是 FileNotFoundException 找不到檔案的異常，例如想要使用 FileReader 去讀取一個檔案的時候，編譯器(Compiler) 會強迫開發者處理這個異常。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileNotFound_Demo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      File file = <span class="keyword">new</span> File(<span class="string">"E://file.txt"</span>);</span><br><span class="line">      <span class="comment">// FileReader 建構子會丟出 FileNotFoundException</span></span><br><span class="line">      <span class="comment">// 因為這段程式並沒有處理 FileNotFoundException，所以無法編譯</span></span><br><span class="line">      FileReader fr = <span class="keyword">new</span> FileReader(file); </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="程式運作期間的異常-Runtime-Exception、-Unchecked-Exception"><a href="#程式運作期間的異常-Runtime-Exception、-Unchecked-Exception" class="headerlink" title="程式運作期間的異常(Runtime Exception、 Unchecked Exception)"></a>程式運作期間的異常(Runtime Exception、 Unchecked Exception)</h2><p>這類型的異常編譯器並不會強迫開發者處理，所以被稱作為 Unchecked Exception 或是 Runtime Exception。最常見的就是 ArrayIndexOutOfBoundsException。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Unchecked_Demo</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 這段程式碼是可以編譯，但是執行後會產生 ArrayIndexOutOfBoundsException</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> num[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">      System.out.println(num[<span class="number">5</span>]);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="錯誤-Errors"><a href="#錯誤-Errors" class="headerlink" title="錯誤 (Errors)"></a>錯誤 (Errors)</h2><p>錯誤與異常可以說是完全不同的東西，錯誤有幾個特性：</p><ul><li>嚴重程度比較高</li><li>程式比較難處理的</li><li>難以恢復的</li></ul><p>常見的例如，透過遞迴解決問題時候要小心的 StackOverFlowError：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StackOverflow</span> </span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> i)</span> </span></span><br><span class="line"><span class="function">    </span>&#123; </span><br><span class="line">        <span class="comment">// No correct as base condition leads to </span></span><br><span class="line">        <span class="comment">// non-stop recursion. </span></span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>) </span><br><span class="line">            <span class="keyword">return</span>; </span><br><span class="line">        <span class="keyword">else</span> &#123; </span><br><span class="line">            test(i++); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorEg</span> </span>&#123; </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></span><br><span class="line"><span class="function">    </span>&#123; </span><br><span class="line">  </span><br><span class="line">        <span class="comment">// eg of StackOverflowError </span></span><br><span class="line">        StackOverflow.test(<span class="number">5</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在程式開發的過程中，常常會遇到一些異想不到的錯誤，例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用者輸入了一個你猜也沒猜到的數值&lt;/li&gt;
+&lt;li&gt;要把資料寫到檔案裡，但發現磁碟空間不夠&lt;/li&gt;
+&lt;li&gt;需要連上網路去抓一個檔案，但電腦現在沒有接上網路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>安裝 Hexo</title>
@@ -178,6 +207,73 @@
     </summary>
     
       <category term="UnitTest" scheme="http://balicanta.tw/categories/UnitTest/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Praxis 18. Never hide an exception</title>
+    <link href="http://balicanta.tw/2015/06/24/praxis-18-never-hide-an-exception/"/>
+    <id>http://balicanta.tw/2015/06/24/praxis-18-never-hide-an-exception/</id>
+    <published>2015-06-23T22:53:45.000Z</published>
+    <updated>2019-06-15T14:40:17.112Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="消失的-Exception"><a href="#消失的-Exception" class="headerlink" title="消失的 Exception"></a>消失的 Exception</h3><p>在 Java 的開發裡面，常常會遇見 Exception 的連鎖效應，也就是當 Exception A 發生的時候，觸發了 Exception B 再觸發了 Exception C ，最後 Caller method 只會收到 Exception C ，無法知道 Exception A 才是真正的原因。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public void demoException() throws Exception&#123;</span><br><span class="line">    try&#123;</span><br><span class="line">        throw new (&quot;Exception A&quot;);</span><br><span class="line">    &#125; catch (Exception e)&#123;</span><br><span class="line">        throw new Exception(&quot;Exception B&quot;);</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        throw new Exception(&quot;Exception C&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>此時此刻，調用方只會收到 Exception C ，其它的 Exception 都被吞掉了。</p><h3 id="NestableException-粉墨登場"><a href="#NestableException-粉墨登場" class="headerlink" title="NestableException 粉墨登場"></a>NestableException 粉墨登場</h3><p>這個問題，老祖宗們都已經幫忙解決過了， <a href="https://commons.apache.org/proper/commons-lang/" target="_blank" rel="noopener">Apache Common Lang</a> 在 1.0 以後就提供了 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-2.5/org/apache/commons/lang/exception/NestableException.html" target="_blank" rel="noopener">NestableException</a>，改寫上面的方法就會變成</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void demoException() throws Exception&#123;</span><br><span class="line">    try&#123;</span><br><span class="line">        throw new (&quot;Exception A&quot;);</span><br><span class="line">    &#125; catch (Exception e)&#123;</span><br><span class="line">        throw new NestableException(&quot;Exception B&quot;, e);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>最後再透過 <code>e.printStackTrace();</code> 就可以將整體的 Exception 歷程給呈現出來。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;消失的-Exception&quot;&gt;&lt;a href=&quot;#消失的-Exception&quot; class=&quot;headerlink&quot; title=&quot;消失的 Exception&quot;&gt;&lt;/a&gt;消失的 Exception&lt;/h3&gt;&lt;p&gt;在 Java 的開發裡面，常常會遇見 Excepti
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Praxis 17. Never ignore an exception 永遠不要忽略異常</title>
+    <link href="http://balicanta.tw/2015/06/23/praxis-17-never-ignore-an-exception/"/>
+    <id>http://balicanta.tw/2015/06/23/praxis-17-never-ignore-an-exception/</id>
+    <published>2015-06-22T23:23:02.000Z</published>
+    <updated>2019-06-15T14:42:28.335Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="遇到異常的處理方式"><a href="#遇到異常的處理方式" class="headerlink" title="遇到異常的處理方式"></a>遇到異常的處理方式</h3><p>當 Java 產生一個異常的時候，處置的方式分為下列四種：</p><ul><li>捕捉並處理，防止向 caller 擴散 ( Propagate )</li><li>捕捉並再一次拋出，讓他向 caller 擴散</li><li>捕捉後，拋出一個新異常給 caller</li><li>不捕捉，讓他直接向 Caller 擴散</li></ul><p>在 Checked Exception 後面三項的處理方式，Java 會強制要求在 method signature 加上 <code>throw</code>。</p><h3 id="千萬不要把異常給吞了"><a href="#千萬不要把異常給吞了" class="headerlink" title="千萬不要把異常給吞了"></a>千萬不要把異常給吞了</h3><p>在開發的過程中，一定會出現某個 method 會拋出 Exception ，這時候 IDE 會貼心的提醒開發者，記得加上 Try catch ，然而最要命的就是加上下面這種：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    throw new IOException();</span><br><span class="line">&#125; catch (IOException exception) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在 catch 區塊完全不處理，一旦發生怪異的錯誤，是很難追查的，最少也得加上一行 logger ，以方便我們追查到底發生了什麼事，最好的狀況是加上 printStackTrace，stackTrace 會把我們發生的錯誤以 Stack 的方式來顯示，對追找錯誤是相當有幫助的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;遇到異常的處理方式&quot;&gt;&lt;a href=&quot;#遇到異常的處理方式&quot; class=&quot;headerlink&quot; title=&quot;遇到異常的處理方式&quot;&gt;&lt;/a&gt;遇到異常的處理方式&lt;/h3&gt;&lt;p&gt;當 Java 產生一個異常的時候，處置的方式分為下列四種：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Praxis 16. 理解異常處理的執行流程</title>
+    <link href="http://balicanta.tw/2015/06/21/praxis-16-know-the-mechanics-of-exception-control-flow/"/>
+    <id>http://balicanta.tw/2015/06/21/praxis-16-know-the-mechanics-of-exception-control-flow/</id>
+    <published>2015-06-20T23:04:40.000Z</published>
+    <updated>2019-06-15T14:54:03.655Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Exception-的-control-flow"><a href="#Exception-的-control-flow" class="headerlink" title="Exception 的 control flow"></a>Exception 的 control flow</h3><p>Java 的異常控制是有助於協助程式處理異常狀況的發生，儘管這些年來在 Checked Exception 和 Unchecked Exception 上有很多的討論，在各種設計上都建議減少 Checked Exception.<br>但 Java 所設計的 Exception 對於異常狀況的發生，還是對程式的強健性 (Robust) 是有一定程度的提升。</p><p>在 Java 裡一旦發生 Exception ，程式的流程會往下列三個地方移動：</p><ul><li>Catch block</li><li>finally block</li><li>calling method</li></ul><p>這樣的情形下，就發生了討厭的 Goto 行為(程式執行流程跳來跳去)，增加程式除錯的難度。</p><h3 id="難以猜測程式執行流程"><a href="#難以猜測程式執行流程" class="headerlink" title="難以猜測程式執行流程"></a>難以猜測程式執行流程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m3</span><span class="params">(<span class="keyword">boolean</span> isThrow)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Enter m3"</span>);</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        Button b3 = <span class="keyword">new</span> Button();</span><br><span class="line">        <span class="keyword">if</span>(isThrow)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IOException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"Enter m3 Finllay"</span>);  <span class="comment">// 1</span></span><br><span class="line">    &#125;</span><br><span class="line">     System.out.println(<span class="string">"Exist m3"</span>);  <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的程式碼，呈現一個簡單的 try catch 情境，這個 try 並沒有 catch 只有 finally 區塊，而在 finally 區塊結束一行，再加上一行 Print 。</p><p>執行結果為：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter m3 </span><br><span class="line">Enter m3 Finally</span><br></pre></td></tr></table></figure><p>也就是說最行一行的 <code>Exist m3</code> 並沒有被執行，在執行完 finally 後，就離開了。</p><h3 id="Try-Catch-的執行原則"><a href="#Try-Catch-的執行原則" class="headerlink" title="Try Catch 的執行原則"></a>Try Catch 的執行原則</h3><ul><li>如果同時存在 catch block 以及 finally block ，一旦產生異常會先執行 catch block ，再執行 finally block，如果沒有 catch block 就會直接執行 finally block</li><li>如果沒有 catch block ，無論異常是否發生都會執行 finally block</li><li>如果異常發生，沒有被 catch ，無論是否執行 finally， 之後的 statement 將不被執行。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Exception-的-control-flow&quot;&gt;&lt;a href=&quot;#Exception-的-control-flow&quot; class=&quot;headerlink&quot; title=&quot;Exception 的 control flow&quot;&gt;&lt;/a&gt;Exception 的 co
+      
+    
+    </summary>
     
     
   </entry>
@@ -392,101 +488,6 @@
     </summary>
     
       <category term="Patterns" scheme="http://balicanta.tw/categories/Patterns/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>String and String Pool</title>
-    <link href="http://balicanta.tw/2015/03/16/string-and-string-pool/"/>
-    <id>http://balicanta.tw/2015/03/16/string-and-string-pool/</id>
-    <published>2015-03-15T18:25:42.000Z</published>
-    <updated>2019-06-08T04:37:17.652Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="String-Immutable"><a href="#String-Immutable" class="headerlink" title="String Immutable"></a>String Immutable</h2><p>Java 中的字串一旦宣告，他就不會再被變動了，這樣設計主要有三個理由：</p><ul><li>String Pool 的需求：當把多個變數指到一樣的內容的 String 上，萬一 String 不是一個 Imutable，就會發生這個 Reference 去改值，另一個也會受到影響。</li><li>確保 String Hash Code 是不變的： String 的 HashCode 是常常被調用的，在 HashMap 中，必須確保</li><li>安全性 – String 常常帶有一些敏感性的資訊，像是密碼或是其它資料，可能會被寫入資料庫或檔案，一旦可以一直被變動，就可能會延伸不必要的風險。</li></ul><h2 id="String-Pool"><a href="#String-Pool" class="headerlink" title="String Pool"></a>String Pool</h2><p>Java 中 String 是常常在操作的類別，字串在記憶體的管理上有一點點的特殊， 當透過 <code>String name = &quot;Balicanta&quot;;</code> 來宣告一個字串的時候，其實會到 String Pool 裡面找是否有一樣的字串，如果有那就不會去建立一個新的字串，而會讓兩個 reference 指到同一個位置，以確保 memory 使用的效率。</p><h2 id="System-identityHashCode-作用"><a href="#System-identityHashCode-作用" class="headerlink" title="System.identityHashCode 作用"></a>System.identityHashCode 作用</h2><p>這個方法的作用是，找到一個 Object 的 HashCode。意思是說常常會複寫掉 Object 提供的 hashcode，讓我們看不出 Object 的 hashCode 是什麼，identityHashCode 可以直接印出 Object 的 HashCode，所以可以透過 identityHashCode 來驗證是否真的有 String Pool 的概念。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">String stringA = new String(&quot;them&quot;);</span><br><span class="line">System.out.println(System.identityHashCode(stringA));  //6391841</span><br><span class="line">System.out.println(stringA.hashCode());                // 3558940</span><br><span class="line"></span><br><span class="line">String stringP = new String(&quot;them&quot;);</span><br><span class="line">System.out.println(System.identityHashCode(stringP));  // 25246738</span><br><span class="line">System.out.println(stringP.hashCode());                // 3558940</span><br><span class="line"></span><br><span class="line">String stringB = &quot;them&quot;;</span><br><span class="line">System.out.println(System.identityHashCode(stringB)); // 26140476</span><br><span class="line">System.out.println(stringB.hashCode());               // 3558940</span><br><span class="line"></span><br><span class="line">String stringC = &quot;them&quot;;</span><br><span class="line">System.out.println(System.identityHashCode(stringC)); // 26140476</span><br><span class="line">System.out.println(stringC.hashCode());               // 3558940</span><br></pre></td></tr></table></figure><p>上面的例子說明幾件事：</p><ul><li>String.hashCode 是無法分辨，String 實際的位置，必須透過 identityHashCode 。</li><li>透過 new String(“xxx”) 的確會產生出不一樣的物件，不是透過 String Pool 來取得。</li></ul><p><a href="http://java-performance.info/string-intern-in-java-6-7-8/" target="_blank" rel="noopener">補充</a>：</p><p>在過去 JDK 6 String Pool 是會占用 PermGen 的空間，但從 JDK 7 開始把 String Pool 放到 Heap 裡面。</p><p>Reference: <a href="http://java.dzone.com/articles/why-string-immutable-java" target="_blank" rel="noopener">Why String is Immutable</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;String-Immutable&quot;&gt;&lt;a href=&quot;#String-Immutable&quot; class=&quot;headerlink&quot; title=&quot;String Immutable&quot;&gt;&lt;/a&gt;String Immutable&lt;/h2&gt;&lt;p&gt;Java 中的字串一旦宣告，
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Intellij 快捷鍵</title>
-    <link href="http://balicanta.tw/2015/03/14/intellij-hotkey/"/>
-    <id>http://balicanta.tw/2015/03/14/intellij-hotkey/</id>
-    <published>2015-03-13T22:58:43.000Z</published>
-    <updated>2019-06-08T04:25:20.994Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h2><p><code>Double Shift</code> – Find Anything ★★★★ 可以找指令, Class</p><p><code>Ctrl + N</code> Find Class – 找 Class, File</p><p><code>Ctrl + F12</code> Outline – 查看當前 Class 的 Member</p><p><code>Ctrl + H</code> Object Hierachy – 查看物件繼承關係</p><p><code>Ctrl + Shift + H</code> Call Hierarchy – 查看 Method 調用情況</p><p><code>Ctrl + B</code> – Go To Type Definition</p><p><code>Ctrl + Shift + B</code> Go To Implementation – 前往實作類</p><h2 id="Editor"><a href="#Editor" class="headerlink" title="Editor"></a>Editor</h2><p><code>Alt + Insert</code> Generate Code – 產生 toString(), Getter, Setter 等</p><p><code>Alt + Enter</code> – Quick Fix – 快速修復錯誤</p><p><code>Ctrl + Shift + F12</code> 編輯視窗最大化</p><p><code>Ctrl + Alt + L</code> Format Code</p><p><code>Ctrl + Alt + I</code> Indent Code</p><h2 id="Refactor"><a href="#Refactor" class="headerlink" title="Refactor"></a>Refactor</h2><p><code>Shift + F6</code> Rename 變數重新命名</p><p><code>Ctrl + Alt + M</code> Extract Method 抽取方法</p><h2 id="Live-Template"><a href="#Live-Template" class="headerlink" title="Live Template"></a>Live Template</h2><p><code>iter</code> for each in</p><p><code>itli</code> Iterate over list</p><p><em>Base on Intellij 14.0.3</em></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Navigation&quot;&gt;&lt;a href=&quot;#Navigation&quot; class=&quot;headerlink&quot; title=&quot;Navigation&quot;&gt;&lt;/a&gt;Navigation&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Double Shift&lt;/code&gt; – Find Anyth
-      
-    
-    </summary>
-    
-      <category term="IntelliJ" scheme="http://balicanta.tw/categories/IntelliJ/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>About Javascript Delete</title>
-    <link href="http://balicanta.tw/2015/03/11/about-javascript-delete/"/>
-    <id>http://balicanta.tw/2015/03/11/about-javascript-delete/</id>
-    <published>2015-03-10T21:00:42.000Z</published>
-    <updated>2019-06-08T04:14:13.556Z</updated>
-    
-    <content type="html"><![CDATA[<p>Javascript 裡有個比較少用的 keyword “delete”，主要的作用是刪除 Object 中的 Property。</p><p><strong>The delete operator removes a property from an object.</strong></p><p>特別需要注意的方法是他是無法刪除 variable 的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &quot;theObj&quot;;</span><br><span class="line">delete obj;</span><br><span class="line">console.log(obj); // print theObj</span><br></pre></td></tr></table></figure><p>主要的作用是能夠刪除 Javascript Object 中的 Property</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;x:&quot;abc&quot;, y:&quot;cde&quot;&#125;;</span><br><span class="line">console.log(obj); // Object &#123;x: &quot;abc&quot;, y: &quot;cde&quot;&#125;</span><br><span class="line">delete obj.x; // true</span><br><span class="line">console.log(obj); // Object &#123;y: &quot;cde&quot;&#125;</span><br></pre></td></tr></table></figure><p>同時這個 delete 是可以 return true or false 的，其代表的意義就是刪除成功或是刪除失敗。</p><p><strong>使用情境</strong> 會使用到這個 <code>delete</code> 是因為在 JQGrid 這個 Object 裡面，當 Option 的數量太大的時候，發 Ajax Request 的會暫存。 而解決方法，就是在取得參數之前，把相關的 variable 透過 delete 刪掉，避免 JQgrid 暫存 (也許這不是最好的解決方法)。</p><p>關於 Delete 還一篇完整的說明，記著先 <a href="http://perfectionkills.com/understanding-delete/" target="_blank" rel="noopener">Understanding Delete</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Javascript 裡有個比較少用的 keyword “delete”，主要的作用是刪除 Object 中的 Property。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;The delete operator removes a property from an object.&lt;/
-      
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://balicanta.tw/categories/Javascript/"/>
-    
-    
-      <category term="javascript" scheme="http://balicanta.tw/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hibernate ! Why?</title>
-    <link href="http://balicanta.tw/2015/03/05/hibernate-why/"/>
-    <id>http://balicanta.tw/2015/03/05/hibernate-why/</id>
-    <published>2015-03-04T20:00:38.000Z</published>
-    <updated>2019-06-08T04:18:52.354Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Why-Hibernate"><a href="#Why-Hibernate" class="headerlink" title="Why Hibernate"></a>Why Hibernate</h1><p>寫 Web applicantion 的時候，大多數的情境都某個 Domain Entity 進行 CRUD (Create, Read, Update, Delete)，這類型的SQL 寫多了生產力就會下降，如果你的Application 需要在不同的 database 運作就會顯得更痛苦。</p><p>其中一種解決問題的方式叫做 ORM，透過Object 的方式來映射 Database的相關欄位，當操作 CRUD 的時候只需要對 Object 進行操作，不需要透過 SQL 來處理，也是說 ORM 至少涵蓋了兩件事</p><ol><li>Database Field 與 Object Attribute 產生關聯</li><li>協助產生 CRUD 的 SQL</li><li>處理不同 Database 之間的語法差異，透過 <strong>Dialect</strong> 來解決</li></ol><p>在 Java 裡面使用 ORM 幾乎只有一個選擇就是用 Hibernate， Hibernate 的演進已經相當多年，從我大學 2008 年到現在 Hibernate 在 ORM 領域深入近十年，在各方便都已經相當成熟。</p><h1 id="JPA-And-Hibernate"><a href="#JPA-And-Hibernate" class="headerlink" title="JPA And Hibernate"></a>JPA And Hibernate</h1><p>JPA or Hibernate 這兩個概念在剛開始了解的時候，相當容易弄混，JPA 指的是一個通用的標準，但不包含實作，所以Hibernate 會有 JPA 的實作，其它 ORM 框架也會有。</p><hr><p>總的來說，透過 Hibernate 來處理 Object 和 Relational Database 之間的關係，可以讓程式的可讀性高一點，但是有副作用的，效能問題或是複雜一點的 Query 透過這樣的方式寫出來也沒好看到哪裡去，所以這幾年的走向開始慢慢往 JOOQ 這種協助產生 SQL 的 Libary，不過 JOOQ 要是需要收費的，這也是很困擾的一點。</p><p><a href="http://stackoverflow.com/questions/9881611/whats-the-difference-between-jpa-and-hibernate" target="_blank" rel="noopener">Reference</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Why-Hibernate&quot;&gt;&lt;a href=&quot;#Why-Hibernate&quot; class=&quot;headerlink&quot; title=&quot;Why Hibernate&quot;&gt;&lt;/a&gt;Why Hibernate&lt;/h1&gt;&lt;p&gt;寫 Web applicantion 的時候，大多數
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
     
     
   </entry>

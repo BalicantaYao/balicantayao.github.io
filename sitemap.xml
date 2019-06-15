@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://balicanta.tw/pratical-java/index.html</loc>
+    
+    <lastmod>2019-06-15T15:25:45.738Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://balicanta.tw/2019/06/15/java-basic/exception/</loc>
+    
+    <lastmod>2019-06-15T15:05:24.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://balicanta.tw/2015/06/21/praxis-16-know-the-mechanics-of-exception-control-flow/</loc>
+    
+    <lastmod>2019-06-15T14:54:03.655Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://balicanta.tw/2015/06/23/praxis-17-never-ignore-an-exception/</loc>
+    
+    <lastmod>2019-06-15T14:42:28.335Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://balicanta.tw/2015/06/24/praxis-18-never-hide-an-exception/</loc>
+    
+    <lastmod>2019-06-15T14:40:17.112Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://balicanta.tw/2015/05/19/practices-of-an-agile-developer/</loc>
     
     <lastmod>2019-06-08T04:41:28.220Z</lastmod>
@@ -75,13 +110,6 @@
     <loc>http://balicanta.tw/2014/08/25/praxis-1-understand-that-parameters-are-passed-by-value-not-by-reference/</loc>
     
     <lastmod>2019-06-08T04:34:31.445Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://balicanta.tw/2014/08/24/practical-java-intro/</loc>
-    
-    <lastmod>2019-06-08T04:34:19.261Z</lastmod>
     
   </url>
   
@@ -226,23 +254,9 @@
   </url>
   
   <url>
-    <loc>http://balicanta.tw/pratical-java/index.html</loc>
-    
-    <lastmod>2019-06-08T04:01:51.488Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://balicanta.tw/2013/11/03/the-wisdom-of-death-and-live-kp/</loc>
     
     <lastmod>2019-05-30T14:51:30.569Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://balicanta.tw/2015/06/20/open-source-enlightenment/</loc>
-    
-    <lastmod>2019-05-29T15:37:02.000Z</lastmod>
     
   </url>
   
@@ -254,7 +268,7 @@
   </url>
   
   <url>
-    <loc>http://balicanta.tw/2013/11/19/play-framework-fly-to-heroku/</loc>
+    <loc>http://balicanta.tw/2015/06/20/open-source-enlightenment/</loc>
     
     <lastmod>2019-05-29T15:37:02.000Z</lastmod>
     
@@ -262,6 +276,13 @@
   
   <url>
     <loc>http://balicanta.tw/2015/02/27/level-up-lunch-intro/</loc>
+    
+    <lastmod>2019-05-29T15:37:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://balicanta.tw/2013/11/19/play-framework-fly-to-heroku/</loc>
     
     <lastmod>2019-05-29T15:37:02.000Z</lastmod>
     
