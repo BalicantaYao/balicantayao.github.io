@@ -141,13 +141,18 @@
 
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-140793172-1', 'auto');
-  ga('send', 'pageview');
+  if (window.location.hostname != 'localhost' && window.location.hostname != '127.0.0.1') {
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-140793172-1', 'auto');
+    ga('send', 'pageview');
+  }
+
 </script>
+
 
 
 
@@ -257,6 +262,640 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/05/10/docker-workshop-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Balicanta Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Balicanta Yao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/05/10/docker-workshop-notes/" itemprop="url">Docker Workshop Notes</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-10T05:41:15+08:00">
+                2015-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DevOps/" itemprop="url" rel="index">
+                    <span itemprop="name">DevOps</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="What-is-Docker"><a href="#What-is-Docker" class="headerlink" title="What is Docker?"></a>What is Docker?</h1><p>Docker 以目前我的了解來看，和虛擬化是有相當程度的差異，Docker 和 VMWare 並非取代的關係，反而是互相輔助。</p>
+<p>一台實體機器上，可能會透過 <strong>Vagrant</strong> 來建立多個 <strong>VM</strong> 環境，而這每個 <strong>VM</strong> 裡面又存在多個 <strong>Docker Continer</strong>， Docker 的出現並不是為了取代 VM，就好比 Vagrant 的出現並不是為了取代 Virtual box 一樣。</p>
+<h1 id="Image-And-Container"><a href="#Image-And-Container" class="headerlink" title="Image And Container"></a>Image And Container</h1><p>基本上的類推可以透過 <strong>Class</strong> 與 <strong>Instance</strong> 的關係一樣， Image(Class) 之於 Container(Instance)。</p>
+<h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><p>這是 Docker 的靈魂檔案，裡面定義著想建立的 Image，源自於其它 Image(最基本的 Image 是 <code>Scratch</code>，就像 Java 的 <code>Object</code>) 以及其它需要搬到 Image 裡面的各種動作。</p>
+<h1 id="Docker-Networking-models"><a href="#Docker-Networking-models" class="headerlink" title="Docker Networking models"></a>Docker Networking models</h1><p>Docker 有一個特殊的網路結構：<br><img src="http://william-yeh.github.io/docker-workshop/slides/img/docker-bridge.jpg" alt></p>
+<ul>
+<li>每一個 container 都有自己獨自網段，而這個網段透過 docker0 這個 bridge 來連接。</li>
+<li>當 Container 之間無法相連的時候，就要上面這張圖，需要透過 container linking 或是 Port mapping 等技巧，來完成。</li>
+</ul>
+<h1 id="Command-List"><a href="#Command-List" class="headerlink" title="Command List"></a>Command List</h1><ul>
+<li>docker images – 列出機器上目前有的 Image</li>
+<li>docker ps – 觀察目前正在跑的 Container</li>
+<li>docker build – 建立 Docker image</li>
+<li>docker logs <code>continer name</code> – 觀察特定 Container 產出的 log</li>
+<li>docker run -d <code>image id</code> – 把 docker image 以 background 的方式跑起來</li>
+<li>docker inspect <code>image id</code> – 查看 image 相關的資訊</li>
+</ul>
+<p><img src="http://philipzheng.gitbooks.io/docker_practice/content/_images/cmd_logic.png" alt></p>
+<p><em>上完 <a href="http://william-yeh.github.io/docker-workshop/" target="_blank" rel="noopener">docker-workshop</a> 的筆記</em></p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+
+      
+
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/03/28/celery-as-daemon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Balicanta Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Balicanta Yao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/03/28/celery-as-daemon/" itemprop="url">讓 Celery 跑成 Daemon</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-28T05:10:56+08:00">
+                2015-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DevOps/" itemprop="url" rel="index">
+                    <span itemprop="name">DevOps</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在處理 Python 非同步作業或排程作業的時候，通常會使用 <a href="http://celery.readthedocs.org/en/latest/index.html" target="_blank" rel="noopener">Celery</a> ， 但預設啟動 Celery 是透過下列的方式：</p>
+<p><code>celery -A proj worker -l info</code></p>
+<p>如果沒有掛在 Screen 裡或是透過其它方式跑到背景，不小心關掉 console， celery 就會停止運作了，所以必須要讓 Celery Daemon 化，也不會太複雜，以下說明步驟：</p>
+<ol>
+<li>到 Github 上把 <a href="https://github.com/celery/celery/blob/3.1/extra/generic-init.d/celeryd" target="_blank" rel="noopener">Celeryd 的 script </a> 下載下來，放到 <code>/etc/init.d/celeryd</code> 。</li>
+<li>如果 Project 有使用到環境變數，而環境變數又剛好寫在 <code>.bashrc</code> 裡，記得在 celeryd 的檔案裡加一行 <code>source ~/.bashrc</code> 避免 Celery 啟動的時候，找不到相關的環境變數。</li>
+<li>接著把設定檔案放到 <code>/etc/default/celeryd</code>.</li>
+</ol>
+<p>`</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># Names of nodes to start most will only start one node:</span><br><span class="line">CELERYD_NODES=&quot;worker1&quot;</span><br><span class="line"></span><br><span class="line"># Absolute or relative path to the &apos;celery&apos; command:</span><br><span class="line"># 如果有使用 virtualenvs ，路徑可能會像這樣</span><br><span class="line">CELERY_BIN=&quot;&quot;/root/.virtualenvs/project/bin/celery&quot;&quot;</span><br><span class="line"></span><br><span class="line"># App instance to use</span><br><span class="line"># comment out this line if you don&apos;t use an app</span><br><span class="line">CELERY_APP=&quot;proj&quot;</span><br><span class="line"></span><br><span class="line"># Where to chdir at start. Django Project 的位置</span><br><span class="line">CELERYD_CHDIR=&quot;/var/www/proj&quot;</span><br><span class="line"></span><br><span class="line"># Extra command-line arguments to the worker</span><br><span class="line">CELERYD_OPTS=&quot;--time-limit=300 --concurrency=8&quot;</span><br><span class="line"></span><br><span class="line"># %N will be replaced with the first part of the nodename.</span><br><span class="line">CELERYD_LOG_FILE=&quot;/var/log/celery/%N.log&quot;</span><br><span class="line">CELERYD_PID_FILE=&quot;/var/run/celery/%N.pid&quot;</span><br><span class="line"></span><br><span class="line"># Workers should run as an unprivileged user.</span><br><span class="line">#   You need to create this user manually (or you can choose</span><br><span class="line">#   a user/group combination that already exists, e.g. nobody).</span><br><span class="line">#</span><br><span class="line">CELERYD_USER=&quot;celery&quot;</span><br><span class="line">CELERYD_GROUP=&quot;celery&quot;</span><br><span class="line"></span><br><span class="line"># If enabled pid and log directories will be created if missing,</span><br><span class="line"># and owned by the userid/group configured.</span><br><span class="line">CELERY_CREATE_DIRS=1</span><br></pre></td></tr></table></figure>
+<p>如果是透過 Root 權限來執行，<strong>必須</strong>要 <code>export C_FORCE_ROOT=&quot;true&quot;</code>，不然權限不合 Celery 也不會報錯。</p>
+<p>設定好以後，可以透過 <code>service celeryd start</code> 來啟動 celery 或是 <code>service celeryd stop</code> 來停止。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+
+      
+
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/03/27/java-unsigned-type/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Balicanta Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Balicanta Yao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/03/27/java-unsigned-type/" itemprop="url">Java Unsigned Type</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-27T04:21:07+08:00">
+                2015-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="What-is-unsigned-type"><a href="#What-is-unsigned-type" class="headerlink" title="What is unsigned type"></a>What is unsigned type</h3><p>unsigned type 是說，假設 int 能夠放 100 ~ -100，給了 int unsigend 就能夠處理 0~ 200 的數值，不需要拿一個 Long 來解決。 某些語言(Like C )是有支援 unsigned type ， 沒有 unsigned type 的缺點是必須要花兩倍的 memory 來處理一個相似的問題， 另外一個是可讀性的問題，當看到一個變數是 unsigend，就能清楚的知道，肯定不會有負數出現。</p>
+<h3 id="Why-Java-didn’t-support-unsigned-type"><a href="#Why-Java-didn’t-support-unsigned-type" class="headerlink" title="Why Java didn’t support unsigned type"></a>Why Java didn’t support unsigned type</h3><p>至於為什麼 Java 不支援，大概有<a href="http://stackoverflow.com/a/430357/3413444" target="_blank" rel="noopener">幾個原因</a>：</p>
+<ul>
+<li>Java 的設計者，想要單純化原始型別的處理。</li>
+<li>常用的情境下，大部分都不會是 unsigend 的情形。</li>
+</ul>
+<p>我認為比較真的理由，是單純化這種原始型別，不常用的情境，就不要過度設計了。</p>
+<h3 id="Modern-Java-handled-unsigned-type"><a href="#Modern-Java-handled-unsigned-type" class="headerlink" title="Modern Java handled unsigned type"></a>Modern Java handled unsigned type</h3><p>不過 Java8 開始以後，已經開始對 unsigned 支援了，當然不會是多一個 Type 叫 unsigned ，這影響可能會有點大。 另外在 Guava 裡面，也有提供 unsigned 支援：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UnsignedInteger newType = UnsignedInteger.valueOf(maxUnsigned);</span><br><span class="line">newType = newType.plus(UnsignedInteger.valueOf(&quot;1&quot;)); // Increment</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+
+      
+
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/03/18/anti-pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Balicanta Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Balicanta Yao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/03/18/anti-pattern/" itemprop="url">AntiPattern</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-18T05:41:11+08:00">
+                2015-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Patterns/" itemprop="url" rel="index">
+                    <span itemprop="name">Patterns</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>AntiPattern 衍生自 Design Pattern 的概念，將他翻譯為 “反面” 模式，我個人認為不太適用， AntiPattern 的英文說明是 <strong>An AntiPattern is a pattern that tells how to go from a problem to a bad solution.</strong> ，簡單的來說， AntiPattern 提供了一個不太理想的問題解決方法。</p>
+<p>一個解決方法要被列入為 AntiPattern ，也不是那麼容易，需要有幾個特性</p>
+<ol>
+<li>看起來非常的吸引人，看起來就像 Design Pattern 一樣吸引人。</li>
+<li>當試著把這個 Pattern 實用在 Application 以及會引來巨大的副作用(開發上、效能上)。</li>
+<li>會有一個相對應的 Design Pattern 可以來取代這個 AntiPattern。</li>
+</ol>
+<p>其實過去只是叫這些解決方法 “Bad Idea”,，但現在給一個更理想的名字叫 “AntiPattern”</p>
+<p>在學習上，學習這些 “Bad Ideas” 是相當有必要的，這些 AntiPattern 給我們一個提醒，怎麼樣的模式會造成不好的影響，我們可以透過哪些好的 Pattern 來修正。</p>
+<p>參考: <a href="http://c2.com/cgi/wiki?AntiPattern" target="_blank" rel="noopener">AntiPatterns</a></p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+
+      
+
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -386,6 +1025,7 @@
         
       
     </div>
+
     
     
     
@@ -401,15 +1041,11 @@
 
       
 
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
+      
 
 
       
+
 
       
       
@@ -552,6 +1188,7 @@
         
       
     </div>
+
     
     
     
@@ -567,15 +1204,11 @@
 
       
 
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
+      
 
 
       
+
 
       
       
@@ -710,6 +1343,7 @@
         
       
     </div>
+
     
     
     
@@ -725,15 +1359,11 @@
 
       
 
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
+      
 
 
       
+
 
       
       
@@ -871,6 +1501,7 @@
         
       
     </div>
+
     
     
     
@@ -886,15 +1517,11 @@
 
       
 
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
+      
 
 
       
+
 
       
       
@@ -1003,6 +1630,7 @@
         
       
     </div>
+
     
     
     
@@ -1018,15 +1646,11 @@
 
       
 
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
+      
 
 
       
+
 
       
       
@@ -1199,161 +1823,7 @@
         
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2014/02/15/guava-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/02/15/guava-intro/" itemprop="url">Guava - 序 - 千年傳統，全新感受</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-02-15T10:56:48+08:00">
-                2014-02-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>過去有機會接觸 Python，就會覺得 Python 寫起來舒服簡單輕快。但我們有很多時候不是說想用 Python 就可以用 Python 的，可能會有很多的原因，好比說接手的專案就不是用 Python，或是整個公司就習慣使用 Java 或是其它語言來開發，當然我是沒有機會去找到 .net 的工作。但在這時候，我們就會想個方法問問自己，Java 有沒有辦法讓他簡單一點、輕快一點、不要這麼嚴格麼，大家自己人好相處一點麼，於是就認識了我們的新朋友 <strong>Guava</strong>。</p>
-<p>Guava 到底是什麼鬼？ 我們在認識一個東西的時候，我們一定要先乖乖的看文件，而我自己很喜歡看類似各個 libary 的 philosophy，正巧 Guava 裡面有篇 <a href="https://code.google.com/p/guava-libraries/wiki/PhilosophyExplained" target="_blank" rel="noopener">PhilosophyExplained</a>，所以我們可以好好的認識的一下 Guava。</p>
-<p>Guava 是一個由 Google 來維護的 Open source project，同時也被 Google 用來進行公司產品 的開發，可以說 Guava 是 Google core utility libary，無論你進行什麼類型的專案，你肯定都能用上 Guava ，即便是可怕 Android…</p>
-<p>Guava 身為一個 core utility libary, 在思考什麼東西要進入 Guava 的時候大概有幾個思考的原則：<br> – 這個 feature 是不是能夠省下大量的 Code<br> – 能夠避免寫下難以 Debug 的 Cdoe<br> – 能不能改善可讀性<br> – 改善速度, 可能指 perfomance 或是開發速度</p>
-<p>而 Guava 的設計原則則是<br> – Guava 一直都在找一個 API 的最佳使用方式，當 Guava 不確定是否有最好的使用方式， Guava 會直到找到最佳方案才讓他進入 Guava.<br> – 在 method 以及 classes 的命名上保持清楚直覺的特性<br> – 鼓勵使用 Guava 的 user 能夠養成好的習慣<br> – 盡可能找出通用的解決方法，而不是針對每個個案解決<br> – 強調維護度</p>
-<p>從上面的特性我們大致上可以了解 Guava 想作到的事情<br> – Guava 不是一個 Framework, 他不解決架構上遇到的問題<br> – Guava 是一個 libary<br> – Guava 希望養成程序員好的習慣，在細節上<br> – Guava 簡化一些 Java 廢話太多的問題<br> – Guava 希望讓 Code 的維護度提升</p>
-
-          
-        
-      
-    </div>
     
     
     
@@ -1369,480 +1839,11 @@
 
       
 
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
+      
 
 
       
 
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2013/11/19/play-framework-fly-to-heroku/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/11/19/play-framework-fly-to-heroku/" itemprop="url">讓 Play Framework 飛上 Heroku</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-11-19T12:23:23+08:00">
-                2013-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>假設你已經知道 heroku(其實不知道也沒差)？假設你已經會 Create Play framework 的 Project！那就超簡單的！步驟如下：</p>
-<ol>
-<li>建立一個 Play Framework <a href="http://balicanta.com/2013/11/12/play-framework-%E8%B5%B7%E6%AD%A5%E8%B5%B0-%E5%AE%89%E8%A3%9D%E7%AF%87/" target="_blank" rel="noopener">參考一下</a></li>
-<li>把建好的 Project, 塞入 Git</li>
-</ol>
-<p><code>git init</code></p>
-<p><code>git add .</code></p>
-<p><code>git commit -m &#39;init&#39;</code></p>
-<ol start="3">
-<li>記得申請個 heroku 的帳號</li>
-<li>透過 gem 來裝個 heroku</li>
-</ol>
-<p><code>gem install heroku</code></p>
-<ol start="5">
-<li>來一行這個</li>
-</ol>
-<p><code>heroku create --stack cedar</code></p>
-<ol start="6">
-<li>把你這的 master 推上</li>
-</ol>
-<p><code>git push heroku master</code></p>
-<blockquote>
-<p>Step 6 可能會遇到<code>Permission denied (publickey)</code>，別緊張打上這行<code>heroku keys:add ~/.ssh/id_rsa.pub</code>立馬解決。</p>
-</blockquote>
-<p>你就可以看到下面的畫面，代表成功飛上 heroku 囉！<br><img src="https://lh4.googleusercontent.com/-bVUwPxhQ5Rw/Uoo-iKnN4fI/AAAAAAACwAU/8q1-CGDiY14/s600/Screen%252520Shot%2525202013-11-19%252520at%25252012.20.24%252520AM.png" alt="enter image description here" title="Screen Shot 2013-11-19 at 12.20.24 AM.png"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2013/11/18/average-pefrfect-day/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/11/18/average-pefrfect-day/" itemprop="url">最佳化每一天</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-11-18T11:55:46+08:00">
-                2013-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>這個想法來自於 life hacker 上的一篇文章，標題是 <a href="http://lifehacker.com/schedule-your-average-perfect-day-to-set-life-goals-1461006828" target="_blank" rel="noopener">Schedule Your “Average Perfect Day” to Set Life Goals</a>，這個想法相當的務實。 我們常常立下了一個生活目標，好比說：今年我要瘦到 70 公斤，但天殺的我現在 87 公斤啊，根本不可能麼，所以我們我們可以把關鍵放在 <strong>average</strong> 這個字上面，首先我們可以問我們自己幾個問題</p>
-<p><strong>你平常起床的時間是幾點？</strong></p>
-<p><strong>你起床會作的第一件事是什麼？</strong></p>
-<p><strong>記得打開窗戶享受陽光，冥想一下嗎？</strong></p>
-<p><strong>你有沒有感謝，你身邊所有的東西？</strong></p>
-<p>這只是一些很普通的例子，但我想他說明了兩件事，其實要有一個完美一天並不是很難，只要你從一件又一件的小事著手就可以了，另外，其實你要有個完美的人生也不難，只要從這些小事開始著手就可以了。 而最重要的是，我們在設定目標的時候，只要想著我要把作一件小事作好五十年，而不是作一件大事一天就夠了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2013/11/10/stackedit-wordpress-coporate/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/11/10/stackedit-wordpress-coporate/" itemprop="url">Stackedit 與 wordpress 的完美結合</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-11-10T11:19:46+08:00">
-                2013-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Wordpress/" itemprop="url" rel="index">
-                    <span itemprop="name">Wordpress</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>身為一個工程獅、程序猿、碼農，無論你怎麼稱乎我們，我們都希望把所知道或是剛學到的新知識和別人分享或是記錄下來，但是常常編寫這些文件很容易遇到一些問題，然後就停住了。而隨著技術的進步，一直在協助我們解決這個問題，好比說 stackedit 的出現，或是說 logdown 這個台灣之光的降臨，都為技術人員撰寫技術文件，有顯著的幫忙。 我自己則是選用 stackedit 以及 wordpress 來解決這方面的問題。</p>
-<h4 id="關於編寫"><a href="#關於編寫" class="headerlink" title="關於編寫"></a>關於編寫</h4><p>相當簡單就是 Markdown,也沒什麼好說的，就是極為方便超級簡單。</p>
-<h4 id="關於貼圖"><a href="#關於貼圖" class="headerlink" title="關於貼圖"></a>關於貼圖</h4><p>這個貼圖在 stackedit 真的是一絕，你只要把你想貼的圖拉進 statckedit, 他會幫你作好以下這些事情：把圖上傳到 Google plus 的空間，把網址貼到你現在的編寫位置，然後在預覽的地方，你就可以看到這張圖，雖然很多 editor 都有這種功能，但我始終都覺得這真是科技的進步啊！ 立馬來貼張圖：</p>
-<p><img src="https://lh5.googleusercontent.com/-xFKGHAi8o-4/Uob9K597zOI/AAAAAAACvz8/ObourDrUZNE/s600/DSC02119.JPG" alt="enter image description here" title="DSC02119.JPG"></p>
-<h4 id="關於程式碼"><a href="#關於程式碼" class="headerlink" title="關於程式碼"></a>關於程式碼</h4><p><del>關於程序碼麼，裝了個 wordpress plugin <a href="http://wordpress.org/plugins/syntaxhighlighter/" target="_blank" rel="noopener">SyntaxHighlighter Evolved</a> 再透過 wordpress 預設的簡單語法，就可以呈現效果，下面來個範例</del><del> [code language=”java”]</del> <del> public class Hello {</del> <del> public static void main (String args[]) {</del> <del> System.out.println(“Hello Java”);</del> <del> }</del> <del> }</del> <del> [/code]</del><del> 缺點就是在 StatckEdit 的 preview，沒辦法呈現，必須要等到 publish 到 wordpress 才能看見結果。</del> 目前都是透過 Gists 加上 <a href="https://wordpress.org/plugins/pastacode/" title="pastacode" target="_blank" rel="noopener">pastacode</a> 來完成，Eclipse 也可以透過 Mylin 快速的把 Code Snippet 丟上 Gists，更簡單！</p>
-<h4 id="關於發佈"><a href="#關於發佈" class="headerlink" title="關於發佈"></a>關於發佈</h4><p>這個就超級容易的，只要記得在你的 wordpress 上裝個</p>
-<p><a href="http://wordpress.org/plugins/jetpack/" target="_blank" rel="noopener">jetpack plugin</a> ，輕鬆的在 Stackedit 按一下 publish 基本上就完成了。</p>
-<h4 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h4><p><del> 目前用到現在 Stackedit 搭上自架 wordpress 還沒有遇到什麼樣不能解決的問題，如果有問題會再紀錄下來。<del></del></del></p>
-<p>Update: 現在我全部搬到 Hexo 上來了 !</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-
-      
 
       
       
@@ -1861,7 +1862,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1907,7 +1908,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2003,6 +2004,7 @@
 
   
 </div>
+
 
 
   <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>

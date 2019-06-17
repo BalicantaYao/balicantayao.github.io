@@ -86,14 +86,14 @@
 
 <meta name="description" content="消失的 Exception在 Java 的開發裡面，常常會遇見 Exception 的連鎖效應，也就是當 Exception A 發生的時候，觸發了 Exception B 再觸發了 Exception C ，最後 Caller method 只會收到 Exception C ，無法知道 Exception A 才是真正的原因。 123456789public void demoException">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Praxis 18. Never hide an exception">
+<meta property="og:title" content="Praxis 18. 永遠不要隱藏任何一個異常">
 <meta property="og:url" content="http://balicanta.tw/2015/06/24/praxis-18-never-hide-an-exception/index.html">
 <meta property="og:site_name" content="Balicanta Yao">
 <meta property="og:description" content="消失的 Exception在 Java 的開發裡面，常常會遇見 Exception 的連鎖效應，也就是當 Exception A 發生的時候，觸發了 Exception B 再觸發了 Exception C ，最後 Caller method 只會收到 Exception C ，無法知道 Exception A 才是真正的原因。 123456789public void demoException">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-15T14:40:17.112Z">
+<meta property="og:updated_time" content="2019-06-16T15:54:51.553Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Praxis 18. Never hide an exception">
+<meta name="twitter:title" content="Praxis 18. 永遠不要隱藏任何一個異常">
 <meta name="twitter:description" content="消失的 Exception在 Java 的開發裡面，常常會遇見 Exception 的連鎖效應，也就是當 Exception A 發生的時候，觸發了 Exception B 再觸發了 Exception C ，最後 Caller method 只會收到 Exception C ，無法知道 Exception A 才是真正的原因。 123456789public void demoException">
 
 
@@ -138,20 +138,25 @@
 </script>
 
 
-  <title>Praxis 18. Never hide an exception | Balicanta Yao</title>
+  <title>Praxis 18. 永遠不要隱藏任何一個異常 | Balicanta Yao</title>
   
 
 
 
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-140793172-1', 'auto');
-  ga('send', 'pageview');
+  if (window.location.hostname != 'localhost' && window.location.hostname != '127.0.0.1') {
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-140793172-1', 'auto');
+    ga('send', 'pageview');
+  }
+
 </script>
+
 
 
 
@@ -291,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Praxis 18. Never hide an exception</h1>
+          <h1 class="post-title" itemprop="name headline">Praxis 18. 永遠不要隱藏任何一個異常</h1>
         
 
         <div class="post-meta">
@@ -350,6 +355,7 @@
 
       
     </div>
+
     
     
     
@@ -367,12 +373,10 @@
       
       
 
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4809294546416982" data-ad-slot="8254593804"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+      
+            <iframe data-v-b66e9a5a src="https://button.like.co/in/embed/balicanta-yao/button?referrer=http://balicanta.tw/2015/06/24/praxis-18-never-hide-an-exception/index.html" frameborder="0" class="lc-margin-top-64 lc-margin-bottom-32 lc-mobile"></iframe>
 
+      
 
 
       
@@ -389,13 +393,14 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/26/how-to-test-throw-exception/" rel="prev" title="如何測試會拋出 Exception 的 Method">
-                如何測試會拋出 Exception 的 Method <i class="fa fa-chevron-right"></i>
+              <a href="/2015/06/25/praxis-19-consider-the-drawback-to-the-throws-clause/" rel="prev" title="Praxis 19. Consider the drawback to the throws clause.">
+                Praxis 19. Consider the drawback to the throws clause. <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
         </div>
       
+
 
       
       
@@ -468,7 +473,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -580,6 +585,7 @@
 
   
 </div>
+
 
 
   <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>

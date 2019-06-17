@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Balicanta Yao">
 <meta property="og:description" content="Practical Java 是本老書 (February 11, 2000) 了，候捷翻譯的中譯本已經絕版了，英文版也不好取得(太貴、要預定)，所以我只能從網路上取得(?!)，版權之神請原諒我 後來我在露天花了 1 千塊買了侯捷的中文版，這是我第一次看過電腦書會漲價的。 談起這本書，其實有點慚愧，他是一個很基本的書籍，談論 Java 這幾乎是本必讀的書籍，而從大學開始接觸 Java ，但一直都">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-15T15:25:45.738Z">
+<meta property="og:updated_time" content="2019-06-16T15:53:53.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Practical Java 筆記">
 <meta name="twitter:description" content="Practical Java 是本老書 (February 11, 2000) 了，候捷翻譯的中譯本已經絕版了，英文版也不好取得(太貴、要預定)，所以我只能從網路上取得(?!)，版權之神請原諒我 後來我在露天花了 1 千塊買了侯捷的中文版，這是我第一次看過電腦書會漲價的。 談起這本書，其實有點慚愧，他是一個很基本的書籍，談論 Java 這幾乎是本必讀的書籍，而從大學開始接觸 Java ，但一直都">
@@ -145,13 +145,18 @@
 
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-140793172-1', 'auto');
-  ga('send', 'pageview');
+  if (window.location.hostname != 'localhost' && window.location.hostname != '127.0.0.1') {
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-140793172-1', 'auto');
+    ga('send', 'pageview');
+  }
+
 </script>
+
 
 
 
@@ -309,10 +314,10 @@
 <li><a href="/2015/06/21/praxis-16-know-the-mechanics-of-exception-control-flow/" title="Praxis 16: Know the mechanics of exception control flow.">Praxis 16: Know the mechanics of exception control flow.</a></li>
 <li><a href="/2015/06/23/praxis-17-never-ignore-an-exception/" title="Praxis 17: Never ignore an exception.">Praxis 17: Never ignore an exception.</a></li>
 <li><a href="/2015/06/24/praxis-18-never-hide-an-exception/" title="Praxis 18: Never hide an exception.">Praxis 18: Never hide an exception.</a></li>
-<li>Praxis 19: Consider the drawback to the throws clause.</li>
-<li>Praxis 20: Be specific and comprehensive with the throws clause.</li>
-<li>Praxis 21: Use finally to avoid resource leaks.</li>
-<li>Praxis 22: Do not return from a try block.</li>
+<li><a href="/2015/06/25/praxis-19-consider-the-drawback-to-the-throws-clause/" title="Praxis 19: Consider the drawback to the throws clause.">Praxis 19: Consider the drawback to the throws clause.</a></li>
+<li><a href="/2015/06/27/praxis-20-be-specific-and-comprehensive-with-the-throws-clause/" title="Praxis 20: Be specific and comprehensive with the throws clause.">Praxis 20: Be specific and comprehensive with the throws clause.</a></li>
+<li><a href="/2015/06/29/praxis-21-use-finally-to-avoid-resource-leaks/" title="Praxis 21: Use finally to avoid resource leaks.">Praxis 21: Use finally to avoid resource leaks.</a></li>
+<li><a href="/2015/06/30/praxis-22-do-not-return-from-a-try-block/" title="Praxis 22: Do not return from a try block.">Praxis 22: Do not return from a try block.</a></li>
 <li>Praxis 23: Place try/catch blocks outside of loops.</li>
 <li>Praxis 24: Do not use exceptions for control flow.</li>
 <li>Praxis 25: Do not use exceptions for every error condition.</li>
@@ -378,6 +383,7 @@
     
     
     
+
   </div>
 
 
@@ -426,7 +432,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -522,6 +528,7 @@
 
   
 </div>
+
 
 
   <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>

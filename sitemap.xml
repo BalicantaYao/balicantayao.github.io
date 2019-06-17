@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://balicanta.tw/2015/06/24/praxis-18-never-hide-an-exception/</loc>
+    
+    <lastmod>2019-06-16T15:54:51.553Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://balicanta.tw/pratical-java/index.html</loc>
     
-    <lastmod>2019-06-15T15:25:45.738Z</lastmod>
+    <lastmod>2019-06-16T15:53:53.165Z</lastmod>
     
   </url>
   
@@ -30,9 +37,30 @@
   </url>
   
   <url>
-    <loc>http://balicanta.tw/2015/06/24/praxis-18-never-hide-an-exception/</loc>
+    <loc>http://balicanta.tw/2015/06/25/praxis-19-consider-the-drawback-to-the-throws-clause/</loc>
     
-    <lastmod>2019-06-15T14:40:17.112Z</lastmod>
+    <lastmod>2019-06-15T14:40:17.104Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://balicanta.tw/2015/06/27/praxis-20-be-specific-and-comprehensive-with-the-throws-clause/</loc>
+    
+    <lastmod>2019-06-15T14:40:17.100Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://balicanta.tw/2015/06/30/praxis-22-do-not-return-from-a-try-block/</loc>
+    
+    <lastmod>2019-06-15T14:40:17.093Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://balicanta.tw/2015/06/29/praxis-21-use-finally-to-avoid-resource-leaks/</loc>
+    
+    <lastmod>2019-06-15T14:40:17.088Z</lastmod>
     
   </url>
   
