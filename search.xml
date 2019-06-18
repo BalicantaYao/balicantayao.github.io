@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[為什麼我選擇使用 Like Coin]]></title>
+    <url>%2F2019%2F06%2F20%2Fwhy-i-choose-like-coin%2F</url>
+    <content type="text"><![CDATA[從 Medium 撤退在過去一年 Medium 幾乎是爆紅的狀況，大部分的筆記都放到 Medium 上，但不知怎麼的，就在某一天上班遲到的早晨，突然覺得工程師的 Blog 放在 Medium 感覺哪裡怪怪的，畢竟 FreeCodeCamp 也撤離了 Medium。 後來我試著使用 Hexo 寫作體驗真的非常驚喜，我可以在我常用 Intellij 直覺的寫作，產生 static site , deploy 都不麻煩。 最重要的是那種所有的內容都擁有的感覺，還有 Hexo 的作者是個台灣人，謝謝 Tommy 大大。 試著裝上 Google Adsense這整個 Site 除了花了我的時間外，還花了我 700 塊台幣，是用來買 balicanta.tw 這個 Domain，我只有一個小小的期待，如果這個 Site 扣掉我花的時間，可以不要花其它的費用，這樣一個簡單的期待。 我試著使用 Google Adsense，但廣告真的跑起來以後，整個閱讀體驗實在不是很舒服，所以我開始尋找有沒有除了廣告以外，有機會滿足我小小期待的方法。 於是我發現了 Like Coin我本來對區塊鍊、數字貨幣這類型的概念其實是非常反感的，因為我覺得 ICO 終究是一場騙局，大家明顯的在賺快錢，區塊鍊並沒有實際落地的應用，很有可能是我認識的不夠深刻。 而我選擇放 Like Coin 在 Blog 上，實際上是一個非常矛盾的決定，Like Coin 換成新台幣的路線其實非常的漫長，可能需要先換成 BTC 再換成 TWD，是不是真的能預期的每年幫我賺 700 塊台幣，我是很沒有把握的。 但是我想如果每個閱讀者都能在我的文章上，幫我點個 Like ，我想對寫作者是很大的鼓勵，而這些 Like Coin 最後能拿到多少就看運氣吧，也許可能跟其它的 ICO 一樣會變的一文不值。 我其實想再相信幾件事： 世界上真的有人是為了理想在做事，如果有，我是不是應該用我的方法支持他 我相信使用者是會為了有價值的內容而鼓勵作者。 如果你還沒有註冊 Like Coin，你可以透過我的連結申請 https://like.co/ref/balicanta-yao，這樣我會得到接近 0.01 美金的回饋，而你不用付出任何一塊錢。 如果這篇文章給你一點想法，你也可以幫我拍 5 下。]]></content>
+      <categories>
+        <category>LikeCoin</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[StringUtils isBlank 以及 isEmpty 的差別]]></title>
+    <url>%2F2019%2F06%2F18%2Fstringutils-isblank-isempty%2F</url>
+    <content type="text"><![CDATA[常用的 Apache Commons StringUtils 裡有兩個常常容易搞混的方法 isBlank 以及 isEmpty。 isBlankisBlank 是判斷這個字串是否為 內容空白字串 12345StringUtils.isBlank(null) = trueStringUtils.isBlank("") = trueStringUtils.isBlank(" ") = trueStringUtils.isBlank("bob") = falseStringUtils.isBlank(" bob ") = false isEmptyisEmpty 是判斷這個字串是否為 空字串 12345StringUtils.isEmpty(null) = trueStringUtils.isEmpty("") = trueStringUtils.isEmpty(" ") = falseStringUtils.isEmpty("bob") = falseStringUtils.isEmpty(" bob ") = false 關鍵差異在空格字串裡的判斷上，兩個有關鍵的不一樣。 123StringUtils.isBlank(" ") = trueStringUtils.isEmpty(" ") = false]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Java 異常類別]]></title>
+    <url>%2F2019%2F06%2F15%2Fjava-basic%2Fexception%2F</url>
+    <content type="text"><![CDATA[在程式開發的過程中，常常會遇到一些異想不到的錯誤，例如： 使用者輸入了一個你猜也沒猜到的數值 要把資料寫到檔案裡，但發現磁碟空間不夠 需要連上網路去抓一個檔案，但電腦現在沒有接上網路 無論這些異想不到的錯誤，是屬於使用者造成的，或是使用者的電腦軟硬體造成，Java 將這些狀況，視為例外或是異常，也是 Exception。 Java 將 Exception 分為三個主要的類別： 必須處理的異常(Checked Exception) 程式運作期間的異常(Runtime Exception) 錯誤 (Errors) 必須處理的異常(Checked Exception)這類型的異常最大的特色是，在編輯期間會強迫開發人員處理，最常見的例子是 FileNotFoundException 找不到檔案的異常，例如想要使用 FileReader 去讀取一個檔案的時候，編譯器(Compiler) 會強迫開發者處理這個異常。 123456789101112import java.io.File;import java.io.FileReader;public class FileNotFound_Demo &#123; public static void main(String args[]) &#123; File file = new File("E://file.txt"); // FileReader 建構子會丟出 FileNotFoundException // 因為這段程式並沒有處理 FileNotFoundException，所以無法編譯 FileReader fr = new FileReader(file); &#125;&#125; 程式運作期間的異常(Runtime Exception、 Unchecked Exception)這類型的異常編譯器並不會強迫開發者處理，所以被稱作為 Unchecked Exception 或是 Runtime Exception。最常見的就是 ArrayIndexOutOfBoundsException。 12345678public class Unchecked_Demo &#123; // 這段程式碼是可以編譯，但是執行後會產生 ArrayIndexOutOfBoundsException public static void main(String args[]) &#123; int num[] = &#123;1, 2, 3, 4&#125;; System.out.println(num[5]); &#125;&#125; 錯誤 (Errors)錯誤與異常可以說是完全不同的東西，錯誤有幾個特性： 嚴重程度比較高 程式比較難處理的 難以恢復的 常見的例如，透過遞迴解決問題時候要小心的 StackOverFlowError： 12345678910111213141516171819202122class StackOverflow &#123; public static void test(int i) &#123; // No correct as base condition leads to // non-stop recursion. if (i == 0) return; else &#123; test(i++); &#125; &#125; &#125; public class ErrorEg &#123; public static void main(String[] args) &#123; // eg of StackOverflowError StackOverflow.test(5); &#125; &#125;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[安裝 Hexo]]></title>
+    <url>%2F2019%2F05%2F28%2Finstall-hexo%2F</url>
+    <content type="text"><![CDATA[每隔幾年就會想起來，自己曾經會紀錄一點的東西，而東西都是散落的，從一開始的 Wordpress、Ghost、Medium，到最後什麼都沒有繼續下去，非常符合我很容易放棄的個性。 在一個早晨的沖澡中突然又想起了這件事，啊，我該記錄點什麼吧？不是有寫 Medium 嗎？我又覺得 Medium 不知道哪裡不對勁，可能是最近 Medium 人太多太熱鬧，我喜歡遠離人群。 找著找著我發現 static site generator 好像比較符合我現在的感覺，儘管幾年前用 Jeklly 的感覺不太好。 安裝 Hexo 裝 NPM 裝 Git 1npm install hexo-cli -g 創建 Hexo1hexo init 建立文章12345## 建立草稿hexo new draft &lt;title&gt;## 建立 Posthexo new post &lt;title&gt; 啟動 Hexo Server12包含 Draftshexo server --draft 部署12345## 先產生hexo g## 後部署hexo d]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Read Excel File Using POI Meet GC overhead limit exceeded]]></title>
+    <url>%2F2016%2F08%2F24%2Fread-excel-file-using-poi-meet-gc-overhead-limit-exceeded%2F</url>
+    <content type="text"><![CDATA[First about gc overhead http://stackoverflow.com/questions/33368612/gc-overhead-limit-exceeded-with-apache-poi]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[產出 SVN Diff List]]></title>
+    <url>%2F2016%2F01%2F25%2Fchan-chu-svn-diff-list%2F</url>
+    <content type="text"><![CDATA[產出版本間檔案差異列表 svn diff -r 103791:104066 --summarize 產出版本間檔案差異明細 svn diff -r 103791:104066 &gt;&gt; change-list-20160125.txt]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[JBoss EAP Connection Pool Validation 設定]]></title>
+    <url>%2F2015%2F12%2F25%2Fjboss-connection-pool%2F</url>
+    <content type="text"><![CDATA[Database connection pool 在應用系統中是個普遍會採用的設定，使用 Connection pool 的好處就像使用環保餐具一樣，用過的 Connection 不丟棄 注，每次重新建立 Database Connection 的成本太大，所以應用系統中通常都會設定 Database Connection Pool。 Database connection pool 可以從 Application 設定，也可以從 AP Server 來設定，如果在 Application 設定，通常使用 DBCP，如果讓各 AP Server 來設定，那設定方式可能就有些不一樣。 最近使用 JBoss 來設定 Database connection pool 的時候，發現有這麼一個情形，如果 Database shutdown 以後， connection pool 並不會自己重新 reconnect，直到重啟 Server 為止。後來才知道，原來 JBoss EAP Connection pool 的設定不特別設定，是不會自己重連的。 Connection Pool Validation 設定 Valid Connection Checker - 各家 Database 對於 Connection Valid 的機制可能有一些差異，所以會有不同的 Checker。 Oracle: org.jboss.resource.adapter.jdbc.vendor.OracleValidConnectionChecker SQLServer: org.jboss.jca.adapters.extensions.mssql.MSSQLValidConnectionChecker Check Valid SQL - 用來檢查 Connection 是否正常運作的 SQL。 Valid on match - 已經接上的 Connection 是否需要檢查，這個值似乎在 Background Validation 出現後，就不是這麼需要在意了，預設為 True。 Background Validation - 這是新版 JBoss (After 4.0.5) 才有的設定值，在處理 Valid Connection 的時候，會開另外一個 Thread 來處理，如果設定了Validation Mills 那這個值就必須為 True。 Validation Mills - 多久檢查一次。]]></content>
+      <categories>
+        <category>JBoss</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Intellij 小秘訣]]></title>
+    <url>%2F2015%2F12%2F13%2Fintellij-tips%2F</url>
+    <content type="text"><![CDATA[今年 Intellij 幾乎已經完全取代 Eclipse 成為我工作上的 IDE，一開始其實只是因為 Eclipse 沒辦法提供透過 Camel case 的方式來找到特定的 class，所以才開始找別的 IDE ，不過現在 Eclipse 似乎也行了。 慢慢的用著 Intellij 發現 JetBrain 真的是很用心在做這個 IDE，很多小細節都幫忙處理了，不過缺點還是相對吃了多一點的資源，還有些人會介意需要安裝。 用 Intellij 有幾個好處： 如果你會有多語言的需求 ( Python, Javascript..) Hotkey 記一次就行了，因為 Jetbrain 有出 Pycharm、Webstrom 等其它 IDE，就是要錢就是了 以前還會用一下 DBVisulizer 來當作 DBMS，但現在 Intellij 也把 DBMS 整進來了，雖然還是沒有 DBVisulizer 好用，但查查資料，下下 SQL 也算是可以用了。 每個動作，幾乎都找得相對應的 Hotkey 來解決，不用一直玩滑鼠。 貼心的 Debug 功能，在你下中斷點的時候，會將所有的變數內容顯示在該行後方。 強大的 Plugin 像 IdeaVim 這個就整合的非常好。 待改進： 在 Mac 裡 Intellij 對於中文輸入法的辨識有點怪怪的。]]></content>
+      <categories>
+        <category>IntelliJ</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[JPA 中 GeneratedValue 的三種策略]]></title>
+    <url>%2F2015%2F11%2F09%2Fjpa-generated-value%2F</url>
+    <content type="text"><![CDATA[Hibernate 中指定 Primary Key 的方法通常在 Hibernate 中定義一個簡單的 Pojo @Entity 表示是一個對應到 Database Table 的 Object。 @Id 指定某個欄位為 Primary Key，如果沒有指定會出現錯誤。 @GeneratedValue 指定 ID 的生成方式。 123456@Entitypublic class City implements Serializable&#123;@Id@GeneratedValue(strategy = GenerationType.AUTO)private Long id;&#125; 關於 GeneratedValue 的產生策略其實在定義 Hibernate 所需要的 Class 的時候，是可以不定義 GeneratedValue，而 Hibernate 所對應的，就是一個 not null 的整數，但這樣在 Insert 資料的時候必須要自己指定 ID，比較少的情境會這麼做，通常會希望 ID 可以自行生成，這也就是為什麼常常看到 @Id和 @GeneratedValue 經常性的並存。 也因為 Hibernate 會遇見不同的 Database 所以在處理 GeneratedValue，容納了不同 Database 的考量。 #### GenerationType.IDENTITY常見的 Mysql, MSSQL 都是常用這種方式，相對應的 DDL Script 長這樣子，也就是自增量的意思。id BIGINT NOT NULL AUTO_INCREMENT #### GenerationType.SEQUENCE在使用這種策略來產生 ID 的時候，通常會給入另一個 Annotation @SequenceGenerator, 會類似下面的定義方式 123@Id@SequenceGenerator( name = &quot;userSeq&quot;, sequenceName = &quot;user_id&quot;, allocationSize = 1, initialValue = 1 )@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = &quot;userSeq&quot;) 在 Hibernate 裡面即便忘了指定 generator 也不會出錯，猜測應該是給了一組預設的 generator。有人也建議在 Postgrel 裡面不應該用 GenerationType.SEQUENCE #### GenerationType.TABLE這種策略比較少見一些，當不希望應用程式與某一種 Database Engine 綁死的時候，可以使用這種方法，透過另外一個表格來定義 ID，從 SQL script 來看會建立出下面這張表： 123456CREATE TABLE APP_SEQ_STORE(APP_SEQ_NAME VARCHAR(255) NOT NULL,APP_SEQ_VALUE BIGINT NOT NULL,PRIMARY KEY(APP_SEQ_NAME)); 也就是多個資料表的 ID 都會往這個表裡面放，而 Hibernate 的定義會增加一個 TableGenerator 的 Annotation 來決定，應該和哪個 Table 對應。 1234@Id@TableGenerator(...)@GeneratedValue( strategy = GenerationType.TABLE, generator = &quot;appSeqStore&quot; )private Long id; Reference: 3 Ways Of Generating Primary Key Through @GeneratedValue]]></content>
+      <categories>
+        <category>JPA</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Praxis 22. Do not return from a try block]]></title>
+    <url>%2F2015%2F06%2F30%2Fpraxis-22-do-not-return-from-a-try-block%2F</url>
+    <content type="text"><![CDATA[不要在 Try Catch 中執行 return離開 try 區塊有三種可能： 拋出異常 try 區塊正常的結束 在 try 區段執行了 return, break 或是 continue。 然後千萬要記住 無論是否 catch exception ，都將進入 finally block。 1234567public int confusedReturn()&#123; try&#123; return 2; &#125; finally&#123; return 4; &#125;&#125; 這段程式碼很容易讓人混亂，到底最後回傳 2 還是回傳 4 ( 答案是回傳 4 )。過去以為看到 return 程式會立即回傳，在這樣的條件下就失效了，也因為這個原因會讓開發者的除錯變得相當困難。 為了避免這樣的情形發生，盡可能不要在 Try catch 的 block 進行 return。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Praxis 21. Use finally to avoid resource leaks.]]></title>
+    <url>%2F2015%2F06%2F29%2Fpraxis-21-use-finally-to-avoid-resource-leaks%2F</url>
+    <content type="text"><![CDATA[Finally 的實用性從過去幾個 Praxis 可以得知無論是否 catch exception 都會執行 finally，這樣的特性在兩個情境下特別的實用： 維護物件內部的狀況 清理 non-memory 的資源 如果打開一個 Socket 或是 File ，都可能會拋出 IOException 這個時候 finally 就會顯現用處。 12345678public static void main (String args[])&#123; ServerSocket serverSocket = new ServerSocket(199); try&#123; Socket socket = serverSocket.accept(); &#125; finally&#123; socket.close(); &#125;&#125; 無論是否產生 IOException 都會跑到 finally 裡面，把 socket 關掉，確保資源不會洩露。 Java 7 中的 Try With ResourcesJava 7 後有一項小修正稱作 Try-with-resources ，也就是在離開 Try 區塊的時候，自動關閉資源，這在其它語言像 Python，其實都已經有實作了，主要原因是開發者還是很容易會忘記要 close resource，所以從 Java 7 以後，這類型的程式碼可以這樣寫： 12try(OutputStream output = new FileOutputStream(file))&#123;&#125; 如此一來簡單許多，就不會忘記關 resource 了！ Try With Resources 實現原理這類型的 resource ，在 Java 7 其實都實現了一個 AutoCloseable 的 interface ，這個 interface 就只有一個很簡單的方法就是 close，所以應該是在 compile 處理的時候會在 bytecode 自動加上這段程式碼，以解決開發者老是忘了處理 resource 的問題。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Praxis 20. Be specific and comprehensive with the throws clause.]]></title>
+    <url>%2F2015%2F06%2F27%2Fpraxis-20-be-specific-and-comprehensive-with-the-throws-clause%2F</url>
+    <content type="text"><![CDATA[盡可能拋出細部的異常在 Java 的設計裡面，異常也具備繼承體系，所以下面的例子是可以通過 Compile 的。 123456789101112class ParentException&#123;&#125;class SubException extends ParentException&#123;&#125;public class compileExceptionDemo&#123; public void throwException(int num) throws ParentException &#123; if (num &gt; 0)&#123; throw new ParentException(); &#125; else &#123; throw new SubException() &#125; &#125;&#125; 這樣的寫法，對於 Method 的調用者，無法清楚的明白，這個 Method 會產生的所有異常，比較好的 Method Signature 是下面這種： 1public void throwException(int num) throws ParentException, SubExceptions 你需要把所有 Exception 明確的寫出來，在 method signature 寫出來。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[如何測試會拋出 Exception 的 Method]]></title>
+    <url>%2F2015%2F06%2F26%2Fhow-to-test-throw-exception%2F</url>
+    <content type="text"><![CDATA[拋出 Exception 的方法在開發的過程中，難免會遇到一些方法，不會有直接的回傳結果，也許只會在過程中會產生 Exception，正常執行以後，並不會有任何反應，這時候透過傳統的 Assert 沒有辦法測出想要測試的內容。 12345public void checkEmptyUserName(String username)&#123; if(StringUtils.isBlank(userName))&#123; throws new LoginFailedException(&quot;Username is empty!&quot;); &#125;&#125; Junit RuleJunit Rule 從 Junit 4.7 以後開始提供，主要提供了這種非典型需求的解決辦法， Rule 主要有幾種功能： 對方法的測試時間設置 Timeout 測試方法是否拋出預期的異常 ExpectedException 避免方法預到錯誤就停下來，可以透過 ErrorCollector 蒐集起來 … 需要測試 Exception 是否如預期的產生，我們當然就是透過 ExpectedException 來處理： 1234567891011121314public static class verfiyExceptionTest&#123; @Rule public ExpectedException thrown= ExpectedException.none(); @Test public void throwsExceptionWithMessage() &#123; // 預期 LoginFailed 會產生以及對應的 Exception message thrown.expect(LoginFailedException.class); thrown.expectMessage(startsWith(&quot;UserName&quot;)); // 執行測試 checkEmptyUserName(StringUtils.Empty); &#125;&#125; 透過 ExpectedException 的協助，不單可以測試出是否測出預期的 Exception 同時也可以確認 Exception message 是否如預期，在測試的粒度上，又往前了一步。]]></content>
+      <categories>
+        <category>UnitTest</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Praxis 19. Consider the drawback to the throws clause.]]></title>
+    <url>%2F2015%2F06%2F25%2Fpraxis-19-consider-the-drawback-to-the-throws-clause%2F</url>
+    <content type="text"><![CDATA[Throws 給開發者帶來的好處透過 Throws 的幫助，開發者可以一眼在 method signature 看出，這個 method 可能產生什麼副作用，這是一個理想的情況下，但有時候會發現有的開發者會這麼作： 12public void theCalling() throws Exception&#123;&#125; 這樣的資訊，能透露的訊息相當有限，絕大部分可能是偷懶所造成。 當 Worker Method 不小心產生了一個新的 exceptionWorker method 指的是一些基礎的方法，到處都會調用到的，整個 Project 裡調用的比例非常高，像是 logging method 、某些 util 的方法。 試想像一個情境，你手邊的專案開發了四年，已經有成千上萬行程式碼， logging method 也被調用過無數次了，此時 logging method 需要調整為 log to cloud ，所以他會增加多個不同的 exception ，這時候，可能有兩種方法可以解決： logging method 自行 catch ，解決這個問題。 讓 logging method 往外拋，在 method signature 加上 throws。 如果這些新出現的 exception 都是 logging method 可以 handle 的，那問題也許不會太嚴重，一但有些 exception 是 logging method 無法處理的，必須要往外拋，那他一連串的調用方就都需要調整，這變動的程度可以說是相當的大。 在專案開始的時候， Exception 的設計必須要小心，但在軟體以及外圍環境極速變動的狀況下，即便設計的很完整，還是有可能會發生悲劇，所以要清楚的了解 throws 帶來的好與壞。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Praxis 18. 永遠不要隱藏任何一個異常]]></title>
+    <url>%2F2015%2F06%2F24%2Fpraxis-18-never-hide-an-exception%2F</url>
+    <content type="text"><![CDATA[消失的 Exception在 Java 的開發裡面，常常會遇見 Exception 的連鎖效應，也就是當 Exception A 發生的時候，觸發了 Exception B 再觸發了 Exception C ，最後 Caller method 只會收到 Exception C ，無法知道 Exception A 才是真正的原因。 123456789public void demoException() throws Exception&#123; try&#123; throw new (&quot;Exception A&quot;); &#125; catch (Exception e)&#123; throw new Exception(&quot;Exception B&quot;); &#125; finally &#123; throw new Exception(&quot;Exception C&quot;); &#125;&#125; 此時此刻，調用方只會收到 Exception C ，其它的 Exception 都被吞掉了。 NestableException 粉墨登場這個問題，老祖宗們都已經幫忙解決過了， Apache Common Lang 在 1.0 以後就提供了 NestableException，改寫上面的方法就會變成 1234567public void demoException() throws Exception&#123; try&#123; throw new (&quot;Exception A&quot;); &#125; catch (Exception e)&#123; throw new NestableException(&quot;Exception B&quot;, e); &#125; &#125; 最後再透過 e.printStackTrace(); 就可以將整體的 Exception 歷程給呈現出來。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Praxis 17. Never ignore an exception 永遠不要忽略異常]]></title>
+    <url>%2F2015%2F06%2F23%2Fpraxis-17-never-ignore-an-exception%2F</url>
+    <content type="text"><![CDATA[遇到異常的處理方式當 Java 產生一個異常的時候，處置的方式分為下列四種： 捕捉並處理，防止向 caller 擴散 ( Propagate ) 捕捉並再一次拋出，讓他向 caller 擴散 捕捉後，拋出一個新異常給 caller 不捕捉，讓他直接向 Caller 擴散 在 Checked Exception 後面三項的處理方式，Java 會強制要求在 method signature 加上 throw。 千萬不要把異常給吞了在開發的過程中，一定會出現某個 method 會拋出 Exception ，這時候 IDE 會貼心的提醒開發者，記得加上 Try catch ，然而最要命的就是加上下面這種： 1234try&#123; throw new IOException();&#125; catch (IOException exception) &#123;&#125; 在 catch 區塊完全不處理，一旦發生怪異的錯誤，是很難追查的，最少也得加上一行 logger ，以方便我們追查到底發生了什麼事，最好的狀況是加上 printStackTrace，stackTrace 會把我們發生的錯誤以 Stack 的方式來顯示，對追找錯誤是相當有幫助的。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Praxis 16. 理解異常處理的執行流程]]></title>
+    <url>%2F2015%2F06%2F21%2Fpraxis-16-know-the-mechanics-of-exception-control-flow%2F</url>
+    <content type="text"><![CDATA[Exception 的 control flowJava 的異常控制是有助於協助程式處理異常狀況的發生，儘管這些年來在 Checked Exception 和 Unchecked Exception 上有很多的討論，在各種設計上都建議減少 Checked Exception.但 Java 所設計的 Exception 對於異常狀況的發生，還是對程式的強健性 (Robust) 是有一定程度的提升。 在 Java 裡一旦發生 Exception ，程式的流程會往下列三個地方移動： Catch block finally block calling method 這樣的情形下，就發生了討厭的 Goto 行為(程式執行流程跳來跳去)，增加程式除錯的難度。 難以猜測程式執行流程12345678910111213public void m3(boolean isThrow)&#123; System.out.println("Enter m3"); try&#123; Button b3 = new Button(); if(isThrow)&#123; throw new IOException(); &#125; &#125; finally &#123; System.out.println("Enter m3 Finllay"); // 1 &#125; System.out.println("Exist m3"); // 2&#125; 上面的程式碼，呈現一個簡單的 try catch 情境，這個 try 並沒有 catch 只有 finally 區塊，而在 finally 區塊結束一行，再加上一行 Print 。 執行結果為： 12Enter m3 Enter m3 Finally 也就是說最行一行的 Exist m3 並沒有被執行，在執行完 finally 後，就離開了。 Try Catch 的執行原則 如果同時存在 catch block 以及 finally block ，一旦產生異常會先執行 catch block ，再執行 finally block，如果沒有 catch block 就會直接執行 finally block 如果沒有 catch block ，無論異常是否發生都會執行 finally block 如果異常發生，沒有被 catch ，無論是否執行 finally， 之後的 statement 將不被執行。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[開源之道，Open Source Enlightenment - 唐鳳]]></title>
+    <url>%2F2015%2F06%2F20%2Fopen-source-enlightenment%2F</url>
+    <content type="text"><![CDATA[illusion of transparency 透明度錯覺，以為別人知道自己的內心狀態 很容易成對的產生 fundamental attribution error ，別人做了一件事，就把他扣上一個帽子，也許只是一個特定的情境，才會產生這種行為，並非刻意 Rough ! Consensus 粗略的共識 共識不是壓倒別人的想法，否則可能會變成粗暴的共識 接受各種可能性 Be Bold 在 Internet 上得到正確答案的方法，不是問一個問題，而是說一個錯誤的答案。 萬事萬物都有缺口，缺口就是光的入口。 -Ofun Optimizing for Fun 的四個元素 穩定的支持 安全的空間 不受限制的活動 產生不同的看世界的看法 透過 Git Basic 來面對生活 Fetch new fact Merge with understanding Commit to an action Push it to the world]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[如何測試一個 Private 的方法？]]></title>
+    <url>%2F2015%2F06%2F13%2Fhow-to-test-private-method%2F</url>
+    <content type="text"><![CDATA[Private 方法真的需要測試嗎？這樣的討論通常都是兩邊都有道理， 兩派的意見分別為： Private 方法必然是很單純，所以應該是簡單到不能出錯，所以 不用測？ Private 方法有時候會有一些複雜度，所以還是需要測試。 我個人的意見是我認為 Private method 的粒度一定是相對來說比較小的，可以確保小範圍的測試是正確的，何樂不為？ Private 方法只能在自身 Class 讀取，該如何測試？回顧 Java 的 Access Level 看下表最為簡單清楚， ModifierClassPackageSubclassWorldpublicYYYYprotectedYYYNno modifierYYNNprivateYNNN可以透過 No Modifier 的特性，有些書本上會寫這是 default 或是 package level private 都是在指同一件事，就是在 Access Level 的地方留空，也就是一個 method 會從 private void hello() 變成 void hello()。這樣的好處是只要透過一樣的 Package path ，就可以讀取到 package level private 的方法。 但這樣的缺點的就是在語意和概念上，就是一個 private method 但我們在 code 的呈現上就會懷疑這個 default level 的 method 是不是少加了 private？ VisibleForTesting Annotation 登場在上面可能產生程式碼語意上的表達不清楚，於是就有了 @VisibleForTesting 來協助解決問題，而方法就會長得像： 1234@VisiableForTestingint add(int a , int b) &#123; return a + b;&#125; 盡管看起來有一點怪，但讀程式的人就可以了解，Access Level 被去掉的原因，可能是因為測試的關係，就不會擅自去加 private 導致測試無法正常運作。]]></content>
+      <categories>
+        <category>UnitTest</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[StringBuilder, StringBuffer 差異]]></title>
+    <url>%2F2015%2F05%2F26%2Fstringbuilder-stringbuffer-difference%2F</url>
+    <content type="text"><![CDATA[String 串接是寫程式很常會遇見的情境，在 Java 中，字串相加是最不理想方式，因為會產生大量 String Object 在 String Pool 中，比較建議的方式是透過 StringBuilder 或 StringBuffer 來完成任務，但兩個的差異看起來只有一點點，但會影響其使用情境。 共同點 兩者都繼承 AbstractStringBuilder ，所以底層實作都是以 char array 來完成。 兩者的方法幾乎一致。 差異點 StringBuffer 是 synchronized，亦代表為Thread-safe StringBuilder 不是 synchronized，代表 Performance 會比較 StringBuffer 好一點，但也代表 StringBuilder 是 non-thread-safe 的。 補充Apache LANG 779 issue 討論 ToStringBuilder 是否需要使用 StringBuffer。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>interview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[書摘：高效程序員的45個習慣]]></title>
+    <url>%2F2015%2F05%2F19%2Fpractices-of-an-agile-developer%2F</url>
+    <content type="text"><![CDATA[這本書是從多看上買來看的，睡前翻啊翻的慢慢的把他看完，其實也不是說了多麼高深的事情，就是強調一些程序員的想法，再搭配上一些敏捷的方法，不過說真的，這本書的確值得一讀。 李笑來老師在《把時間當作朋友》一書中提到：“所有學習上的成功，都只靠兩件事：策略和堅持，而堅持本身就應該是最重要的策略之一。” 當我們決定做一件事情的時候，首先就要多問問自己：為什麼要做這件事情？ 不管路走了多遠，錯了就要重新返回。 ——土耳其諺語 如果你沒有犯過任何錯誤，就說明你可能沒有努力去工作。 你必須把重點放在解決問題上，而不是去極力證明誰的主意更好。 用Les Brown的一句話說就是：“你不需要很出色才能起步，但是你必須起步才能變得很出色。 這裡建議你牢記亞里士多德的一句格言：“能容納自己並不接受的想法，表明你的頭腦足夠有學識。” 真正的敵人是變化。 開發者（及項目經理）能做的一個最重要的決定就是：判斷哪些是自己決定不了的，應該讓企業主做決定 記住Ted Neward的評論：對象—關係的映射就是計算機科學的越南戰場 需求就像是流動著的油墨 Requirements are as fluid as ink 解決方案是，在每4周的迭代中間安排一週的維護任務。沒有規定說迭代必須要緊挨著下一個迭代。 PIE原則，代碼必須明確說出你的意圖，而且必須富有表達力。這樣可以讓代碼更易於被別人閱讀 理解。代碼不讓人迷惑，也就減少了發生潛在錯誤的可能。一言以蔽之，代碼應意圖清晰，表達明確 代碼被閱讀的次數要遠超過被編寫的次數，所以在編程時多付出一點努力來做好文檔，會讓你在將來受益匪淺。 要將目標牢記在心：簡單、可讀性高的代碼。 告知，不要詢問。不要搶別的對象或是組件的工作。告訴它做什麼，然後盯著你自己的職責就好了。 針對is-a關係使用繼承；針對has-a或uses-a關係使用委託 記錄問題的時間不能超過在解決問題上花費的時間 Martin Fowler在題為“Who Needs an Architect？”的文章中提到：一個真正的架構師“……應該指導開發團隊，提升他們的水平，以解決更為複雜的問題 代碼複查需要積極評估代碼的設計和清晰程度，而不只是考量變量名和代碼格式是否符合組織的標準 除非你可以讓某段代碼明確變得更好，否則不要隨意批評別人的代碼。]]></content>
+      <categories>
+        <category>Book</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ArrayList 和 Vector 的差別]]></title>
+    <url>%2F2015%2F05%2F18%2Fdiff-between-vector-arraylist%2F</url>
+    <content type="text"><![CDATA[Java 裡面 Collection Framework 裡面，提供許多不一樣的 Class 給 Programmer 挑選使用，常常忘了思考，在什麼樣的情況下，應該使用不同的 Collection Class ，而 ArrayList 和 Vector 就是很容易忘記差異的兩項。 ArrayList 和 Vector 的差異，顯而易見的部分如下： Synchronization - ArrayList 並沒有處理 Synchronization ，所以在 ArrayList 並非 Thread – safe 的。 Vector 則有處理 Synchronization ，所以效能上會有一些影響。 Data growth - 預設的情況下，Vector 在空間不足的情況下，一次會擴張 2 倍的空間 ArrayList 會擴張當前空間的 1/2。 Iteration Performance - ArrayList 進行 Iteration 的速度也比 Vector 快，主要是兩者在 Itr (JDK Source) 裡的實作方式不一樣。 Reference Difference Between ArrayList And Vecotr What the differences between arraylist and vector To Index or Iterate]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>interview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Docker Workshop Notes]]></title>
+    <url>%2F2015%2F05%2F10%2Fdocker-workshop-notes%2F</url>
+    <content type="text"><![CDATA[What is Docker?Docker 以目前我的了解來看，和虛擬化是有相當程度的差異，Docker 和 VMWare 並非取代的關係，反而是互相輔助。 一台實體機器上，可能會透過 Vagrant 來建立多個 VM 環境，而這每個 VM 裡面又存在多個 Docker Continer， Docker 的出現並不是為了取代 VM，就好比 Vagrant 的出現並不是為了取代 Virtual box 一樣。 Image And Container基本上的類推可以透過 Class 與 Instance 的關係一樣， Image(Class) 之於 Container(Instance)。 Dockerfile這是 Docker 的靈魂檔案，裡面定義著想建立的 Image，源自於其它 Image(最基本的 Image 是 Scratch，就像 Java 的 Object) 以及其它需要搬到 Image 裡面的各種動作。 Docker Networking modelsDocker 有一個特殊的網路結構： 每一個 container 都有自己獨自網段，而這個網段透過 docker0 這個 bridge 來連接。 當 Container 之間無法相連的時候，就要上面這張圖，需要透過 container linking 或是 Port mapping 等技巧，來完成。 Command List docker images – 列出機器上目前有的 Image docker ps – 觀察目前正在跑的 Container docker build – 建立 Docker image docker logs continer name – 觀察特定 Container 產出的 log docker run -d image id – 把 docker image 以 background 的方式跑起來 docker inspect image id – 查看 image 相關的資訊 上完 docker-workshop 的筆記]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[讓 Celery 跑成 Daemon]]></title>
+    <url>%2F2015%2F03%2F28%2Fcelery-as-daemon%2F</url>
+    <content type="text"><![CDATA[在處理 Python 非同步作業或排程作業的時候，通常會使用 Celery ， 但預設啟動 Celery 是透過下列的方式： celery -A proj worker -l info 如果沒有掛在 Screen 裡或是透過其它方式跑到背景，不小心關掉 console， celery 就會停止運作了，所以必須要讓 Celery Daemon 化，也不會太複雜，以下說明步驟： 到 Github 上把 Celeryd 的 script 下載下來，放到 /etc/init.d/celeryd 。 如果 Project 有使用到環境變數，而環境變數又剛好寫在 .bashrc 裡，記得在 celeryd 的檔案裡加一行 source ~/.bashrc 避免 Celery 啟動的時候，找不到相關的環境變數。 接著把設定檔案放到 /etc/default/celeryd. ` 12345678910111213141516171819202122232425262728293031# Names of nodes to start most will only start one node:CELERYD_NODES=&quot;worker1&quot;# Absolute or relative path to the &apos;celery&apos; command:# 如果有使用 virtualenvs ，路徑可能會像這樣CELERY_BIN=&quot;&quot;/root/.virtualenvs/project/bin/celery&quot;&quot;# App instance to use# comment out this line if you don&apos;t use an appCELERY_APP=&quot;proj&quot;# Where to chdir at start. Django Project 的位置CELERYD_CHDIR=&quot;/var/www/proj&quot;# Extra command-line arguments to the workerCELERYD_OPTS=&quot;--time-limit=300 --concurrency=8&quot;# %N will be replaced with the first part of the nodename.CELERYD_LOG_FILE=&quot;/var/log/celery/%N.log&quot;CELERYD_PID_FILE=&quot;/var/run/celery/%N.pid&quot;# Workers should run as an unprivileged user.# You need to create this user manually (or you can choose# a user/group combination that already exists, e.g. nobody).#CELERYD_USER=&quot;celery&quot;CELERYD_GROUP=&quot;celery&quot;# If enabled pid and log directories will be created if missing,# and owned by the userid/group configured.CELERY_CREATE_DIRS=1 如果是透過 Root 權限來執行，必須要 export C_FORCE_ROOT=&quot;true&quot;，不然權限不合 Celery 也不會報錯。 設定好以後，可以透過 service celeryd start 來啟動 celery 或是 service celeryd stop 來停止。]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Java Unsigned Type]]></title>
+    <url>%2F2015%2F03%2F27%2Fjava-unsigned-type%2F</url>
+    <content type="text"><![CDATA[What is unsigned typeunsigned type 是說，假設 int 能夠放 100 ~ -100，給了 int unsigend 就能夠處理 0~ 200 的數值，不需要拿一個 Long 來解決。 某些語言(Like C )是有支援 unsigned type ， 沒有 unsigned type 的缺點是必須要花兩倍的 memory 來處理一個相似的問題， 另外一個是可讀性的問題，當看到一個變數是 unsigend，就能清楚的知道，肯定不會有負數出現。 Why Java didn’t support unsigned type至於為什麼 Java 不支援，大概有幾個原因： Java 的設計者，想要單純化原始型別的處理。 常用的情境下，大部分都不會是 unsigend 的情形。 我認為比較真的理由，是單純化這種原始型別，不常用的情境，就不要過度設計了。 Modern Java handled unsigned type不過 Java8 開始以後，已經開始對 unsigned 支援了，當然不會是多一個 Type 叫 unsigned ，這影響可能會有點大。 另外在 Guava 裡面，也有提供 unsigned 支援： 12UnsignedInteger newType = UnsignedInteger.valueOf(maxUnsigned);newType = newType.plus(UnsignedInteger.valueOf(&quot;1&quot;)); // Increment]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[AntiPattern]]></title>
+    <url>%2F2015%2F03%2F18%2Fanti-pattern%2F</url>
+    <content type="text"><![CDATA[AntiPattern 衍生自 Design Pattern 的概念，將他翻譯為 “反面” 模式，我個人認為不太適用， AntiPattern 的英文說明是 An AntiPattern is a pattern that tells how to go from a problem to a bad solution. ，簡單的來說， AntiPattern 提供了一個不太理想的問題解決方法。 一個解決方法要被列入為 AntiPattern ，也不是那麼容易，需要有幾個特性 看起來非常的吸引人，看起來就像 Design Pattern 一樣吸引人。 當試著把這個 Pattern 實用在 Application 以及會引來巨大的副作用(開發上、效能上)。 會有一個相對應的 Design Pattern 可以來取代這個 AntiPattern。 其實過去只是叫這些解決方法 “Bad Idea”,，但現在給一個更理想的名字叫 “AntiPattern” 在學習上，學習這些 “Bad Ideas” 是相當有必要的，這些 AntiPattern 給我們一個提醒，怎麼樣的模式會造成不好的影響，我們可以透過哪些好的 Pattern 來修正。 參考: AntiPatterns]]></content>
+      <categories>
+        <category>Patterns</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[String and String Pool]]></title>
+    <url>%2F2015%2F03%2F16%2Fstring-and-string-pool%2F</url>
+    <content type="text"><![CDATA[String ImmutableJava 中的字串一旦宣告，他就不會再被變動了，這樣設計主要有三個理由： String Pool 的需求：當把多個變數指到一樣的內容的 String 上，萬一 String 不是一個 Imutable，就會發生這個 Reference 去改值，另一個也會受到影響。 確保 String Hash Code 是不變的： String 的 HashCode 是常常被調用的，在 HashMap 中，必須確保 安全性 – String 常常帶有一些敏感性的資訊，像是密碼或是其它資料，可能會被寫入資料庫或檔案，一旦可以一直被變動，就可能會延伸不必要的風險。 String PoolJava 中 String 是常常在操作的類別，字串在記憶體的管理上有一點點的特殊， 當透過 String name = &quot;Balicanta&quot;; 來宣告一個字串的時候，其實會到 String Pool 裡面找是否有一樣的字串，如果有那就不會去建立一個新的字串，而會讓兩個 reference 指到同一個位置，以確保 memory 使用的效率。 System.identityHashCode 作用這個方法的作用是，找到一個 Object 的 HashCode。意思是說常常會複寫掉 Object 提供的 hashcode，讓我們看不出 Object 的 hashCode 是什麼，identityHashCode 可以直接印出 Object 的 HashCode，所以可以透過 identityHashCode 來驗證是否真的有 String Pool 的概念。 123456789101112131415String stringA = new String(&quot;them&quot;);System.out.println(System.identityHashCode(stringA)); //6391841System.out.println(stringA.hashCode()); // 3558940String stringP = new String(&quot;them&quot;);System.out.println(System.identityHashCode(stringP)); // 25246738System.out.println(stringP.hashCode()); // 3558940String stringB = &quot;them&quot;;System.out.println(System.identityHashCode(stringB)); // 26140476System.out.println(stringB.hashCode()); // 3558940String stringC = &quot;them&quot;;System.out.println(System.identityHashCode(stringC)); // 26140476System.out.println(stringC.hashCode()); // 3558940 上面的例子說明幾件事： String.hashCode 是無法分辨，String 實際的位置，必須透過 identityHashCode 。 透過 new String(“xxx”) 的確會產生出不一樣的物件，不是透過 String Pool 來取得。 補充： 在過去 JDK 6 String Pool 是會占用 PermGen 的空間，但從 JDK 7 開始把 String Pool 放到 Heap 裡面。 Reference: Why String is Immutable]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Intellij 快捷鍵]]></title>
+    <url>%2F2015%2F03%2F14%2Fintellij-hotkey%2F</url>
+    <content type="text"><![CDATA[NavigationDouble Shift – Find Anything ★★★★ 可以找指令, Class Ctrl + N Find Class – 找 Class, File Ctrl + F12 Outline – 查看當前 Class 的 Member Ctrl + H Object Hierachy – 查看物件繼承關係 Ctrl + Shift + H Call Hierarchy – 查看 Method 調用情況 Ctrl + B – Go To Type Definition Ctrl + Shift + B Go To Implementation – 前往實作類 EditorAlt + Insert Generate Code – 產生 toString(), Getter, Setter 等 Alt + Enter – Quick Fix – 快速修復錯誤 Ctrl + Shift + F12 編輯視窗最大化 Ctrl + Alt + L Format Code Ctrl + Alt + I Indent Code RefactorShift + F6 Rename 變數重新命名 Ctrl + Alt + M Extract Method 抽取方法 Live Templateiter for each in itli Iterate over list Base on Intellij 14.0.3]]></content>
+      <categories>
+        <category>IntelliJ</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[About Javascript Delete]]></title>
+    <url>%2F2015%2F03%2F11%2Fabout-javascript-delete%2F</url>
+    <content type="text"><![CDATA[Javascript 裡有個比較少用的 keyword “delete”，主要的作用是刪除 Object 中的 Property。 The delete operator removes a property from an object. 特別需要注意的方法是他是無法刪除 variable 的。 123var obj = &quot;theObj&quot;;delete obj;console.log(obj); // print theObj 主要的作用是能夠刪除 Javascript Object 中的 Property 1234var obj = &#123;x:&quot;abc&quot;, y:&quot;cde&quot;&#125;;console.log(obj); // Object &#123;x: &quot;abc&quot;, y: &quot;cde&quot;&#125;delete obj.x; // trueconsole.log(obj); // Object &#123;y: &quot;cde&quot;&#125; 同時這個 delete 是可以 return true or false 的，其代表的意義就是刪除成功或是刪除失敗。 使用情境 會使用到這個 delete 是因為在 JQGrid 這個 Object 裡面，當 Option 的數量太大的時候，發 Ajax Request 的會暫存。 而解決方法，就是在取得參數之前，把相關的 variable 透過 delete 刪掉，避免 JQgrid 暫存 (也許這不是最好的解決方法)。 關於 Delete 還一篇完整的說明，記著先 Understanding Delete]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hibernate ! Why?]]></title>
+    <url>%2F2015%2F03%2F05%2Fhibernate-why%2F</url>
+    <content type="text"><![CDATA[Why Hibernate寫 Web applicantion 的時候，大多數的情境都某個 Domain Entity 進行 CRUD (Create, Read, Update, Delete)，這類型的SQL 寫多了生產力就會下降，如果你的Application 需要在不同的 database 運作就會顯得更痛苦。 其中一種解決問題的方式叫做 ORM，透過Object 的方式來映射 Database的相關欄位，當操作 CRUD 的時候只需要對 Object 進行操作，不需要透過 SQL 來處理，也是說 ORM 至少涵蓋了兩件事 Database Field 與 Object Attribute 產生關聯 協助產生 CRUD 的 SQL 處理不同 Database 之間的語法差異，透過 Dialect 來解決 在 Java 裡面使用 ORM 幾乎只有一個選擇就是用 Hibernate， Hibernate 的演進已經相當多年，從我大學 2008 年到現在 Hibernate 在 ORM 領域深入近十年，在各方便都已經相當成熟。 JPA And HibernateJPA or Hibernate 這兩個概念在剛開始了解的時候，相當容易弄混，JPA 指的是一個通用的標準，但不包含實作，所以Hibernate 會有 JPA 的實作，其它 ORM 框架也會有。 總的來說，透過 Hibernate 來處理 Object 和 Relational Database 之間的關係，可以讓程式的可讀性高一點，但是有副作用的，效能問題或是複雜一點的 Query 透過這樣的方式寫出來也沒好看到哪裡去，所以這幾年的走向開始慢慢往 JOOQ 這種協助產生 SQL 的 Libary，不過 JOOQ 要是需要收費的，這也是很困擾的一點。 Reference]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[一個不斷修煉的過程 - LevelUpLunch]]></title>
+    <url>%2F2015%2F02%2F27%2Flevel-up-lunch-intro%2F</url>
+    <content type="text"><![CDATA[在我心理寫程式一直是可以不斷精進的。 隨時想怎麼做可以做得更好 -柯文哲 而 LevelUpLunch.com 就是這樣的一個網站，他匯集了一些 Java 常用的 Library， 像是 Guava, Apache Common 等，列出來一些常用的日常作業可以怎麼完成，透過不同的 Library 又有什麼其它的方法，像是簡單的兩個 Array merge，在 Guava 裡面可能一行就可以完成 String[] allStateCapitals = ObjectArrays.concat(arrayA, arrayB, String.class); 透過這樣的修煉，應該可以再往 Clean Code 的目標靠近一點。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Praxis 1. Understand that parameters are passed by value not by reference]]></title>
+    <url>%2F2014%2F08%2F25%2Fpraxis-1-understand-that-parameters-are-passed-by-value-not-by-reference%2F</url>
+    <content type="text"><![CDATA[什麼是 Pass By Value ？什麼是 Pass by Reference ？Pass By Reference 的概念就像是我給你一個網址 , 你連進去看網頁的內容，如果你把內容改了，我看到得東西也會一起改變，反過來說，如果我把內容改了，你也會看到我修改後的內容。 Pass By Value 是我把網頁的內容印給你，你可以看到內容，也可以在上面畫線、加字，但修改的的內容，不會受到影響我在看的網頁。 Pass By Value 的概念像是把內容複製一份再傳給別人，這個複製的概念很重要，等等會用上。 Java 是 Pass By Value 的嗎 ?第一個範例先猜一下，下面程式碼的執行結果 123456789101112131415161718private static void runCase1() &#123; int j = 10; Point point = new Point(4, 4); logger.info("修改前的 Point &#123;&#125;, 修改前的 j =&#123;&#125;", point, j); setPointLocation(point, j); // 呼叫下面的 function logger.info("修改後的 Point &#123;&#125;, 修改後的 j =&#123;&#125;", point, j);&#125;private static void setPointLocation(Point pointInst, int otherJ) &#123; // 把 Point 的位置改成 5, 5 pointInst.setLocation(5, 5); // 把 j 的值改為 20 otherJ = 20; logger.info("在修改的過程中 Point = &#123;&#125;, j =&#123;&#125;", pointInst, otherJ);&#125; 答案可能會有三個選項： (A) 修改後的 Point 為 5,5 ， j 為 20 (B) 修改後的 Point 為 5,5 ， j 為 10 (C) 修改後的 Point 為 4,4 ， j 為 10 正確答案為 B. Point 和 int 的運作方式，好像不太一樣， 兩個參數丟到 setPointLocation 值都有被修改，為什麼 int 沒有被修改，但 point 的值卻改變了。 Reference type 的運作方式像 Point 這種 Object，把他歸類為 reference type Point point = new Point(4, 4); 宣告一個變數 point 指向 Point 實體 setPointLocation(point, j); 準備開始把參數複製後傳給方法 接著，既然 pointInst 是複製來的，指向的實體也會是同一個實體 所以當 pointInst 呼叫 setLocation 的時候等同 point 呼叫 setLocation Primitive type 的運作方法同樣的看一下 int 變數 j 的狀況，一樣有個複製的動作。 竟然是複製過來的，所以 otherJ 在改變值的過程中，就不會影響原來的 j 第二個範例1234567891011121314private static void runCase2() &#123; int j = 10; Point point = new Point(4, 4); logger.info("修改前的 Point &#123;&#125;, 修改前的 j =&#123;&#125;", point, j); setPointWithAssign(point, j); logger.info("修改後的 Point &#123;&#125;, 修改後的 j =&#123;&#125;", point, j); &#125;private static void setPointWithAssign(Point pointInst, int j) &#123; pointInst = new Point(6, 6); j = 20; logger.info("在修改的過程中 Point = &#123;&#125;, j =&#123;&#125;", pointInst, otherJ);&#125; 答案可能會有三個選項： (A) 修改後的 Point 為 6,6 ， j 為 20 (B) 修改後的 Point 為 6,6 ， j 為 10 (C) 修改後的 Point 為 4,4 ， j 為 10 正確答案為 C. Reference type 的運作方式同樣的 Point Point point = new Point(4, 4); 宣告一個變數 point 指向 Point 實體 setPointWithAssign(point, j); 準備開始把參數複製後傳給方法 同樣的，既然 pointInst 是複製來的，指向的實體也會是同一個實體 但這時候，pointInst = new Point(6, 6);，pointInst 直接產生一個新的 Point 實體 所以竟然已經指向新的 Point 實體，所有的改動和原來的 point 就完全不影響了。 Primitive type 的運作方法和範例一的運作一模一樣，不解釋。 Java 是 Pass By Value 的只要在參數傳遞的過程，有類似複製一份的概念，可以視為是 Pass By Value ，在 Java 的參數傳遞過程中，無論是 reference type 或著 primitive type，都會複製一份，傳到方法中。 而容易混淆的部分是 reference type 複製的是一個 reference ，primitive type 複製的是一個 value。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Guava - 序 - 千年傳統，全新感受]]></title>
+    <url>%2F2014%2F02%2F15%2Fguava-intro%2F</url>
+    <content type="text"><![CDATA[過去有機會接觸 Python，就會覺得 Python 寫起來舒服簡單輕快。但我們有很多時候不是說想用 Python 就可以用 Python 的，可能會有很多的原因，好比說接手的專案就不是用 Python，或是整個公司就習慣使用 Java 或是其它語言來開發，當然我是沒有機會去找到 .net 的工作。但在這時候，我們就會想個方法問問自己，Java 有沒有辦法讓他簡單一點、輕快一點、不要這麼嚴格麼，大家自己人好相處一點麼，於是就認識了我們的新朋友 Guava。 Guava 到底是什麼鬼？ 我們在認識一個東西的時候，我們一定要先乖乖的看文件，而我自己很喜歡看類似各個 libary 的 philosophy，正巧 Guava 裡面有篇 PhilosophyExplained，所以我們可以好好的認識的一下 Guava。 Guava 是一個由 Google 來維護的 Open source project，同時也被 Google 用來進行公司產品 的開發，可以說 Guava 是 Google core utility libary，無論你進行什麼類型的專案，你肯定都能用上 Guava ，即便是可怕 Android… Guava 身為一個 core utility libary, 在思考什麼東西要進入 Guava 的時候大概有幾個思考的原則： – 這個 feature 是不是能夠省下大量的 Code – 能夠避免寫下難以 Debug 的 Cdoe – 能不能改善可讀性 – 改善速度, 可能指 perfomance 或是開發速度 而 Guava 的設計原則則是 – Guava 一直都在找一個 API 的最佳使用方式，當 Guava 不確定是否有最好的使用方式， Guava 會直到找到最佳方案才讓他進入 Guava. – 在 method 以及 classes 的命名上保持清楚直覺的特性 – 鼓勵使用 Guava 的 user 能夠養成好的習慣 – 盡可能找出通用的解決方法，而不是針對每個個案解決 – 強調維護度 從上面的特性我們大致上可以了解 Guava 想作到的事情 – Guava 不是一個 Framework, 他不解決架構上遇到的問題 – Guava 是一個 libary – Guava 希望養成程序員好的習慣，在細節上 – Guava 簡化一些 Java 廢話太多的問題 – Guava 希望讓 Code 的維護度提升]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[讓 Play Framework 飛上 Heroku]]></title>
+    <url>%2F2013%2F11%2F19%2Fplay-framework-fly-to-heroku%2F</url>
+    <content type="text"><![CDATA[假設你已經知道 heroku(其實不知道也沒差)？假設你已經會 Create Play framework 的 Project！那就超簡單的！步驟如下： 建立一個 Play Framework 參考一下 把建好的 Project, 塞入 Git git init git add . git commit -m &#39;init&#39; 記得申請個 heroku 的帳號 透過 gem 來裝個 heroku gem install heroku 來一行這個 heroku create --stack cedar 把你這的 master 推上 git push heroku master Step 6 可能會遇到Permission denied (publickey)，別緊張打上這行heroku keys:add ~/.ssh/id_rsa.pub立馬解決。 你就可以看到下面的畫面，代表成功飛上 heroku 囉！]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[最佳化每一天]]></title>
+    <url>%2F2013%2F11%2F18%2Faverage-pefrfect-day%2F</url>
+    <content type="text"><![CDATA[這個想法來自於 life hacker 上的一篇文章，標題是 Schedule Your “Average Perfect Day” to Set Life Goals，這個想法相當的務實。 我們常常立下了一個生活目標，好比說：今年我要瘦到 70 公斤，但天殺的我現在 87 公斤啊，根本不可能麼，所以我們我們可以把關鍵放在 average 這個字上面，首先我們可以問我們自己幾個問題 你平常起床的時間是幾點？ 你起床會作的第一件事是什麼？ 記得打開窗戶享受陽光，冥想一下嗎？ 你有沒有感謝，你身邊所有的東西？ 這只是一些很普通的例子，但我想他說明了兩件事，其實要有一個完美一天並不是很難，只要你從一件又一件的小事著手就可以了，另外，其實你要有個完美的人生也不難，只要從這些小事開始著手就可以了。 而最重要的是，我們在設定目標的時候，只要想著我要把作一件小事作好五十年，而不是作一件大事一天就夠了。]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Stackedit 與 wordpress 的完美結合]]></title>
+    <url>%2F2013%2F11%2F10%2Fstackedit-wordpress-coporate%2F</url>
+    <content type="text"><![CDATA[身為一個工程獅、程序猿、碼農，無論你怎麼稱乎我們，我們都希望把所知道或是剛學到的新知識和別人分享或是記錄下來，但是常常編寫這些文件很容易遇到一些問題，然後就停住了。而隨著技術的進步，一直在協助我們解決這個問題，好比說 stackedit 的出現，或是說 logdown 這個台灣之光的降臨，都為技術人員撰寫技術文件，有顯著的幫忙。 我自己則是選用 stackedit 以及 wordpress 來解決這方面的問題。 關於編寫相當簡單就是 Markdown,也沒什麼好說的，就是極為方便超級簡單。 關於貼圖這個貼圖在 stackedit 真的是一絕，你只要把你想貼的圖拉進 statckedit, 他會幫你作好以下這些事情：把圖上傳到 Google plus 的空間，把網址貼到你現在的編寫位置，然後在預覽的地方，你就可以看到這張圖，雖然很多 editor 都有這種功能，但我始終都覺得這真是科技的進步啊！ 立馬來貼張圖： 關於程式碼關於程序碼麼，裝了個 wordpress plugin SyntaxHighlighter Evolved 再透過 wordpress 預設的簡單語法，就可以呈現效果，下面來個範例 [code language=”java”] public class Hello { public static void main (String args[]) { System.out.println(“Hello Java”); } } [/code] 缺點就是在 StatckEdit 的 preview，沒辦法呈現，必須要等到 publish 到 wordpress 才能看見結果。 目前都是透過 Gists 加上 pastacode 來完成，Eclipse 也可以透過 Mylin 快速的把 Code Snippet 丟上 Gists，更簡單！ 關於發佈這個就超級容易的，只要記得在你的 wordpress 上裝個 jetpack plugin ，輕鬆的在 Stackedit 按一下 publish 基本上就完成了。 結論 目前用到現在 Stackedit 搭上自架 wordpress 還沒有遇到什麼樣不能解決的問題，如果有問題會再紀錄下來。 Update: 現在我全部搬到 Hexo 上來了 !]]></content>
+      <categories>
+        <category>Wordpress</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[一個可惜的消息 - Everpix shutdown]]></title>
+    <url>%2F2013%2F11%2F07%2Feverpix-shutdown%2F</url>
+    <content type="text"><![CDATA[半年前，我看到一個服務，他能夠把你在所有地方的照片，像是 picasa, flickr, etc… 全部整合起來，依照日期排列或是可以主題瀏覽 ( 大樓、人像、風景、美食… etc ) ，你也可以透過 random 的方式來選出五張照片，同時他會在每一天的早上，寄給你過去的今天，你照了哪一些照片，我一直都覺得這是個照片瀏覽的正確答案。 因為我有 3 萬多張照片在 picasa 上面，或許都不是拍的很好，但我想裡面有很多值得回憶的地方，特別是他的 random 功能，讓我每次都像玩吃角子老虎一樣，掉出不一樣的回憶片段，我非常喜歡這個功能。 Everpix 只有一個缺點就是每個月需要 5 塊錢美金。但今天早上他發信告訴使用者，他要停止服務了，這件事難過除了我再也沒有這麼好的服務可以用了，另外也破壞了一些我相信的事情，我一直都相信只要把服務做好做到最好，最後所有的事情都應該自己出現。 Reference: 最失敗的好產品 Everpix 倒閉的啟發]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[生死的智慧 - 柯文哲]]></title>
+    <url>%2F2013%2F11%2F03%2Fthe-wisdom-of-death-and-live-kp%2F</url>
+    <content type="text"><![CDATA[我想這不是一篇很新的 TED 演講，但我認為這一篇值得一看的 TED 演講。 如果你問什麼是死亡？那我會問你怎樣才叫活著？ 那到底什麼是人生？我說追求這個問題的答案，就是這個問題答案。 「最困難的不是面對挫折打擊，最困難的是，面對挫折打擊而沒有失去對人生的熱情。」]]></content>
+      <tags>
+        <tag>TED</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[到底為啥我們要用一個這麼難用的 Vim - 與速度無關篇]]></title>
+    <url>%2F2013%2F11%2F03%2Fwhy-we-use-vim%2F</url>
+    <content type="text"><![CDATA[常常我們都以為用 Vim 是為了用超快速度來輸入文字, 或許可以透過不一樣的想法來思考 我們來假設一個情境，我想把某個 function 的參數改掉，那我的作法應該是 找到我要的那個括號 決定我要刪掉哪些參數以及新增什麼 把目標從從左到右框起來，精確的說是 反白 接下來按 delete 或 backspace 輸入新的參數 完成！ 接下來我們來看一下如果是 Vim，我們的作法是 找到我要的那個括號 決定我要刪掉哪些參數以及新增什麼 刪除參數 輸入新的參數 完成！ 好了，當殘酷的事實比較之下，發現差一步。 誒，差一步有很重要嗎？我的答案是：「有！謝謝」 為何？ 這個動作在我們一天寫程式的行為裡面，出現過數次，如果你每一次都要把東西圈起來然後刪掉， 一次還好，但是十次真的會有點煩啊，你不止會改參數，你還會改字串內容、改變數名、再改註解， 刪整行，刪到底，改任何東西，這樣一直圈，你真的會受不了，你現在還沒受不了一定是你妥協了。 而且你會一直需要透過滑鼠來寫程式，這很不舒服啊，因為你的右手食指會在滑鼠左鍵及 Ｊ 之間滑動， 怎麼看都會增加右手的負擔。 最後一點，vim 可以透過手的反射來對程式操作這些程式碼，怎麼說呢？在選取這些程式碼的時候，眼睛和手就必須要專心的注意圈到哪，但如果透過 ci( 這類的指令，可以保證一定會把小括號的東西全部刪掉，不用透過眼睛和手的協調來確認，可以更專心在程式的本身，而不是編輯程式這個動作上。 總結一下，服了 vim 這帖藥，不一定可以讓你成為程式高手，但可以 在處理煩人的鎖事，比別人不煩，如改字串內容 讓你的右手食指可以有較長的時間在 Ｊ 上 透過反射神經來寫程式 ( 聽起來有點浮誇 ) 如果你學會用 vim 的 text object，你這輩子不會想離開他了。 參考連結: Vim speed is not really the point]]></content>
+      <categories>
+        <category>Vim</category>
+      </categories>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vim - Plugin - Easymotion]]></title>
+    <url>%2F2013%2F08%2F11%2Fvim-plugin-easymotion%2F</url>
+    <content type="text"><![CDATA[如果你是Vim愛好者，你應該是蠻迷戀著那些不用滑鼠的美妙時光，但是你每次輸入 :37 然後wwwww，你一定覺得這樣太慢了，到底有什麼好方法，可以加速移動方式，當然有。我們來看張圖： Easymotion的設計很迷人的地方是，他透過 w 這樣的快速鍵來帶出特殊模式，可以迅速的移動到某個位置，而這些位置就像設計好的一樣，是每個空白或是符號後的第一字，透過這種優雅的移動方式，就可以迅速的移動到你想去的位置，剛開始還是要習慣一下，花點時間增加生產力囉！]]></content>
+      <categories>
+        <category>Vim</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Vim 中 Buffer, Session, Tab 的不同]]></title>
+    <url>%2F2013%2F07%2F28%2Fbuffer-session-tab-vim%2F</url>
+    <content type="text"><![CDATA[我是一個Vim初學者，初學者在開始能夠順利操作Vim的時候都會有一點點成就感，當你可以順利移動、順利存檔、順利的讓你用Vim寫的程式會動，應該就可以算是順利操作Vim了。 但是你有沒有覺得，Vim每次都要編輯、存檔、離開、開檔、編輯這樣的Loop很煩，檢視一下整個流程，我們應該可以把離開、開檔這個流程省下來，直接在Vim裡面開起來編輯存檔，再開別的檔再編輯，這樣應該會順很多，有這種想法就對了。我們來看一下Vim的Buffer、Session、Tab吧！ BufferVim的buffer有點玄，有老外說這樣了解他最適合 buffer is an open instance of a file 也就說他是個檔案打開後的實體，但是這樣還是很抽象啊，沒關係繼續看下去，buffer打開以後，他在目前的Vim視窗不一定會被看見，但是你可以迅速的切換過去，同時你每次打開一個檔案，其實就是把一個檔案放在Buffer裡面。 在buffer裡面，如果你當前的檔案修改完以後，沒有存檔想要跳到另外一個buffer，那Vim就會出現警告訊息，這個可以”set hidden”選項來解決，修改成離開vim的時候提示。 12345678# add file into buffer list:badd fileName;# list all file in buffer list:ls# Go to nth buffer:b n SessionVim的session可以記住當前的工作狀態，咦，這個和buffer不是有點異曲同工嗎？其實是有一點點像的，但是session可以永久的記錄，session可以把目前的Windows以及Tab都記下來，和buffer不太一樣。 12345678# Make a session in file:mksession &lt;fileName&gt;# Force rewrite (save) session in file:mksession! &lt;fileName&gt;# Open a sessionfile in vimvim -S &lt;fileName&gt; Tab如果我們以前用Notepad++就會把一個Tab去對應一個File，然後用切換Tab的方式來切換File，在Vim裡面Tab其實可以裝多個File在裡面，一個Tab可以視為一個單一的Vim，有了這個Tab我們可以切換多個Vim的感覺。 有老外用Viewport或是layout來形容一個Tab,這樣是比較貼切的，而Tab之間開的檔案都會進到Buffer list，所以可以透過buffer來共享tab開的所有檔案。 1234567891011121314# Open file in new tab:tabe &lt;fileName&gt;# close tab:tabc# close other tabs:tabo# go to next tab:tabn# go to prev tab:tabp Conclution那這幾個東西到底要怎麼運用才會順呢？目前來說，我自己是以buffer為主，記錄session為輔，接下來會增加自動記錄Session目前的狀況，也就是每當有buffer被寫入的時候就強迫將目前的session寫入特定檔案，避免忘記save session。 同時未來若有需要多視窗共同編輯的需求，再考慮來引入Tab和Windows的可能。]]></content>
+      <categories>
+        <category>Vim</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac 上設定 bashrc 無效？]]></title>
+    <url>%2F2013%2F07%2F22%2Fbashrc-useless-on-mac%2F</url>
+    <content type="text"><![CDATA[記得以前用Linux的時候，只要把設定寫在 .bashrc 裡面，系統就會自己讀入。 怎麼在MacOS上，寫一些設定在 .bashrc 裡面，都不理我，我不想每次都 source ~/.bashrc 好煩！ 原來MacOS裡面有個檔案 .bash_profile，那他和 .bashrc有什麼不一樣呢？ 看這個說明 bash_profile is executed for login shells, while .bashrc is executed for interactive non-login shells .bash_profile 是給 login 過的 shells 吃的，.bashrc 是給沒有 Login 過的 shell 吃的。 問題來了，如何定義登入，我用 MacOS，都有登入，怎麼沒有把 .bashrc 吃進來？ 如果你在 MacOS 打開你的Terminal(iTerm)，他都是吃 .bash_profile 的！ 所以建議是在.bash_profile加下面幾行： 123if [ -f ~/.bashrc ]; then source ~/.bashrcfi 然後一些設定還是寫在.bashrc，維持習慣！ 參考連結 .bash_profile vs .bashrc]]></content>
+      <categories>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python到底要這個self幹啥？]]></title>
+    <url>%2F2013%2F07%2F18%2Fself-keyword-in-python%2F</url>
+    <content type="text"><![CDATA[如果你寫過Python，如果你用Python寫Class，再加上你是個newbie，你一定和我一樣問過這個問題，這個self到底要幹麼，為什麼我寫每個class裡面的function第一個參數都是Self，Self 是Python的關鍵字嗎，而且好像Self拼成slef，他也不會出錯啊，這到底是啥啊？ 當你認真的查一下，這個Self是幹啥的，通常會得到一個答案, 在PEP 20裡面的經典句子 Explicit is better than implicit. 要幹麼講清楚，不要以為我知道 但這答案…我還是不懂啊，可以講白話的嗎？ 原來這個self是否需要存在，在Thinking in Java的作者Bruse Eckel和Python的作者Guido已經討論過了。 Guido認為留著這個Self是有優點的，優點有兩個： 一個是能夠加強語言的彈性，什麼意思？看一下下面的表示式 1foo.meth(arg) == C.meth(foo, arg) 上面這個Expression，代表我們可以透過兩種方式來得到一樣的效果 1object.function(arg) == class.function(object,arg) 這樣是好是壞，我也沒有一個太清楚的答案。 另一個優點是，我可以動態的把一個function 插進Class裡面，怎麼…有點低級，但是這個某程度來說增加了Python的語言彈性。看一下下面這段Code： 1234567891011class C: passdef meth(myself, arg): myself.val = arg return myself.valC.meth = methinstanceC = C()print instanceC.meth(123) 最後的結果是會印出123的，這樣當我們import進某個class，我們需要在他這個Class本身加一些function的時候，就可以動態放入我們需要的Function，至於有沒有非要這樣做的例子，好像是沒有。 看起來Guido也沒有要把Self改成保留字的意思，總的來說，他還是有他的堅持。 如果對Python self有什麼新的領悟，我會隨時補上的！]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[誒，到底要不要寫註解？]]></title>
+    <url>%2F2013%2F07%2F13%2Fdone%2Fabout-comments%2F</url>
+    <content type="text"><![CDATA[內心始終都有這個疑問，過程中不時有工作的伙伴告訴我們，你都不寫註解，人家要怎麼看得懂。問題反過來問，難到我寫了註解，你就看得懂了嗎？ 我想這篇文章說明了一些關於註解的兩三事，5 reasons to avoid code comments。 我們花了很多時間在讀程式，甚至是比我們寫程式的時間要多的多，僅管我們找不到一篇強而有力的文獻來支持這個論點，但我想身為Programmer的你我，都知道這件事，所以我們想辦法要讓我們的Code好讀，而我們常常直覺想到的一件事，就是”寫註解”。 而我們可以在很多本書裡面得到不同的見解，像是Clean Code we should avoid to write comments unless we have a really good reason to write one我們應該儘量去避免寫註解，除非我們有一個非常好的理由. 註解暗示我們可以寫出爛爛的Code當我們知道我們可以寫註解來加強我們的Code，就代表我們變數的名字可以亂取，Function Name可以亂取，程式邏輯可以亂來，反正我們有註解可以幫忙啊！ 我們花了超多的時間在寫註解和維護他啊！註解就像是我們用人類語言在寫程式一樣，就像翻譯一樣，當我們寫了一個Function，我們再用註解來形容他，我們就寫了兩次啊，這當場違反天條 DRY(Don’t Repeat You)。所以就會發現如果我們要改 Function 就要改註解，花兩倍的時間啊！ 註解是不能測試的，更是不能驗證的程式是個好東西，因為他可以測試，寫錯了會有人知道，無論是 Compiler 或是 User，總而言之就是有個er結尾的東西會知道程式錯了。但是註解寫錯了…只有Programer會知道啊，知道錯了，還不知道要怎麼修他勒，到底是文法錯了，還是語意錯了，還是程式真的是這樣Run的，到底是程式是對的還是註解是對的，搞得我好亂啊！ 某程度來說，註解比程式不值得信賴多如果你是 Programmer，你就會知道需求變來變去的，然後就會發生，這個需求很趕，你先改一下程式，註解？算了啦！先讓程式可以動再說，然後程式就和註解不同步了…接著出現問題，你老闆請你查一下問題，你會先看程式還是先看註解，痾…先看註解吧，但是最後好像還是要看程式，然後我也不會去改那個寫的不太對的註解，然後他就這樣一直留著那了，或是在下面加上一行”#這註解好像不太對，不要相信它”，也不把他砍掉，就這樣一直留在Version Control裡面很久很久，久到不知道他到底在幹麼。 其實 Comment 很占空間的有一些公司或是組織，他們有一些標準的註解格式，真的是要命的肥，肥到比我們的 Code 都要肥，如果這些肥註解，還有上面幾個要命的特徵，那真不知道他是肥什麼意思的。]]></content>
+      <categories>
+        <category>Software Engineering</category>
+      </categories>
+      <tags>
+        <tag>comments</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[為什麼要使用 Python?]]></title>
+    <url>%2F2013%2F07%2F12%2Fwhy-we-use-python%2F</url>
+    <content type="text"><![CDATA[軟體品質？！從Quora的問答裡面(http://qr.ae/I8dKt)，比較了Python以及Ruby從語言上的差異，Python是從可讀性(Redabliity)出發所設計的語言，而Ruby是一個給予開發者極大自由度的語言，兩者從根本性的不太一樣。 但軟體品質是不是僅僅討論可讀性，或許也可以考慮一下一致性(coherence)，同樣的一種目的function，有多少種可行的寫法？當有太多條路可以達到同一個目的地的時候，或許就會造成開發者的混亂。\n\n相較其它的的scripting language來說，Python可以被OOP的程度是相對高的。 程式猿的生產力？！Python 加速了程式猿的爬行速度？因為比較Python和C++、Java，這種需要Compile的語言，同樣的功能Python所寫出來的長度也只有Java的3分之一到五分之一之間。 這也就意謂著程式猿可以輸入較少的Code，少的Code，減少了開發時間，減少了Debug的時間，最後因為Python可以直接Run，免Compile，所以他理論說開發速度會比較Java、C++這些需要Compile的語言來的快一些。 程式的可攜性？！跨平台的特性，這個基本上我好像不是太在意，因為我目前的工作上，興趣上跨平台的機率實在不是很高，所以這點就帶過囉！ 五花八門的Library？！Python 本身已經有很多的build in function，同時也有很多的Libary可以用，從他在Github上面排名是第五名就可以發現(2013/07/12)，而且Liabary的廣度也很廣，不過這不知道是優點還是缺點。\n\n在科學運算上，Python有NumPy、SciPy在撐腰，這部分是Ruby比較弱的，但是Web Development 上使用Django的人數和RoR就是完全不能比較了。 任意組合的可能？！Python 可以和C++和C的Libary有互相的掛勾，同時也能夠和Java互通有無，當然和各種協定互相溝通也不是太大的問題，好比說SOAP。 開發的愉悅程度？！聽說用Python寫程式很容易高潮，因為我初入門，我實在不知道用Python是不是容易變成敏感體質，這一部分等我實驗個一陣子，再來證實。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+</search>

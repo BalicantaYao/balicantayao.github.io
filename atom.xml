@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://balicanta.tw/"/>
-  <updated>2019-06-15T15:05:24.107Z</updated>
+  <updated>2019-06-18T16:03:10.015Z</updated>
   <id>http://balicanta.tw/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>為什麼我選擇使用 Like Coin</title>
+    <link href="http://balicanta.tw/2019/06/20/why-i-choose-like-coin/"/>
+    <id>http://balicanta.tw/2019/06/20/why-i-choose-like-coin/</id>
+    <published>2019-06-19T20:23:42.000Z</published>
+    <updated>2019-06-18T16:03:10.015Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="從-Medium-撤退"><a href="#從-Medium-撤退" class="headerlink" title="從 Medium 撤退"></a>從 Medium 撤退</h2><p>在過去一年 Medium 幾乎是爆紅的狀況，大部分的筆記都放到 Medium 上，但不知怎麼的，就在某一天上班遲到的早晨，突然覺得工程師的 Blog 放在 Medium 感覺哪裡怪怪的，畢竟 <a href="https://www.freecodecamp.org" target="_blank" rel="noopener">FreeCodeCamp</a> 也撤離了 Medium。</p><p>後來我試著使用 <a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo</a> 寫作體驗真的非常驚喜，我可以在我常用 Intellij 直覺的寫作，產生 static site , deploy 都不麻煩。</p><p>最重要的是那種所有的內容都擁有的感覺，還有 Hexo 的作者是個台灣人，謝謝 <a href="https://github.com/tommy351" target="_blank" rel="noopener">Tommy 大大</a>。</p><h2 id="試著裝上-Google-Adsense"><a href="#試著裝上-Google-Adsense" class="headerlink" title="試著裝上 Google Adsense"></a>試著裝上 Google Adsense</h2><p>這整個 Site 除了花了我的時間外，還花了我 700 塊台幣，是用來買 <a href="http://balicanta.tw">balicanta.tw</a> 這個 Domain，我只有一個小小的期待，如果這個 Site 扣掉我花的時間，可以不要花其它的費用，這樣一個簡單的期待。</p><p>我試著使用 Google Adsense，但廣告真的跑起來以後，整個閱讀體驗實在不是很舒服，所以我開始尋找有沒有除了廣告以外，有機會滿足我小小期待的方法。</p><h2 id="於是我發現了-Like-Coin"><a href="#於是我發現了-Like-Coin" class="headerlink" title="於是我發現了 Like Coin"></a>於是我發現了 Like Coin</h2><p>我本來對區塊鍊、數字貨幣這類型的概念其實是非常反感的，因為我覺得 ICO 終究是一場騙局，大家明顯的在賺快錢，區塊鍊並沒有實際落地的應用，很有可能是我認識的不夠深刻。</p><p>而我選擇放 Like Coin 在 Blog 上，實際上是一個非常矛盾的決定，Like Coin 換成新台幣的路線其實非常的漫長，可能需要先換成 BTC 再換成 TWD，是不是真的能預期的每年幫我賺 700 塊台幣，我是很沒有把握的。</p><p>但是我想如果每個閱讀者都能在我的文章上，幫我點個 Like ，我想對寫作者是很大的鼓勵，而這些 Like Coin 最後能拿到多少就看運氣吧，也許可能跟其它的 ICO 一樣會變的一文不值。</p><p>我其實想再相信幾件事：</p><blockquote><p>世界上真的有人是為了理想在做事，如果有，我是不是應該用我的方法支持他</p></blockquote><blockquote><p>我相信使用者是會為了有價值的內容而鼓勵作者。</p></blockquote><p>如果你還沒有註冊 Like Coin，你可以透過我的連結申請 <a href="https://like.co/ref/balicanta-yao" target="_blank" rel="noopener">https://like.co/ref/balicanta-yao</a>，這樣我會得到接近 0.01 美金的回饋，而你不用付出任何一塊錢。 </p><p>如果這篇文章給你一點想法，你也可以幫我拍 5 下。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;從-Medium-撤退&quot;&gt;&lt;a href=&quot;#從-Medium-撤退&quot; class=&quot;headerlink&quot; title=&quot;從 Medium 撤退&quot;&gt;&lt;/a&gt;從 Medium 撤退&lt;/h2&gt;&lt;p&gt;在過去一年 Medium 幾乎是爆紅的狀況，大部分的筆記都放到 Me
+      
+    
+    </summary>
+    
+      <category term="LikeCoin" scheme="http://balicanta.tw/categories/LikeCoin/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>StringUtils isBlank 以及 isEmpty 的差別</title>
+    <link href="http://balicanta.tw/2019/06/18/stringutils-isblank-isempty/"/>
+    <id>http://balicanta.tw/2019/06/18/stringutils-isblank-isempty/</id>
+    <published>2019-06-18T14:25:42.000Z</published>
+    <updated>2019-06-18T15:11:23.355Z</updated>
+    
+    <content type="html"><![CDATA[<p>常用的 <a href="https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html" target="_blank" rel="noopener">Apache Commons StringUtils</a> 裡有兩個常常容易搞混的方法 isBlank 以及 isEmpty。</p><h2 id="isBlank"><a href="#isBlank" class="headerlink" title="isBlank"></a>isBlank</h2><p>isBlank 是判斷這個字串是否為 <strong>內容空白字串</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">StringUtils.isBlank(<span class="keyword">null</span>)      = <span class="keyword">true</span></span><br><span class="line">StringUtils.isBlank(<span class="string">""</span>)        = <span class="keyword">true</span></span><br><span class="line">StringUtils.isBlank(<span class="string">" "</span>)       = <span class="keyword">true</span></span><br><span class="line">StringUtils.isBlank(<span class="string">"bob"</span>)     = <span class="keyword">false</span></span><br><span class="line">StringUtils.isBlank(<span class="string">"  bob  "</span>) = <span class="keyword">false</span></span><br></pre></td></tr></table></figure><h2 id="isEmpty"><a href="#isEmpty" class="headerlink" title="isEmpty"></a>isEmpty</h2><p>isEmpty 是判斷這個字串是否為 <strong>空字串</strong> </p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">StringUtils.isEmpty(<span class="keyword">null</span>)      = <span class="keyword">true</span></span><br><span class="line">StringUtils.isEmpty(<span class="string">""</span>)        = <span class="keyword">true</span></span><br><span class="line">StringUtils.isEmpty(<span class="string">" "</span>)       = <span class="keyword">false</span></span><br><span class="line">StringUtils.isEmpty(<span class="string">"bob"</span>)     = <span class="keyword">false</span></span><br><span class="line">StringUtils.isEmpty(<span class="string">"  bob  "</span>) = <span class="keyword">false</span></span><br></pre></td></tr></table></figure><h2 id="關鍵差異"><a href="#關鍵差異" class="headerlink" title="關鍵差異"></a>關鍵差異</h2><p>在空格字串裡的判斷上，兩個有關鍵的不一樣。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">StringUtils.isBlank(<span class="string">" "</span>)       = <span class="keyword">true</span></span><br><span class="line"></span><br><span class="line">StringUtils.isEmpty(<span class="string">" "</span>)       = <span class="keyword">false</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;常用的 &lt;a href=&quot;https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html&quot; target=&quot;_blank&quot; rel=&quot;noope
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Java 異常類別</title>
@@ -422,57 +468,6 @@
       
       
         &lt;p&gt;String 串接是寫程式很常會遇見的情境，在 Java 中，字串相加是最不理想方式，因為會產生大量 String Object 在 String Pool 中，比較建議的方式是透過 StringBuilder 或 StringBuffer 來完成任務，但兩個的差異看起來只
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
-    
-    
-      <category term="interview" scheme="http://balicanta.tw/tags/interview/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>書摘：高效程序員的45個習慣</title>
-    <link href="http://balicanta.tw/2015/05/19/practices-of-an-agile-developer/"/>
-    <id>http://balicanta.tw/2015/05/19/practices-of-an-agile-developer/</id>
-    <published>2015-05-18T20:35:36.000Z</published>
-    <updated>2019-06-08T04:41:28.220Z</updated>
-    
-    <content type="html"><![CDATA[<img src="/images/book-agile-devlopver.jpeg" class="[class names]" width="300"><p>這本書是從多看上買來看的，睡前翻啊翻的慢慢的把他看完，其實也不是說了多麼高深的事情，就是強調一些程序員的想法，再搭配上一些敏捷的方法，不過說真的，這本書的確值得一讀。</p><ul><li>李笑來老師在《把時間當作朋友》一書中提到：“所有學習上的成功，都只靠兩件事：策略和堅持，而堅持本身就應該是最重要的策略之一。”</li><li>當我們決定做一件事情的時候，首先就要多問問自己：為什麼要做這件事情？</li><li>不管路走了多遠，錯了就要重新返回。 ——土耳其諺語</li><li>如果你沒有犯過任何錯誤，就說明你可能沒有努力去工作。</li><li>你必須把重點放在解決問題上，而不是去極力證明誰的主意更好。</li><li>用Les Brown的一句話說就是：“你不需要很出色才能起步，但是你必須起步才能變得很出色。</li><li>這裡建議你牢記亞里士多德的一句格言：“能容納自己並不接受的想法，表明你的頭腦足夠有學識。”</li><li>真正的敵人是變化。</li><li>開發者（及項目經理）能做的一個最重要的決定就是：判斷哪些是自己決定不了的，應該讓企業主做決定</li><li>記住Ted Neward的評論：對象—關係的映射就是計算機科學的越南戰場</li><li>需求就像是流動著的油墨 <em>Requirements are as fluid as ink</em></li><li>解決方案是，在每4周的迭代中間安排一週的維護任務。沒有規定說迭代必須要緊挨著下一個迭代。</li><li>PIE原則，代碼必須明確說出你的意圖，而且必須富有表達力。這樣可以讓代碼更易於被別人閱讀 理解。代碼不讓人迷惑，也就減少了發生潛在錯誤的可能。一言以蔽之，代碼應意圖清晰，表達明確</li><li>代碼被閱讀的次數要遠超過被編寫的次數，所以在編程時多付出一點努力來做好文檔，會讓你在將來受益匪淺。</li><li>要將目標牢記在心：簡單、可讀性高的代碼。</li><li>告知，不要詢問。不要搶別的對象或是組件的工作。告訴它做什麼，然後盯著你自己的職責就好了。</li><li>針對is-a關係使用繼承；針對has-a或uses-a關係使用委託</li><li>記錄問題的時間不能超過在解決問題上花費的時間</li><li>Martin Fowler在題為“Who Needs an Architect？”的文章中提到：一個真正的架構師“……應該指導開發團隊，提升他們的水平，以解決更為複雜的問題</li><li>代碼複查需要積極評估代碼的設計和清晰程度，而不只是考量變量名和代碼格式是否符合組織的標準</li><li>除非你可以讓某段代碼明確變得更好，否則不要隨意批評別人的代碼。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;img src=&quot;/images/book-agile-devlopver.jpeg&quot; class=&quot;[class names]&quot; width=&quot;300&quot;&gt;
-&lt;p&gt;這本書是從多看上買來看的，睡前翻啊翻的慢慢的把他看完，其實也不是說了多麼高深的事情，就是強調一些程序員的想法，再搭
-      
-    
-    </summary>
-    
-      <category term="Book" scheme="http://balicanta.tw/categories/Book/"/>
-    
-    
-      <category term="Book" scheme="http://balicanta.tw/tags/Book/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ArrayList 和 Vector 的差別</title>
-    <link href="http://balicanta.tw/2015/05/18/diff-between-vector-arraylist/"/>
-    <id>http://balicanta.tw/2015/05/18/diff-between-vector-arraylist/</id>
-    <published>2015-05-17T20:37:13.000Z</published>
-    <updated>2019-06-08T04:17:05.558Z</updated>
-    
-    <content type="html"><![CDATA[<p>Java 裡面 Collection Framework 裡面，提供許多不一樣的 Class 給 Programmer 挑選使用，常常忘了思考，在什麼樣的情況下，應該使用不同的 Collection Class ，而 ArrayList 和 Vector 就是很容易忘記差異的兩項。</p><p>ArrayList 和 Vector 的差異，顯而易見的部分如下：</p><ul><li>Synchronization - ArrayList 並沒有處理 Synchronization ，所以在 ArrayList 並非 Thread – safe 的。</li><li>Vector 則有處理 Synchronization ，所以效能上會有一些影響。</li><li>Data growth - 預設的情況下，Vector 在空間不足的情況下，一次會擴張 2 倍的空間</li><li>ArrayList 會擴張當前空間的 1/2。</li><li>Iteration Performance - ArrayList 進行 Iteration 的速度也比 Vector 快，主要是兩者在 Itr (JDK Source) 裡的實作方式不一樣。</li></ul><p>Reference</p><p><a href="http://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/" target="_blank" rel="noopener">Difference Between ArrayList And Vecotr </a></p><p><a href="http://stackoverflow.com/questions/2986296/what-are-the-differences-between-arraylist-and-vector" target="_blank" rel="noopener">What the differences between arraylist and vector</a></p><p><a href="https://www.youtube.com/watch?v=MZOf3pOAM6A" target="_blank" rel="noopener">To Index or Iterate</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Java 裡面 Collection Framework 裡面，提供許多不一樣的 Class 給 Programmer 挑選使用，常常忘了思考，在什麼樣的情況下，應該使用不同的 Collection Class ，而 ArrayList 和 Vector 就是很容易忘記差異
       
     
     </summary>
