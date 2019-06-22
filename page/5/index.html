@@ -178,7 +178,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description"></h1>
       
   </div>
 
@@ -291,797 +291,130 @@
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2013/07/28/buffer-session-tab-vim/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2013/07/28/buffer-session-tab-vim/" itemprop="url">
+              
+                <span itemprop="name">Vim 中 Buffer, Session, Tab 的不同</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/07/28/buffer-session-tab-vim/" itemprop="url">Vim 中 Buffer, Session, Tab 的不同</a></h1>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-07-28T10:18:12+08:00">
-                2013-07-28
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2013-07-28T10:18:12+08:00" content="2013-07-28">
+          2013-07-28
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vim/" itemprop="url" rel="index">
-                    <span itemprop="name">Vim</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我是一個Vim初學者，初學者在開始能夠順利操作Vim的時候都會有一點點成就感，當你可以順利移動、順利存檔、順利的讓你用Vim寫的程式會動，應該就可以算是順利操作Vim了。</p>
-<p>但是你有沒有覺得，Vim每次都要編輯、存檔、離開、開檔、編輯這樣的Loop很煩，檢視一下整個流程，我們應該可以把離開、開檔這個流程省下來，直接在Vim裡面開起來編輯存檔，再開別的檔再編輯，這樣應該會順很多，有這種想法就對了。我們來看一下Vim的Buffer、Session、Tab吧！</p>
-<h2 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h2><p>Vim的buffer有點玄，有老外說這樣了解他最適合</p>
-<p><strong>buffer is an open instance of a file</strong></p>
-<p>也就說他是個檔案打開後的實體，但是這樣還是很抽象啊，沒關係繼續看下去，buffer打開以後，他在目前的Vim視窗不一定會被看見，但是你可以迅速的切換過去，同時你每次打開一個檔案，其實就是把一個檔案放在Buffer裡面。</p>
-<p>在buffer裡面，如果你當前的檔案修改完以後，沒有存檔想要跳到另外一個buffer，那Vim就會出現警告訊息，這個可以”set hidden”選項來解決，修改成離開vim的時候提示。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># add file into buffer list</span><br><span class="line">:badd fileName;</span><br><span class="line"></span><br><span class="line"># list all file in buffer list</span><br><span class="line">:ls</span><br><span class="line"></span><br><span class="line"># Go to nth buffer</span><br><span class="line">:b n</span><br></pre></td></tr></table></figure>
-<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>Vim的session可以記住當前的工作狀態，咦，這個和buffer不是有點異曲同工嗎？其實是有一點點像的，但是session可以永久的記錄，session可以把目前的Windows以及Tab都記下來，和buffer不太一樣。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Make a session in file</span><br><span class="line">:mksession &lt;fileName&gt;</span><br><span class="line"></span><br><span class="line"># Force rewrite (save) session in file</span><br><span class="line">:mksession! &lt;fileName&gt;</span><br><span class="line"></span><br><span class="line"># Open a sessionfile in vim</span><br><span class="line">vim -S &lt;fileName&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="Tab"><a href="#Tab" class="headerlink" title="Tab"></a>Tab</h3><p>如果我們以前用Notepad++就會把一個Tab去對應一個File，然後用切換Tab的方式來切換File，在Vim裡面Tab其實可以裝多個File在裡面，一個Tab可以視為一個單一的Vim，有了這個Tab我們可以切換多個Vim的感覺。</p>
-<p>有老外用Viewport或是layout來形容一個<a href="http://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers/103590#103590" target="_blank" rel="noopener">Tab</a>,這樣是比較貼切的，而Tab之間開的檔案都會進到Buffer list，所以可以透過buffer來共享tab開的所有檔案。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># Open file in new tab</span><br><span class="line">:tabe &lt;fileName&gt;</span><br><span class="line"></span><br><span class="line"># close tab</span><br><span class="line">:tabc</span><br><span class="line"></span><br><span class="line"># close other tabs</span><br><span class="line">:tabo</span><br><span class="line"></span><br><span class="line"># go to next tab</span><br><span class="line">:tabn</span><br><span class="line"></span><br><span class="line"># go to prev tab</span><br><span class="line">:tabp</span><br></pre></td></tr></table></figure>
-<h3 id="Conclution"><a href="#Conclution" class="headerlink" title="Conclution"></a>Conclution</h3><p>那這幾個東西到底要怎麼運用才會順呢？目前來說，我自己是以buffer為主，記錄session為輔，接下來會增加自動記錄Session目前的狀況，也就是每當有buffer被寫入的時候就強迫將目前的session寫入特定檔案，避免忘記save session。</p>
-<p>同時未來若有需要多視窗共同編輯的需求，再考慮來引入Tab和Windows的可能。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2013/07/22/bashrc-useless-on-mac/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2013/07/22/bashrc-useless-on-mac/" itemprop="url">
+              
+                <span itemprop="name">Mac 上設定 bashrc 無效？</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/07/22/bashrc-useless-on-mac/" itemprop="url">Mac 上設定 bashrc 無效？</a></h1>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-07-22T10:27:05+08:00">
-                2013-07-22
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2013-07-22T10:27:05+08:00" content="2013-07-22">
+          2013-07-22
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MacOS/" itemprop="url" rel="index">
-                    <span itemprop="name">MacOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>記得以前用Linux的時候，只要把設定寫在 <code>.bashrc</code> 裡面，系統就會自己讀入。</p>
-<p>怎麼在MacOS上，寫一些設定在 <code>.bashrc</code> 裡面，都不理我，我不想每次都 <code>source ~/.bashrc</code> 好煩！</p>
-<p>原來MacOS裡面有個檔案 <strong>.bash_profile</strong>，那他和 <code>.bashrc</code>有什麼不一樣呢？</p>
-<p>看這個說明 </p>
-<blockquote>
-<p>bash_profile is executed for login shells, while .bashrc is executed for interactive non-login shells</p>
-</blockquote>
-<p><code>.bash_profile</code> 是給 login 過的 shells 吃的，<code>.bashrc</code> 是給沒有 Login 過的 shell 吃的。</p>
-<p>問題來了，如何定義登入，我用 MacOS，都有登入，怎麼沒有把 <code>.bashrc</code> 吃進來？</p>
-<p>如果你在 MacOS 打開你的Terminal(iTerm)，他都是吃 <strong>.bash_profile</strong> 的！</p>
-<p>所以建議是在.bash_profile加下面幾行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ -f ~/.bashrc ]; then</span><br><span class="line">    source ~/.bashrc</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>然後一些設定還是寫在.bashrc，維持習慣！</p>
-<p>參考連結 <a href="http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html" target="_blank" rel="noopener">.bash_profile vs .bashrc</a></p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2013/07/18/self-keyword-in-python/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2013/07/18/self-keyword-in-python/" itemprop="url">
+              
+                <span itemprop="name">Python到底要這個self幹啥？</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/07/18/self-keyword-in-python/" itemprop="url">Python到底要這個self幹啥？</a></h1>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-07-18T10:30:27+08:00">
-                2013-07-18
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2013-07-18T10:30:27+08:00" content="2013-07-18">
+          2013-07-18
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>如果你寫過Python，如果你用Python寫Class，再加上你是個newbie，你一定和我一樣問過這個問題，這個self到底要幹麼，為什麼我寫每個class裡面的function第一個參數都是Self，Self 是Python的關鍵字嗎，而且好像Self拼成slef，他也不會出錯啊，這到底是啥啊？</p>
-<p>當你認真的查一下，這個Self是幹啥的，通常會得到一個答案, 在PEP 20裡面的經典句子</p>
-<blockquote>
-<p>Explicit is better than implicit.</p>
-<p>要幹麼講清楚，不要以為我知道</p>
-</blockquote>
-<p>但這答案…我還是不懂啊，可以講白話的嗎？</p>
-<p>原來這個self是否需要存在，在Thinking in Java的作者<a href="http://www.artima.com/weblogs/viewpost.jsp?thread=239003" target="_blank" rel="noopener">Bruse Eckel</a>和Python的作者<a href="http://neopythonic.blogspot.tw/2008/10/why-explicit-self-has-to-stay.html" target="_blank" rel="noopener">Guido</a>已經討論過了。</p>
-<p>Guido認為留著這個Self是有優點的，優點有兩個：</p>
-<p>一個是能夠加強語言的彈性，什麼意思？看一下下面的表示式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo.meth(arg) == C.meth(foo, arg)</span><br></pre></td></tr></table></figure>
-<p>上面這個Expression，代表我們可以透過兩種方式來得到一樣的效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object.function(arg) == class.function(object,arg)</span><br></pre></td></tr></table></figure>
-<p>這樣是好是壞，我也沒有一個太清楚的答案。</p>
-<p>另一個優點是，我可以動態的把一個function 插進Class裡面，怎麼…有點低級，但是這個某程度來說增加了Python的語言彈性。看一下下面這段Code：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class C:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">def meth(myself, arg):</span><br><span class="line">    myself.val = arg</span><br><span class="line">    return myself.val</span><br><span class="line"></span><br><span class="line">C.meth = meth</span><br><span class="line"></span><br><span class="line">instanceC = C()</span><br><span class="line">print instanceC.meth(123)</span><br></pre></td></tr></table></figure>
-<p>最後的結果是會印出123的，這樣當我們import進某個class，我們需要在他這個Class本身加一些function的時候，就可以動態放入我們需要的Function，至於有沒有非要這樣做的例子，好像是沒有。</p>
-<p>看起來Guido也沒有要把Self改成保留字的意思，總的來說，他還是有他的堅持。</p>
-<p>如果對Python self有什麼新的領悟，我會隨時補上的！</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2013/07/13/done/about-comments/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2013/07/13/done/about-comments/" itemprop="url">
+              
+                <span itemprop="name">誒，到底要不要寫註解？</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/07/13/done/about-comments/" itemprop="url">誒，到底要不要寫註解？</a></h1>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-07-13T10:23:20+08:00">
-                2013-07-13
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2013-07-13T10:23:20+08:00" content="2013-07-13">
+          2013-07-13
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Software-Engineering/" itemprop="url" rel="index">
-                    <span itemprop="name">Software Engineering</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>內心始終都有這個疑問，過程中不時有工作的伙伴告訴我們，你都不寫註解，人家要怎麼看得懂。問題反過來問，難到我寫了註解，你就看得懂了嗎？</p>
-<p>我想這篇文章說明了一些關於註解的兩三事，<a href="https://itblackbelt.wordpress.com/2015/02/15/5-reasons-to-avoid-code-comments/" target="_blank" rel="noopener">5 reasons to avoid code comments</a>。</p>
-<p>我們花了很多時間在讀程式，甚至是比我們寫程式的時間要多的多，僅管我們找不到一篇強而有力的文獻來支持這個論點，但我想身為Programmer的你我，都知道這件事，所以我們想辦法要讓我們的Code好讀，而我們常常直覺想到的一件事，就是”寫註解”。</p>
-<p>而我們可以在很多本書裡面得到不同的見解，像是Clean Code</p>
-<blockquote>
-<p>we should avoid to write comments unless we have a really good reason to write one<br>我們應該儘量去避免寫註解，除非我們有一個非常好的理由.</p>
-</blockquote>
-<h3 id="註解暗示我們可以寫出爛爛的Code"><a href="#註解暗示我們可以寫出爛爛的Code" class="headerlink" title="註解暗示我們可以寫出爛爛的Code"></a>註解暗示我們可以寫出爛爛的Code</h3><p>當我們知道我們可以寫註解來加強我們的Code，就代表我們變數的名字可以亂取，Function Name可以亂取，程式邏輯可以亂來，反正我們有註解可以幫忙啊！</p>
-<h3 id="我們花了超多的時間在寫註解和維護他啊！"><a href="#我們花了超多的時間在寫註解和維護他啊！" class="headerlink" title="我們花了超多的時間在寫註解和維護他啊！"></a>我們花了超多的時間在寫註解和維護他啊！</h3><p>註解就像是我們用人類語言在寫程式一樣，就像翻譯一樣，當我們寫了一個Function，我們再用註解來形容他，我們就寫了兩次啊，這當場違反天條 DRY(Don’t Repeat You)。所以就會發現如果我們要改 Function 就要改註解，花兩倍的時間啊！</p>
-<h3 id="註解是不能測試的，更是不能驗證的"><a href="#註解是不能測試的，更是不能驗證的" class="headerlink" title="註解是不能測試的，更是不能驗證的"></a>註解是不能測試的，更是不能驗證的</h3><p>程式是個好東西，因為他可以測試，寫錯了會有人知道，無論是 Compiler 或是 User，總而言之就是有個er結尾的東西會知道程式錯了。但是註解寫錯了…只有Programer會知道啊，知道錯了，還不知道要怎麼修他勒，到底是文法錯了，還是語意錯了，還是程式真的是這樣Run的，到底是程式是對的還是註解是對的，搞得我好亂啊！</p>
-<h3 id="某程度來說，註解比程式不值得信賴多"><a href="#某程度來說，註解比程式不值得信賴多" class="headerlink" title="某程度來說，註解比程式不值得信賴多"></a>某程度來說，註解比程式不值得信賴多</h3><p>如果你是 Programmer，你就會知道需求變來變去的，然後就會發生，這個需求很趕，你先改一下程式，註解？算了啦！先讓程式可以動再說，然後程式就和註解不同步了…接著出現問題，你老闆請你查一下問題，你會先看程式還是先看註解，痾…先看註解吧，但是最後好像還是要看程式，然後我也不會去改那個寫的不太對的註解，然後他就這樣一直留著那了，或是在下面加上一行”#這註解好像不太對，不要相信它”，也不把他砍掉，就這樣一直留在Version Control裡面很久很久，久到不知道他到底在幹麼。</p>
-<h2 id="其實-Comment-很占空間的"><a href="#其實-Comment-很占空間的" class="headerlink" title="其實 Comment 很占空間的"></a>其實 Comment 很占空間的</h2><p>有一些公司或是組織，他們有一些標準的註解格式，真的是要命的肥，肥到比我們的 Code 都要肥，如果這些肥註解，還有上面幾個要命的特徵，那真不知道他是肥什麼意思的。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2013/07/12/why-we-use-python/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2013/07/12/why-we-use-python/" itemprop="url">
+              
+                <span itemprop="name">為什麼要使用 Python?</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/07/12/why-we-use-python/" itemprop="url">為什麼要使用 Python?</a></h1>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-07-12T10:33:16+08:00">
-                2013-07-12
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2013-07-12T10:33:16+08:00" content="2013-07-12">
+          2013-07-12
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="軟體品質？！"><a href="#軟體品質？！" class="headerlink" title="軟體品質？！"></a>軟體品質？！</h2><p>從Quora的問答裡面(<a href="http://qr.ae/I8dKt" target="_blank" rel="noopener">http://qr.ae/I8dKt</a>)，比較了Python以及Ruby從語言上的差異，Python是從可讀性(Redabliity)出發所設計的語言，而Ruby是一個給予開發者極大自由度的語言，兩者從根本性的不太一樣。</p>
-<p>但軟體品質是不是僅僅討論可讀性，或許也可以考慮一下一致性(coherence)，同樣的一種目的function，有多少種可行的寫法？當有太多條路可以達到同一個目的地的時候，或許就會造成開發者的混亂。\n\n相較其它的的scripting language來說，Python可以被OOP的程度是相對高的。</p>
-<h2 id="程式猿的生產力？！"><a href="#程式猿的生產力？！" class="headerlink" title="程式猿的生產力？！"></a>程式猿的生產力？！</h2><p>Python 加速了程式猿的爬行速度？因為比較Python和C++、Java，這種需要Compile的語言，同樣的功能Python所寫出來的長度也只有Java的3分之一到五分之一之間。</p>
-<p>這也就意謂著程式猿可以輸入較少的Code，少的Code，減少了開發時間，減少了Debug的時間，最後因為Python可以直接Run，免Compile，所以他理論說開發速度會比較Java、C++這些需要Compile的語言來的快一些。</p>
-<h2 id="程式的可攜性？！"><a href="#程式的可攜性？！" class="headerlink" title="程式的可攜性？！"></a>程式的可攜性？！</h2><p>跨平台的特性，這個基本上我好像不是太在意，因為我目前的工作上，興趣上跨平台的機率實在不是很高，所以這點就帶過囉！</p>
-<h2 id="五花八門的Library？！"><a href="#五花八門的Library？！" class="headerlink" title="五花八門的Library？！"></a>五花八門的Library？！</h2><p>Python 本身已經有很多的build in function，同時也有很多的Libary可以用，從他在Github上面排名是第五名就可以發現(2013/07/12)，而且Liabary的廣度也很廣，不過這不知道是優點還是缺點。\n\n在科學運算上，Python有NumPy、SciPy在撐腰，這部分是Ruby比較弱的，但是Web Development 上使用Django的人數和RoR就是完全不能比較了。</p>
-<h2 id="任意組合的可能？！"><a href="#任意組合的可能？！" class="headerlink" title="任意組合的可能？！"></a>任意組合的可能？！</h2><p>Python 可以和C++和C的Libary有互相的掛勾，同時也能夠和Java互通有無，當然和各種協定互相溝通也不是太大的問題，好比說SOAP。</p>
-<h2 id="開發的愉悅程度？！"><a href="#開發的愉悅程度？！" class="headerlink" title="開發的愉悅程度？！"></a>開發的愉悅程度？！</h2><p>聽說用Python寫程式很容易高潮，因為我初入門，我實在不知道用Python是不是容易變成敏感體質，這一部分等我實驗個一陣子，再來證實。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 

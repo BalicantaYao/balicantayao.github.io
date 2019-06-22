@@ -178,7 +178,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description"></h1>
       
   </div>
 
@@ -291,1454 +291,260 @@
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/06/29/praxis-21-use-finally-to-avoid-resource-leaks/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/29/praxis-21-use-finally-to-avoid-resource-leaks/" itemprop="url">Praxis 21. Use finally to avoid resource leaks.</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2015/06/29/praxis-21-use-finally-to-avoid-resource-leaks/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">Praxis 21. Use finally to avoid resource leaks.</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-29T07:47:58+08:00">
-                2015-06-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+            </a>
         
-          
-            <h2 id="Finally-的實用性"><a href="#Finally-的實用性" class="headerlink" title="Finally 的實用性"></a>Finally 的實用性</h2><p>從過去幾個 Praxis 可以得知無論是否 catch exception 都會執行 finally，這樣的特性在兩個情境下特別的實用：</p>
-<ul>
-<li>維護物件內部的狀況</li>
-<li>清理 non-memory 的資源</li>
-</ul>
-<p>如果打開一個 Socket 或是 File ，都可能會拋出 <code>IOException</code> 這個時候 finally 就會顯現用處。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static void main (String args[])&#123;</span><br><span class="line">    ServerSocket serverSocket = new ServerSocket(199);</span><br><span class="line">    try&#123;</span><br><span class="line">        Socket socket =  serverSocket.accept();</span><br><span class="line">    &#125; finally&#123;</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>無論是否產生 <code>IOException</code> 都會跑到 finally 裡面，把 socket 關掉，確保資源不會洩露。</p>
-<h3 id="Java-7-中的-Try-With-Resources"><a href="#Java-7-中的-Try-With-Resources" class="headerlink" title="Java 7 中的 Try With Resources"></a>Java 7 中的 Try With Resources</h3><p>Java 7 後有一項小修正稱作 <strong>Try-with-resources</strong> ，也就是在離開 Try 區塊的時候，自動關閉資源，這在其它語言像 Python，其實都已經有實作了，主要原因是開發者還是很容易會忘記要 close resource，所以從 Java 7 以後，這類型的程式碼可以這樣寫：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">try(OutputStream output = new FileOutputStream(file))&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如此一來簡單許多，就不會忘記關 resource 了！</p>
-<h3 id="Try-With-Resources-實現原理"><a href="#Try-With-Resources-實現原理" class="headerlink" title="Try With Resources 實現原理"></a>Try With Resources 實現原理</h3><p>這類型的 resource ，在 Java 7 其實都實現了一個 <code>AutoCloseable</code> 的 interface ，這個 interface 就只有一個很簡單的方法就是 <code>close</code>，所以應該是在 compile 處理的時候會在 bytecode 自動加上這段程式碼，以解決開發者老是忘了處理 resource 的問題。</p>
+      </h3>
 
-          
-        
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-06-29T07:47:58+08:00" content="2015-06-29">
+          2015-06-29
+        </time>
+      </div>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/06/27/praxis-20-be-specific-and-comprehensive-with-the-throws-clause/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/27/praxis-20-be-specific-and-comprehensive-with-the-throws-clause/" itemprop="url">Praxis 20. Be specific and comprehensive with the throws clause.</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2015/06/27/praxis-20-be-specific-and-comprehensive-with-the-throws-clause/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">Praxis 20. Be specific and comprehensive with the throws clause.</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-27T05:15:46+08:00">
-                2015-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+            </a>
         
-          
-            <h3 id="盡可能拋出細部的異常"><a href="#盡可能拋出細部的異常" class="headerlink" title="盡可能拋出細部的異常"></a>盡可能拋出細部的異常</h3><p>在 Java 的設計裡面，異常也具備繼承體系，所以下面的例子是可以通過 Compile 的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class ParentException&#123;&#125;</span><br><span class="line">class SubException extends ParentException&#123;&#125;</span><br><span class="line"></span><br><span class="line">public class compileExceptionDemo&#123;</span><br><span class="line">    public void throwException(int num) throws ParentException &#123;</span><br><span class="line">         if (num &gt; 0)&#123;</span><br><span class="line">            throw new ParentException();</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">            throw new SubException()</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>這樣的寫法，對於 Method 的調用者，無法清楚的明白，這個 Method 會產生的所有異常，比較好的 Method Signature 是下面這種：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void throwException(int num) throws ParentException, SubExceptions</span><br></pre></td></tr></table></figure>
-<p>你需要把所有 Exception 明確的寫出來，在 method signature 寫出來。</p>
+      </h3>
 
-          
-        
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-06-27T05:15:46+08:00" content="2015-06-27">
+          2015-06-27
+        </time>
+      </div>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/06/26/how-to-test-throw-exception/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2015/06/26/how-to-test-throw-exception/" itemprop="url">
+              
+                <span itemprop="name">如何測試會拋出 Exception 的 Method</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/26/how-to-test-throw-exception/" itemprop="url">如何測試會拋出 Exception 的 Method</a></h1>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-26T04:23:42+08:00">
-                2015-06-26
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-06-26T04:23:42+08:00" content="2015-06-26">
+          2015-06-26
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UnitTest/" itemprop="url" rel="index">
-                    <span itemprop="name">UnitTest</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="拋出-Exception-的方法"><a href="#拋出-Exception-的方法" class="headerlink" title="拋出 Exception 的方法"></a>拋出 Exception 的方法</h3><p>在開發的過程中，難免會遇到一些方法，不會有直接的回傳結果，也許只會在過程中會產生 Exception，正常執行以後，並不會有任何反應，這時候透過傳統的 Assert 沒有辦法測出想要測試的內容。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void checkEmptyUserName(String username)&#123;</span><br><span class="line">    if(StringUtils.isBlank(userName))&#123;</span><br><span class="line">        throws new LoginFailedException(&quot;Username is empty!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Junit-Rule"><a href="#Junit-Rule" class="headerlink" title="Junit Rule"></a>Junit Rule</h3><p>Junit Rule 從 Junit 4.7 以後開始提供，主要提供了這種非典型需求的解決辦法， Rule 主要有幾種功能：</p>
-<ul>
-<li>對方法的測試時間設置 Timeout</li>
-<li>測試方法是否拋出預期的異常 <code>ExpectedException</code></li>
-<li>避免方法預到錯誤就停下來，可以透過 <code>ErrorCollector</code> 蒐集起來</li>
-<li>…</li>
-</ul>
-<p>需要測試 Exception 是否如預期的產生，我們當然就是透過 <code>ExpectedException</code> 來處理：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static class verfiyExceptionTest&#123;</span><br><span class="line">  @Rule</span><br><span class="line">  public ExpectedException thrown= ExpectedException.none();</span><br><span class="line"></span><br><span class="line">  @Test</span><br><span class="line">  public void throwsExceptionWithMessage() &#123;</span><br><span class="line">    // 預期 LoginFailed 會產生以及對應的 Exception message</span><br><span class="line">    thrown.expect(LoginFailedException.class);</span><br><span class="line">    thrown.expectMessage(startsWith(&quot;UserName&quot;));</span><br><span class="line"></span><br><span class="line">    // 執行測試</span><br><span class="line">    checkEmptyUserName(StringUtils.Empty);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>透過 ExpectedException 的協助，不單可以測試出是否測出預期的 Exception 同時也可以確認 Exception message 是否如預期，在測試的粒度上，又往前了一步。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/06/25/praxis-19-consider-the-drawback-to-the-throws-clause/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/25/praxis-19-consider-the-drawback-to-the-throws-clause/" itemprop="url">Praxis 19. Consider the drawback to the throws clause.</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2015/06/25/praxis-19-consider-the-drawback-to-the-throws-clause/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">Praxis 19. Consider the drawback to the throws clause.</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-25T05:48:08+08:00">
-                2015-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+            </a>
         
-          
-            <h3 id="Throws-給開發者帶來的好處"><a href="#Throws-給開發者帶來的好處" class="headerlink" title="Throws 給開發者帶來的好處"></a>Throws 給開發者帶來的好處</h3><p>透過 Throws 的幫助，開發者可以一眼在 method signature 看出，這個 method 可能產生什麼副作用，這是一個理想的情況下，但有時候會發現有的開發者會這麼作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public void theCalling() throws Exception&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>這樣的資訊，能透露的訊息相當有限，絕大部分可能是偷懶所造成。</p>
-<h3 id="當-Worker-Method-不小心產生了一個新的-exception"><a href="#當-Worker-Method-不小心產生了一個新的-exception" class="headerlink" title="當 Worker Method 不小心產生了一個新的 exception"></a>當 Worker Method 不小心產生了一個新的 exception</h3><p><strong>Worker method</strong> 指的是一些基礎的方法，到處都會調用到的，整個 Project 裡調用的比例非常高，像是 logging method 、某些 util 的方法。</p>
-<p>試想像一個情境，你手邊的專案開發了四年，已經有成千上萬行程式碼， logging method 也被調用過無數次了，此時 logging method 需要調整為 log to cloud ，所以他會增加多個不同的 exception ，這時候，可能有兩種方法可以解決：</p>
-<ol>
-<li>logging method 自行 catch ，解決這個問題。</li>
-<li>讓 logging method 往外拋，在 method signature 加上 throws。</li>
-</ol>
-<p>如果這些新出現的 exception 都是 logging method 可以 handle 的，那問題也許不會太嚴重，一但有些 exception 是 logging method 無法處理的，必須要往外拋，那他一連串的調用方就都需要調整，這變動的程度可以說是相當的大。</p>
-<p>在專案開始的時候， Exception 的設計必須要小心，但在軟體以及外圍環境極速變動的狀況下，即便設計的很完整，還是有可能會發生悲劇，所以要清楚的了解 throws 帶來的好與壞。</p>
+      </h3>
 
-          
-        
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-06-25T05:48:08+08:00" content="2015-06-25">
+          2015-06-25
+        </time>
+      </div>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/06/24/praxis-18-never-hide-an-exception/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/24/praxis-18-never-hide-an-exception/" itemprop="url">Praxis 18. 永遠不要隱藏任何一個異常</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2015/06/24/praxis-18-never-hide-an-exception/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">Praxis 18. 永遠不要隱藏任何一個異常</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-24T06:53:45+08:00">
-                2015-06-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+            </a>
         
-          
-            <h3 id="消失的-Exception"><a href="#消失的-Exception" class="headerlink" title="消失的 Exception"></a>消失的 Exception</h3><p>在 Java 的開發裡面，常常會遇見 Exception 的連鎖效應，也就是當 Exception A 發生的時候，觸發了 Exception B 再觸發了 Exception C ，最後 Caller method 只會收到 Exception C ，無法知道 Exception A 才是真正的原因。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public void demoException() throws Exception&#123;</span><br><span class="line">    try&#123;</span><br><span class="line">        throw new (&quot;Exception A&quot;);</span><br><span class="line">    &#125; catch (Exception e)&#123;</span><br><span class="line">        throw new Exception(&quot;Exception B&quot;);</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        throw new Exception(&quot;Exception C&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此時此刻，調用方只會收到 Exception C ，其它的 Exception 都被吞掉了。</p>
-<h3 id="NestableException-粉墨登場"><a href="#NestableException-粉墨登場" class="headerlink" title="NestableException 粉墨登場"></a>NestableException 粉墨登場</h3><p>這個問題，老祖宗們都已經幫忙解決過了， <a href="https://commons.apache.org/proper/commons-lang/" target="_blank" rel="noopener">Apache Common Lang</a> 在 1.0 以後就提供了 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-2.5/org/apache/commons/lang/exception/NestableException.html" target="_blank" rel="noopener">NestableException</a>，改寫上面的方法就會變成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void demoException() throws Exception&#123;</span><br><span class="line">    try&#123;</span><br><span class="line">        throw new (&quot;Exception A&quot;);</span><br><span class="line">    &#125; catch (Exception e)&#123;</span><br><span class="line">        throw new NestableException(&quot;Exception B&quot;, e);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最後再透過 <code>e.printStackTrace();</code> 就可以將整體的 Exception 歷程給呈現出來。</p>
+      </h3>
 
-          
-        
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-06-24T06:53:45+08:00" content="2015-06-24">
+          2015-06-24
+        </time>
+      </div>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/06/23/praxis-17-never-ignore-an-exception/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2015/06/23/praxis-17-never-ignore-an-exception/" itemprop="url">
+              
+                <span itemprop="name">Praxis 17. Never ignore an exception 永遠不要忽略異常</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/23/praxis-17-never-ignore-an-exception/" itemprop="url">Praxis 17. Never ignore an exception 永遠不要忽略異常</a></h1>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-23T07:23:02+08:00">
-                2015-06-23
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-06-23T07:23:02+08:00" content="2015-06-23">
+          2015-06-23
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="遇到異常的處理方式"><a href="#遇到異常的處理方式" class="headerlink" title="遇到異常的處理方式"></a>遇到異常的處理方式</h3><p>當 Java 產生一個異常的時候，處置的方式分為下列四種：</p>
-<ul>
-<li>捕捉並處理，防止向 caller 擴散 ( Propagate )</li>
-<li>捕捉並再一次拋出，讓他向 caller 擴散</li>
-<li>捕捉後，拋出一個新異常給 caller</li>
-<li>不捕捉，讓他直接向 Caller 擴散</li>
-</ul>
-<p>在 Checked Exception 後面三項的處理方式，Java 會強制要求在 method signature 加上 <code>throw</code>。</p>
-<h3 id="千萬不要把異常給吞了"><a href="#千萬不要把異常給吞了" class="headerlink" title="千萬不要把異常給吞了"></a>千萬不要把異常給吞了</h3><p>在開發的過程中，一定會出現某個 method 會拋出 Exception ，這時候 IDE 會貼心的提醒開發者，記得加上 Try catch ，然而最要命的就是加上下面這種：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    throw new IOException();</span><br><span class="line">&#125; catch (IOException exception) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 catch 區塊完全不處理，一旦發生怪異的錯誤，是很難追查的，最少也得加上一行 logger ，以方便我們追查到底發生了什麼事，最好的狀況是加上 printStackTrace，stackTrace 會把我們發生的錯誤以 Stack 的方式來顯示，對追找錯誤是相當有幫助的。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/06/21/praxis-16-know-the-mechanics-of-exception-control-flow/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/21/praxis-16-know-the-mechanics-of-exception-control-flow/" itemprop="url">Praxis 16. 理解異常處理的執行流程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2015/06/21/praxis-16-know-the-mechanics-of-exception-control-flow/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">Praxis 16. 理解異常處理的執行流程</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-21T07:04:40+08:00">
-                2015-06-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+            </a>
         
-          
-            <h3 id="Exception-的-control-flow"><a href="#Exception-的-control-flow" class="headerlink" title="Exception 的 control flow"></a>Exception 的 control flow</h3><p>Java 的異常控制是有助於協助程式處理異常狀況的發生，儘管這些年來在 Checked Exception 和 Unchecked Exception 上有很多的討論，在各種設計上都建議減少 Checked Exception.<br>但 Java 所設計的 Exception 對於異常狀況的發生，還是對程式的強健性 (Robust) 是有一定程度的提升。</p>
-<p>在 Java 裡一旦發生 Exception ，程式的流程會往下列三個地方移動：</p>
-<ul>
-<li>Catch block</li>
-<li>finally block</li>
-<li>calling method</li>
-</ul>
-<p>這樣的情形下，就發生了討厭的 Goto 行為(程式執行流程跳來跳去)，增加程式除錯的難度。</p>
-<h3 id="難以猜測程式執行流程"><a href="#難以猜測程式執行流程" class="headerlink" title="難以猜測程式執行流程"></a>難以猜測程式執行流程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m3</span><span class="params">(<span class="keyword">boolean</span> isThrow)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Enter m3"</span>);</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        Button b3 = <span class="keyword">new</span> Button();</span><br><span class="line">        <span class="keyword">if</span>(isThrow)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IOException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"Enter m3 Finllay"</span>);  <span class="comment">// 1</span></span><br><span class="line">    &#125;</span><br><span class="line">     System.out.println(<span class="string">"Exist m3"</span>);  <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的程式碼，呈現一個簡單的 try catch 情境，這個 try 並沒有 catch 只有 finally 區塊，而在 finally 區塊結束一行，再加上一行 Print 。</p>
-<p>執行結果為：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter m3 </span><br><span class="line">Enter m3 Finally</span><br></pre></td></tr></table></figure>
-<p>也就是說最行一行的 <code>Exist m3</code> 並沒有被執行，在執行完 finally 後，就離開了。</p>
-<h3 id="Try-Catch-的執行原則"><a href="#Try-Catch-的執行原則" class="headerlink" title="Try Catch 的執行原則"></a>Try Catch 的執行原則</h3><ul>
-<li>如果同時存在 catch block 以及 finally block ，一旦產生異常會先執行 catch block ，再執行 finally block，如果沒有 catch block 就會直接執行 finally block</li>
-<li>如果沒有 catch block ，無論異常是否發生都會執行 finally block</li>
-<li>如果異常發生，沒有被 catch ，無論是否執行 finally， 之後的 statement 將不被執行。</li>
-</ul>
+      </h3>
 
-          
-        
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-06-21T07:04:40+08:00" content="2015-06-21">
+          2015-06-21
+        </time>
+      </div>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/06/20/open-source-enlightenment/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/20/open-source-enlightenment/" itemprop="url">開源之道，Open Source Enlightenment - 唐鳳</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2015/06/20/open-source-enlightenment/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">開源之道，Open Source Enlightenment - 唐鳳</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-20T07:49:23+08:00">
-                2015-06-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+            </a>
         
-          
-            <iframe allowfullscreen frameborder="0" height="465" src="https://www.youtube.com/embed/A6bBcvSyg0k?feature=oembed" width="620"></iframe>
+      </h3>
 
-<iframe allowfullscreen frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://www.slideshare.net/slideshow/embed_code/key/KmTDwvSquN5LLu" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" width="427"></iframe>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-06-20T07:49:23+08:00" content="2015-06-20">
+          2015-06-20
+        </time>
+      </div>
 
-<h3 id="illusion-of-transparency"><a href="#illusion-of-transparency" class="headerlink" title="illusion of transparency"></a>illusion of transparency</h3><ul>
-<li>透明度錯覺，以為別人知道自己的內心狀態</li>
-<li>很容易成對的產生 fundamental attribution error ，別人做了一件事，就把他扣上一個帽子，也許只是一個特定的情境，才會產生這種行為，並非刻意</li>
-</ul>
-<h3 id="Rough-Consensus"><a href="#Rough-Consensus" class="headerlink" title="Rough ! Consensus"></a>Rough ! Consensus</h3><ul>
-<li>粗略的共識</li>
-<li>共識不是壓倒別人的想法，否則可能會變成粗暴的共識</li>
-<li>接受各種可能性</li>
-</ul>
-<h3 id="Be-Bold"><a href="#Be-Bold" class="headerlink" title="Be Bold"></a>Be Bold</h3><ul>
-<li>在 Internet 上得到正確答案的方法，不是問一個問題，而是說一個錯誤的答案。</li>
-<li>萬事萬物都有缺口，缺口就是光的入口。</li>
-</ul>
-<h3 id="Ofun-Optimizing-for-Fun-的四個元素"><a href="#Ofun-Optimizing-for-Fun-的四個元素" class="headerlink" title="-Ofun Optimizing for Fun 的四個元素"></a>-Ofun Optimizing for Fun 的四個元素</h3><ul>
-<li>穩定的支持</li>
-<li>安全的空間</li>
-<li>不受限制的活動</li>
-<li>產生不同的看世界的看法</li>
-</ul>
-<h3 id="透過-Git-Basic-來面對生活"><a href="#透過-Git-Basic-來面對生活" class="headerlink" title="透過 Git Basic 來面對生活"></a>透過 Git Basic 來面對生活</h3><ul>
-<li>Fetch new fact</li>
-<li>Merge with understanding</li>
-<li>Commit to an action</li>
-<li>Push it to the world</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/06/13/how-to-test-private-method/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2015/06/13/how-to-test-private-method/" itemprop="url">
+              
+                <span itemprop="name">如何測試一個 Private 的方法？</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/13/how-to-test-private-method/" itemprop="url">如何測試一個 Private 的方法？</a></h1>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-13T04:36:58+08:00">
-                2015-06-13
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-06-13T04:36:58+08:00" content="2015-06-13">
+          2015-06-13
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UnitTest/" itemprop="url" rel="index">
-                    <span itemprop="name">UnitTest</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Private-方法真的需要測試嗎？"><a href="#Private-方法真的需要測試嗎？" class="headerlink" title="Private 方法真的需要測試嗎？"></a>Private 方法真的需要測試嗎？</h3><p>這樣的討論通常都是兩邊都有道理， 兩派的意見分別為：</p>
-<ul>
-<li>Private 方法必然是很單純，所以應該是簡單到不能出錯，所以 <strong>不用測？</strong></li>
-<li>Private 方法有時候會有一些複雜度，所以還是需要測試。</li>
-</ul>
-<p>我個人的意見是我認為 Private method 的粒度一定是相對來說比較小的，可以確保小範圍的測試是正確的，何樂不為？</p>
-<h3 id="Private-方法只能在自身-Class-讀取，該如何測試？"><a href="#Private-方法只能在自身-Class-讀取，該如何測試？" class="headerlink" title="Private 方法只能在自身 Class 讀取，該如何測試？"></a>Private 方法只能在自身 Class 讀取，該如何測試？</h3><p>回顧 Java 的 Access Level 看<a href>下表</a>最為簡單清楚，</p>
-<p><table><thead><tr><th>Modifier</th><th style="text-align: center;">Class</th><th style="text-align: center;">Package</th><th>Subclass</th><th style="text-align: left;">World</th></tr></thead><tbody><tr><td>public</td><td style="text-align: center;">Y</td><td style="text-align: center;">Y</td><td>Y</td><td style="text-align: left;">Y</td></tr><tr><td>protected</td><td style="text-align: center;">Y</td><td style="text-align: center;">Y</td><td>Y</td><td style="text-align: left;">N</td></tr><tr><td>no modifier</td><td style="text-align: center;">Y</td><td style="text-align: center;">Y</td><td>N</td><td style="text-align: left;">N</td></tr><tr><td>private</td><td style="text-align: center;">Y</td><td style="text-align: center;">N</td><td>N</td><td style="text-align: left;">N</td></tr></tbody></table>可以透過 <strong>No Modifier</strong> 的特性，有些書本上會寫這是 <strong>default</strong> 或是 <strong>package level private </strong> 都是在指同一件事，就是在 Access Level 的地方留空，也就是一個 method 會從 <code>private void hello()</code> 變成 <code>void hello()</code>。這樣的好處是只要透過一樣的 Package path ，就可以讀取到 package level private 的方法。</p>
-<p>但這樣的缺點的就是在語意和概念上，就是一個 <code>private method</code> 但我們在 code 的呈現上就會懷疑這個 default level 的 method 是不是少加了 <code>private</code>？</p>
-<h3 id="VisibleForTesting-Annotation-登場"><a href="#VisibleForTesting-Annotation-登場" class="headerlink" title="VisibleForTesting Annotation 登場"></a>VisibleForTesting Annotation 登場</h3><p>在上面可能產生程式碼語意上的表達不清楚，於是就有了 <code>@VisibleForTesting</code> 來協助解決問題，而方法就會長得像：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@VisiableForTesting</span><br><span class="line">int add(int a , int b) &#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>盡管看起來有一點怪，但讀程式的人就可以了解，Access Level 被去掉的原因，可能是因為測試的關係，就不會擅自去加 <code>private</code> 導致測試無法正常運作。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
     
       
 
-  
-
-  
-  
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://balicanta.tw/2015/05/26/stringbuilder-stringbuffer-difference/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Balicanta Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Balicanta Yao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2015/05/26/stringbuilder-stringbuffer-difference/" itemprop="url">
+              
+                <span itemprop="name">StringBuilder, StringBuffer 差異</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/05/26/stringbuilder-stringbuffer-difference/" itemprop="url">StringBuilder, StringBuffer 差異</a></h1>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-26T04:01:50+08:00">
-                2015-05-26
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2015-05-26T04:01:50+08:00" content="2015-05-26">
+          2015-05-26
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>String 串接是寫程式很常會遇見的情境，在 Java 中，字串相加是最不理想方式，因為會產生大量 String Object 在 String Pool 中，比較建議的方式是透過 StringBuilder 或 StringBuffer 來完成任務，但兩個的差異看起來只有一點點，但會影響其使用情境。</p>
-<h3 id="共同點"><a href="#共同點" class="headerlink" title="共同點"></a>共同點</h3><ul>
-<li>兩者都繼承 <code>AbstractStringBuilder</code> ，所以底層實作都是以 char array 來完成。</li>
-<li>兩者的方法幾乎一致。</li>
-</ul>
-<h3 id="差異點"><a href="#差異點" class="headerlink" title="差異點"></a>差異點</h3><ul>
-<li><code>StringBuffer</code> 是 synchronized，亦代表為Thread-safe</li>
-<li><code>StringBuilder</code> 不是 synchronized，代表 Performance 會比較 <code>StringBuffer</code> 好一點，但也代表 <code>StringBuilder</code> 是 non-thread-safe 的。</li>
-</ul>
-<h3 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h3><p><a href="https://issues.apache.org/jira/browse/LANG-779" target="_blank" rel="noopener">Apache LANG 779 issue</a> 討論 ToStringBuilder 是否需要使用 StringBuffer。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-
-      
-
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
