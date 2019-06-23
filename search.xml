@@ -33,6 +33,14 @@
       </categories>
   </entry>
   <entry>
+    <title><![CDATA[看完 “ 最低的水果摘完之後” 之後]]></title>
+    <url>%2F2018%2F02%2F17%2Fbook%2Fafter-take-the-lowest-fruit%2F</url>
+    <content type="text"><![CDATA[一開始會買這本書只有一個原因，書的標題和副標題很符合口味，一個很好的比喻，加上正面的副標題。 最低的水果摘後之後 — 台灣雖然有很多問題，卻都是可以解決的。 最低的水果，比喻著台灣過去幾十年的紅利時代，也就是最容易賺大錢的產業已經過去，最低的水果已經被採完。 每個國家都會遇到產業轉型的問題，只是台灣產業歷史比較菜，第一次面對轉型，有很多崎嶇之路。 本來對這本書有很多的期待，但可能因為看了序以後有過高的期待，也有比較大的失落。書的組成由將近 50 篇的小散文組成，每一篇大約三到四頁，大概幾分鐘可以看看完，也許因為篇幅短，所以每一篇深度都稍微不足，有一點在看網路文章的感覺，快要到重點的時候，就收掉了。 真正放棄這本書是一篇 為什麼超時工作？因為自己是一個工程師，常常需要面對工時比較長的狀況，一來這篇我看了三次，沒有看懂為什麼標題是這個，二來這篇最後指出了長工時的傷害，對個人、對社會、對產業。我本來預期看到一些無奈，但讀到更多的是批判，一種站在高處數落的語氣。 結論是我喜歡這本書的標題，還有那種積極解決問題的態度，更重要的是他沒有覺得台灣是個鬼島，即便是鬼島，身為鬼島居民，不是逃離，而是接納、小幅度的慢慢改善。 但也許因為篇幅關係，讓我覺得每一篇都有點趕，也可能是我被數落到看到不下去 :)]]></content>
+      <categories>
+        <category>Book</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Read Excel File Using POI Meet GC overhead limit exceeded]]></title>
     <url>%2F2016%2F08%2F24%2Fread-excel-file-using-poi-meet-gc-overhead-limit-exceeded%2F</url>
     <content type="text"><![CDATA[First about gc overhead http://stackoverflow.com/questions/33368612/gc-overhead-limit-exceeded-with-apache-poi]]></content>

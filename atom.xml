@@ -116,6 +116,33 @@
   </entry>
   
   <entry>
+    <title>看完 “ 最低的水果摘完之後” 之後</title>
+    <link href="http://balicanta.tw/2018/02/17/book/after-take-the-lowest-fruit/"/>
+    <id>http://balicanta.tw/2018/02/17/book/after-take-the-lowest-fruit/</id>
+    <published>2018-02-17T05:41:11.000Z</published>
+    <updated>2019-06-23T16:21:20.982Z</updated>
+    
+    <content type="html"><![CDATA[<p>一開始會買這本書只有一個原因，書的標題和副標題很符合口味，一個很好的比喻，加上正面的副標題。</p><blockquote><p>最低的水果摘後之後 — 台灣雖然有很多問題，卻都是可以解決的。</p></blockquote><p>最低的水果，比喻著台灣過去幾十年的紅利時代，也就是最容易賺大錢的產業已經過去，最低的水果已經被採完。</p><p>每個國家都會遇到產業轉型的問題，只是台灣產業歷史比較菜，第一次面對轉型，有很多崎嶇之路。</p><p>本來對這本書有很多的期待，但可能因為看了序以後有過高的期待，也有比較大的失落。書的組成由將近 50 篇的小散文組成，每一篇大約三到四頁，大概幾分鐘可以看看完，也許因為篇幅短，所以每一篇深度都稍微不足，有一點在看網路文章的感覺，快要到重點的時候，就收掉了。</p><p>真正放棄這本書是一篇 為什麼超時工作？因為自己是一個工程師，常常需要面對工時比較長的狀況，一來這篇我看了三次，沒有看懂為什麼標題是這個，二來這篇最後指出了長工時的傷害，對個人、對社會、對產業。我本來預期看到一些無奈，但讀到更多的是批判，一種站在高處數落的語氣。</p><p>結論是我喜歡這本書的標題，還有那種積極解決問題的態度，更重要的是他沒有覺得台灣是個鬼島，即便是鬼島，身為鬼島居民，不是逃離，而是接納、小幅度的慢慢改善。</p><p>但也許因為篇幅關係，讓我覺得每一篇都有點趕，也可能是我被數落到看到不下去 :)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一開始會買這本書只有一個原因，書的標題和副標題很符合口味，一個很好的比喻，加上正面的副標題。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最低的水果摘後之後 — 台灣雖然有很多問題，卻都是可以解決的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最低的水果，比喻著台灣過去幾十年的
+      
+    
+    </summary>
+    
+      <category term="Book" scheme="http://balicanta.tw/categories/Book/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Read Excel File Using POI Meet GC overhead limit exceeded</title>
     <link href="http://balicanta.tw/2016/08/24/read-excel-file-using-poi-meet-gc-overhead-limit-exceeded/"/>
     <id>http://balicanta.tw/2016/08/24/read-excel-file-using-poi-meet-gc-overhead-limit-exceeded/</id>
@@ -451,31 +478,6 @@
     
       <category term="UnitTest" scheme="http://balicanta.tw/categories/UnitTest/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>StringBuilder, StringBuffer 差異</title>
-    <link href="http://balicanta.tw/2015/05/26/stringbuilder-stringbuffer-difference/"/>
-    <id>http://balicanta.tw/2015/05/26/stringbuilder-stringbuffer-difference/</id>
-    <published>2015-05-25T20:01:50.000Z</published>
-    <updated>2019-06-08T04:37:25.407Z</updated>
-    
-    <content type="html"><![CDATA[<p>String 串接是寫程式很常會遇見的情境，在 Java 中，字串相加是最不理想方式，因為會產生大量 String Object 在 String Pool 中，比較建議的方式是透過 StringBuilder 或 StringBuffer 來完成任務，但兩個的差異看起來只有一點點，但會影響其使用情境。</p><h3 id="共同點"><a href="#共同點" class="headerlink" title="共同點"></a>共同點</h3><ul><li>兩者都繼承 <code>AbstractStringBuilder</code> ，所以底層實作都是以 char array 來完成。</li><li>兩者的方法幾乎一致。</li></ul><h3 id="差異點"><a href="#差異點" class="headerlink" title="差異點"></a>差異點</h3><ul><li><code>StringBuffer</code> 是 synchronized，亦代表為Thread-safe</li><li><code>StringBuilder</code> 不是 synchronized，代表 Performance 會比較 <code>StringBuffer</code> 好一點，但也代表 <code>StringBuilder</code> 是 non-thread-safe 的。</li></ul><h3 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h3><p><a href="https://issues.apache.org/jira/browse/LANG-779" target="_blank" rel="noopener">Apache LANG 779 issue</a> 討論 ToStringBuilder 是否需要使用 StringBuffer。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;String 串接是寫程式很常會遇見的情境，在 Java 中，字串相加是最不理想方式，因為會產生大量 String Object 在 String Pool 中，比較建議的方式是透過 StringBuilder 或 StringBuffer 來完成任務，但兩個的差異看起來只
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
-    
-    
-      <category term="interview" scheme="http://balicanta.tw/tags/interview/"/>
     
   </entry>
   
