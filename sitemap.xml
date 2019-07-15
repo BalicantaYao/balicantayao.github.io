@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://balicanta.tw/2019/07/15/java-basic/why-we-need-to-programming/</loc>
+    
+    <lastmod>2019-07-15T16:15:49.876Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://balicanta.tw/2018/02/17/book/after-take-the-lowest-fruit/</loc>
     
     <lastmod>2019-06-23T16:21:20.982Z</lastmod>
@@ -324,14 +331,14 @@
   </url>
   
   <url>
-    <loc>http://balicanta.tw/2015/06/20/open-source-enlightenment/</loc>
+    <loc>http://balicanta.tw/2013/11/19/play-framework-fly-to-heroku/</loc>
     
     <lastmod>2019-05-29T15:37:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://balicanta.tw/2013/11/19/play-framework-fly-to-heroku/</loc>
+    <loc>http://balicanta.tw/2015/06/20/open-source-enlightenment/</loc>
     
     <lastmod>2019-05-29T15:37:02.000Z</lastmod>
     

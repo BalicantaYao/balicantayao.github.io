@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://balicanta.tw/"/>
-  <updated>2019-06-22T14:06:13.170Z</updated>
+  <updated>2019-07-15T16:15:49.876Z</updated>
   <id>http://balicanta.tw/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在開始寫程式之前，你應該先知道</title>
+    <link href="http://balicanta.tw/2019/07/15/java-basic/why-we-need-to-programming/"/>
+    <id>http://balicanta.tw/2019/07/15/java-basic/why-we-need-to-programming/</id>
+    <published>2019-07-15T14:00:42.000Z</published>
+    <updated>2019-07-15T16:15:49.876Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="為什麼需要寫程式？"><a href="#為什麼需要寫程式？" class="headerlink" title="為什麼需要寫程式？"></a>為什麼需要寫程式？</h1><p>每個人開始學寫程式都有一個理由，也許是因為唸的是資訊系，所以被迫學習，也許是聽說寫程式的薪水比較高，也許有那個夢想，改變世界，無論是什麼理由，其實都好，也沒有哪個理由特別的高尚，哪個理由特別的庸俗，每個人做一件事都有他一個出發點，出發點無論為何，我都希望你們可以變成一個傑出的軟體工程師。</p><p>也請你將這個出發的理由謹記在心，每每想要放棄的時候，記得這個理由，不要因為走了太遠，而忘記為什麼出發。</p><p><img src="https://images.unsplash.com/photo-1486673748761-a8d18475c757?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80" alt="An Imgur Image" title="tree-lined highway @karsten.wuerth"></p><h1 id="寫程式初期不要追求標準答案"><a href="#寫程式初期不要追求標準答案" class="headerlink" title="寫程式初期不要追求標準答案"></a>寫程式初期不要追求標準答案</h1><p>我們大部分的人都在台灣受教育，非常習慣找一個<strong>標準答案</strong>，但是我希望在你們剛開始學習程式的時候先暫時放下標準答案，很多同學在學習的初期習慣找標準答案，在沒有想到標準答案之前，不會將他的手放到鍵盤上打任何一個字，這也許不是一個太好的習慣，無論如何動手寫一個 Hello World 都比傻坐在電腦前駐足，思考許久最後離開你的鍵盤要好的多。</p><p>在我曾經待過的一間公司裡，有一間會議室叫<strong>試錯</strong>，就是希望員工不要害怕嘗試，在高速滾動的時代，要一下就獲得答案不怎麼容易，更別說是接近正確的答案，所以不斷的嘗試，是我們在初期比較需要具備的能力。</p><p>希望大家記在心裡的一句話： </p><blockquote><p>If It’s Stupid And It Works… It’s Not Stupid<br>如果蠢，但卻可以解決問題，那這個解決方法，不算太蠢</p></blockquote><p><img src="https://starecat.com/content/wp-content/uploads/if-its-stupid-but-it-works-its-not-stupid-car-side-mirror-womans-mirror.jpg" title width="300"></p><h1 id="程式語言的武林霸主"><a href="#程式語言的武林霸主" class="headerlink" title="程式語言的武林霸主"></a>程式語言的武林霸主</h1><p>在選擇哪一門程式語言做為入門的時候，常常會聽到當然是學 xxx 最好，這也許一樣沒有標準答案，如果真要有一個標準答案，那可能是<strong>看情境</strong>或是更白話一點<strong>看情形</strong>。</p><ul><li>如果你需要快速學會一門程式語言，學 C / C++，可能不是一個太好的選項；</li><li>如果你想寫手機程式，學 PHP 或許也不像是個答案；</li><li>如果想學數據分析學 Ruby On Rails，可能會讓你的旅途稍長一點。</li><li>如果你想在台灣找開發的工作學 Rust，你會需要有比較多資產，找工作花的時間可能會長一些。</li></ul><p>所以在這種複雜問題底下，如果出現的答案是 <strong>當然是 xxxx 最好</strong>，可能要多想三分鐘，這是不是一個合理的答案。</p><h1 id="寫程式應該具備的能力"><a href="#寫程式應該具備的能力" class="headerlink" title="寫程式應該具備的能力"></a>寫程式應該具備的能力</h1><p>在這裡可能會想是不是數學很好，邏輯要清楚，但這些屬於硬能力，我比較想要說的是只要你具備以下兩個能力，其它缺少的能力不會造成太大的困擾。</p><h2 id="自信心"><a href="#自信心" class="headerlink" title="自信心"></a>自信心</h2><p>當面對一個沒有把握的難題，請告訴自己，我是有能力解決的，只是時間問題，只是最後的解決方法優不優雅，這個是解決問題的自信。</p><h2 id="耐心"><a href="#耐心" class="headerlink" title="耐心"></a>耐心</h2><p>學習程式語言是一條漫漫長長路，很有可能花了一兩個月，都不會有顯著的進步，但突然可能在睡起來的某一秒像被雷打到一樣，突然什麼都通了，所以給自己一點耐心，也給自己一點時間。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;為什麼需要寫程式？&quot;&gt;&lt;a href=&quot;#為什麼需要寫程式？&quot; class=&quot;headerlink&quot; title=&quot;為什麼需要寫程式？&quot;&gt;&lt;/a&gt;為什麼需要寫程式？&lt;/h1&gt;&lt;p&gt;每個人開始學寫程式都有一個理由，也許是因為唸的是資訊系，所以被迫學習，也許是聽說寫程
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://balicanta.tw/categories/Java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>為什麼我選擇使用 Like Coin</title>
@@ -454,29 +477,6 @@
       
     
     </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>如何測試一個 Private 的方法？</title>
-    <link href="http://balicanta.tw/2015/06/13/how-to-test-private-method/"/>
-    <id>http://balicanta.tw/2015/06/13/how-to-test-private-method/</id>
-    <published>2015-06-12T20:36:58.000Z</published>
-    <updated>2019-06-08T04:23:54.987Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Private-方法真的需要測試嗎？"><a href="#Private-方法真的需要測試嗎？" class="headerlink" title="Private 方法真的需要測試嗎？"></a>Private 方法真的需要測試嗎？</h3><p>這樣的討論通常都是兩邊都有道理， 兩派的意見分別為：</p><ul><li>Private 方法必然是很單純，所以應該是簡單到不能出錯，所以 <strong>不用測？</strong></li><li>Private 方法有時候會有一些複雜度，所以還是需要測試。</li></ul><p>我個人的意見是我認為 Private method 的粒度一定是相對來說比較小的，可以確保小範圍的測試是正確的，何樂不為？</p><h3 id="Private-方法只能在自身-Class-讀取，該如何測試？"><a href="#Private-方法只能在自身-Class-讀取，該如何測試？" class="headerlink" title="Private 方法只能在自身 Class 讀取，該如何測試？"></a>Private 方法只能在自身 Class 讀取，該如何測試？</h3><p>回顧 Java 的 Access Level 看<a href>下表</a>最為簡單清楚，</p><p><table><thead><tr><th>Modifier</th><th style="text-align: center;">Class</th><th style="text-align: center;">Package</th><th>Subclass</th><th style="text-align: left;">World</th></tr></thead><tbody><tr><td>public</td><td style="text-align: center;">Y</td><td style="text-align: center;">Y</td><td>Y</td><td style="text-align: left;">Y</td></tr><tr><td>protected</td><td style="text-align: center;">Y</td><td style="text-align: center;">Y</td><td>Y</td><td style="text-align: left;">N</td></tr><tr><td>no modifier</td><td style="text-align: center;">Y</td><td style="text-align: center;">Y</td><td>N</td><td style="text-align: left;">N</td></tr><tr><td>private</td><td style="text-align: center;">Y</td><td style="text-align: center;">N</td><td>N</td><td style="text-align: left;">N</td></tr></tbody></table>可以透過 <strong>No Modifier</strong> 的特性，有些書本上會寫這是 <strong>default</strong> 或是 <strong>package level private </strong> 都是在指同一件事，就是在 Access Level 的地方留空，也就是一個 method 會從 <code>private void hello()</code> 變成 <code>void hello()</code>。這樣的好處是只要透過一樣的 Package path ，就可以讀取到 package level private 的方法。</p><p>但這樣的缺點的就是在語意和概念上，就是一個 <code>private method</code> 但我們在 code 的呈現上就會懷疑這個 default level 的 method 是不是少加了 <code>private</code>？</p><h3 id="VisibleForTesting-Annotation-登場"><a href="#VisibleForTesting-Annotation-登場" class="headerlink" title="VisibleForTesting Annotation 登場"></a>VisibleForTesting Annotation 登場</h3><p>在上面可能產生程式碼語意上的表達不清楚，於是就有了 <code>@VisibleForTesting</code> 來協助解決問題，而方法就會長得像：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@VisiableForTesting</span><br><span class="line">int add(int a , int b) &#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>盡管看起來有一點怪，但讀程式的人就可以了解，Access Level 被去掉的原因，可能是因為測試的關係，就不會擅自去加 <code>private</code> 導致測試無法正常運作。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Private-方法真的需要測試嗎？&quot;&gt;&lt;a href=&quot;#Private-方法真的需要測試嗎？&quot; class=&quot;headerlink&quot; title=&quot;Private 方法真的需要測試嗎？&quot;&gt;&lt;/a&gt;Private 方法真的需要測試嗎？&lt;/h3&gt;&lt;p&gt;這樣的討論通
-      
-    
-    </summary>
-    
-      <category term="UnitTest" scheme="http://balicanta.tw/categories/UnitTest/"/>
     
     
   </entry>
