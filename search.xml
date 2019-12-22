@@ -33,7 +33,7 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[安裝 Hexo]]></title>
+    <title><![CDATA[安裝 以及 使用 Hexo]]></title>
     <url>%2F2019%2F05%2F28%2Finstall-hexo%2F</url>
     <content type="text"><![CDATA[每隔幾年就會想起來，自己曾經會紀錄一點的東西，而東西都是散落的，從一開始的 Wordpress、Ghost、Medium，到最後什麼都沒有繼續下去，非常符合我很容易放棄的個性。 在一個早晨的沖澡中突然又想起了這件事，啊，我該記錄點什麼吧？不是有寫 Medium 嗎？我又覺得 Medium 不知道哪裡不對勁，可能是最近 Medium 人太多太熱鬧，我喜歡遠離人群。 找著找著我發現 static site generator 好像比較符合我現在的感覺，儘管幾年前用 Jeklly 的感覺不太好。 安裝 Hexo 裝 NPM 裝 Git 1npm install hexo-cli -g 創建 Hexo1hexo init 建立文章12345## 建立草稿hexo new draft &lt;title&gt;## 建立 Posthexo new post &lt;title&gt; 啟動 Hexo Server12包含 Draftshexo server --draft 部署12345## 先產生hexo g## 後部署hexo d]]></content>
       <categories>
