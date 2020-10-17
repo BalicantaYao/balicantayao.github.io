@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://balicanta.tw/sites/index.html</loc>
+    
+    <lastmod>2020-01-15T23:41:09.364Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://balicanta.tw/2019/05/28/install-hexo/</loc>
     
     <lastmod>2019-12-22T14:01:16.128Z</lastmod>
@@ -324,13 +331,6 @@
   </url>
   
   <url>
-    <loc>http://balicanta.tw/2015/02/27/level-up-lunch-intro/</loc>
-    
-    <lastmod>2019-05-29T15:37:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://balicanta.tw/2015/06/20/open-source-enlightenment/</loc>
     
     <lastmod>2019-05-29T15:37:02.000Z</lastmod>
@@ -339,6 +339,13 @@
   
   <url>
     <loc>http://balicanta.tw/2013/11/19/play-framework-fly-to-heroku/</loc>
+    
+    <lastmod>2019-05-29T15:37:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://balicanta.tw/2015/02/27/level-up-lunch-intro/</loc>
     
     <lastmod>2019-05-29T15:37:02.000Z</lastmod>
     
